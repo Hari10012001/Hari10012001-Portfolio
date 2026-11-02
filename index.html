@@ -1453,24 +1453,89 @@ h1.hero-name{
 }
 
 #skills{display:block;position:relative}
-.skills-top-header{margin-bottom:24px}
+.skills-top-header{margin-bottom:28px}
+.skills-pill-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 14px;
+  border-radius:9999px;
+  background:rgba(147, 51, 234, 0.15);
+  border:1px solid rgba(168, 85, 247, 0.45);
+  color:#c084fc;
+  font-size:11.5px;
+  font-weight:700;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  margin-bottom:16px;
+  box-shadow:0 0 16px rgba(168, 85, 247, 0.22);
+}
+.skills-pill-badge .badge-icon{font-weight:800;font-size:12px;color:#38bdf8}
+.skills-pill-badge .badge-dash{color:rgba(168, 85, 247, 0.6);margin-left:2px}
+[data-theme="light"] .skills-pill-badge{
+  background:rgba(147, 51, 234, 0.08);
+  border-color:rgba(147, 51, 234, 0.35);
+  color:#7e22ce;
+  box-shadow:none;
+}
+.skills-hero-title{
+  font-family:var(--font-head);
+  font-size:clamp(2.2rem, 3.8vw, 3.4rem);
+  font-weight:800;
+  line-height:1.15;
+  letter-spacing:-0.025em;
+  margin:0 0 12px;
+}
+.skills-title-white{
+  color:#ffffff;
+  text-shadow:0 2px 20px rgba(255,255,255,0.12);
+}
+[data-theme="light"] .skills-title-white{
+  color:#0f172a;
+  text-shadow:none;
+}
+.skills-title-accent{
+  background:linear-gradient(90deg, #38bdf8 0%, #22d3ee 35%, #a855f7 75%, #c084fc 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 0 18px rgba(56, 189, 248, 0.3));
+}
+.skills-tagline{
+  font-size:1.05rem;
+  color:rgba(226, 232, 240, 0.78);
+  margin:0 0 26px;
+  font-weight:400;
+  max-width:850px;
+}
+[data-theme="light"] .skills-tagline{
+  color:#475569;
+}
+
+/* Top 3 Summary Stat Pills */
 .skills-summary-bar{
   display:flex;
   gap:12px;
   flex-wrap:wrap;
-  margin-bottom:28px;
+  margin-bottom:32px;
 }
 .skill-stat-pill{
   display:inline-flex;
   align-items:center;
-  gap:8px;
-  padding:8px 18px;
+  gap:10px;
+  padding:10px 20px;
   border-radius:9999px;
-  background:rgba(15, 23, 42, 0.75);
+  background:rgba(15, 23, 42, 0.78);
   border:1px solid rgba(139, 92, 246, 0.3);
-  backdrop-filter:blur(10px);
-  font-size:12.5px;
+  backdrop-filter:blur(12px);
+  font-size:13px;
   color:#e2e8f0;
+  box-shadow:0 6px 20px rgba(0, 0, 0, 0.25);
+  transition:all 0.25s ease;
+}
+.skill-stat-pill:hover{
+  border-color:rgba(56, 189, 248, 0.55);
+  box-shadow:0 6px 22px rgba(56, 189, 248, 0.15);
+  transform:translateY(-1px);
 }
 [data-theme="light"] .skill-stat-pill{
   background:#ffffff;
@@ -1478,25 +1543,46 @@ h1.hero-name{
   color:#1e293b;
   box-shadow:0 4px 12px rgba(0,0,0,0.04);
 }
-.skill-stat-icon{font-family:var(--font-head);font-weight:800;color:#38bdf8}
+.skill-stat-icon{
+  width:24px;
+  height:24px;
+  border-radius:6px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--font-head);
+  font-weight:800;
+  font-size:13px;
+  color:#38bdf8;
+  background:rgba(56, 189, 248, 0.12);
+}
+.skill-stat-text strong{
+  color:#ffffff;
+  font-weight:800;
+  margin-right:2px;
+}
+[data-theme="light"] .skill-stat-text strong{
+  color:#0f172a;
+}
 
-/* Compact 4x2 Cyber Skills Grid */
+/* 4x2 Cyber Skills Grid */
 .skills-cyber-grid{
   display:grid;
   grid-template-columns:repeat(4, minmax(0, 1fr));
-  gap:16px;
+  gap:20px;
 }
 .skill-cyber-card{
-  background:rgba(10, 14, 35, 0.78);
+  background:rgba(10, 14, 34, 0.82);
   border:1px solid rgba(139, 92, 246, 0.28);
-  border-radius:16px;
-  padding:16px 16px 18px;
-  backdrop-filter:blur(14px);
+  border-radius:18px;
+  padding:20px 18px 22px;
+  backdrop-filter:blur(16px);
   display:flex;
   flex-direction:column;
-  min-height:285px;
+  min-height:355px;
   position:relative;
   z-index:1;
+  box-shadow:0 12px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
   transition:transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
 }
 [data-theme="light"] .skill-cyber-card{
@@ -1505,85 +1591,135 @@ h1.hero-name{
   box-shadow:0 8px 24px rgba(0,0,0,0.04);
 }
 .skill-cyber-card:hover{
-  transform:translateY(-4px);
+  transform:translateY(-5px);
   z-index:5;
 }
 
 /* Category-Themed Neon Borders, Numbers & Icons */
-.skill-cyber-card.sc-backend{border-color:rgba(168, 85, 247, 0.35)}
-.skill-cyber-card.sc-backend:hover{border-color:rgba(168, 85, 247, 0.7);box-shadow:0 0 25px rgba(168, 85, 247, 0.25)}
-.sc-backend .sc-num{color:#c084fc}
-.sc-backend .sc-icon-badge{color:#c084fc;background:rgba(168, 85, 247, 0.15);border-color:rgba(168, 85, 247, 0.35)}
+.skill-cyber-card.sc-backend{
+  border-color:rgba(168, 85, 247, 0.45);
+  box-shadow:0 12px 35px rgba(0, 0, 0, 0.4), 0 0 15px rgba(168, 85, 247, 0.12);
+}
+.skill-cyber-card.sc-backend:hover{
+  border-color:rgba(168, 85, 247, 0.8);
+  box-shadow:0 16px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(168, 85, 247, 0.28);
+}
+.sc-backend .sc-num{background:rgba(168, 85, 247, 0.18);border:1px solid rgba(168, 85, 247, 0.5);color:#c084fc}
+.sc-backend .sc-icon-badge{color:#c084fc;background:rgba(168, 85, 247, 0.15);border-color:rgba(168, 85, 247, 0.4)}
 
-.skill-cyber-card.sc-frontend{border-color:rgba(56, 189, 248, 0.35)}
-.skill-cyber-card.sc-frontend:hover{border-color:rgba(56, 189, 248, 0.7);box-shadow:0 0 25px rgba(56, 189, 248, 0.25)}
-.sc-frontend .sc-num{color:#38bdf8}
-.sc-frontend .sc-icon-badge{color:#38bdf8;background:rgba(56, 189, 248, 0.15);border-color:rgba(56, 189, 248, 0.35)}
+.skill-cyber-card.sc-frontend{
+  border-color:rgba(56, 189, 248, 0.45);
+  box-shadow:0 12px 35px rgba(0, 0, 0, 0.4), 0 0 15px rgba(56, 189, 248, 0.12);
+}
+.skill-cyber-card.sc-frontend:hover{
+  border-color:rgba(56, 189, 248, 0.8);
+  box-shadow:0 16px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(56, 189, 248, 0.28);
+}
+.sc-frontend .sc-num{background:rgba(56, 189, 248, 0.18);border:1px solid rgba(56, 189, 248, 0.5);color:#38bdf8}
+.sc-frontend .sc-icon-badge{color:#38bdf8;background:rgba(56, 189, 248, 0.15);border-color:rgba(56, 189, 248, 0.4)}
 
-.skill-cyber-card.sc-database{border-color:rgba(16, 185, 129, 0.35)}
-.skill-cyber-card.sc-database:hover{border-color:rgba(16, 185, 129, 0.7);box-shadow:0 0 25px rgba(16, 185, 129, 0.25)}
-.sc-database .sc-num{color:#34d399}
-.sc-database .sc-icon-badge{color:#34d399;background:rgba(16, 185, 129, 0.15);border-color:rgba(16, 185, 129, 0.35)}
+.skill-cyber-card.sc-database{
+  border-color:rgba(16, 185, 129, 0.45);
+  box-shadow:0 12px 35px rgba(0, 0, 0, 0.4), 0 0 15px rgba(16, 185, 129, 0.12);
+}
+.skill-cyber-card.sc-database:hover{
+  border-color:rgba(16, 185, 129, 0.8);
+  box-shadow:0 16px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(16, 185, 129, 0.28);
+}
+.sc-database .sc-num{background:rgba(16, 185, 129, 0.18);border:1px solid rgba(16, 185, 129, 0.5);color:#34d399}
+.sc-database .sc-icon-badge{color:#34d399;background:rgba(16, 185, 129, 0.15);border-color:rgba(16, 185, 129, 0.4)}
 
-.skill-cyber-card.sc-devops{border-color:rgba(245, 158, 11, 0.35)}
-.skill-cyber-card.sc-devops:hover{border-color:rgba(245, 158, 11, 0.7);box-shadow:0 0 25px rgba(245, 158, 11, 0.25)}
-.sc-devops .sc-num{color:#fbbf24}
-.sc-devops .sc-icon-badge{color:#fbbf24;background:rgba(245, 158, 11, 0.15);border-color:rgba(245, 158, 11, 0.35)}
+.skill-cyber-card.sc-devops{
+  border-color:rgba(245, 158, 11, 0.45);
+  box-shadow:0 12px 35px rgba(0, 0, 0, 0.4), 0 0 15px rgba(245, 158, 11, 0.12);
+}
+.skill-cyber-card.sc-devops:hover{
+  border-color:rgba(245, 158, 11, 0.8);
+  box-shadow:0 16px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(245, 158, 11, 0.28);
+}
+.sc-devops .sc-num{background:rgba(245, 158, 11, 0.18);border:1px solid rgba(245, 158, 11, 0.5);color:#fbbf24}
+.sc-devops .sc-icon-badge{color:#fbbf24;background:rgba(245, 158, 11, 0.15);border-color:rgba(245, 158, 11, 0.4)}
 
-.skill-cyber-card.sc-testing{border-color:rgba(236, 72, 153, 0.35)}
-.skill-cyber-card.sc-testing:hover{border-color:rgba(236, 72, 153, 0.7);box-shadow:0 0 25px rgba(236, 72, 153, 0.25)}
-.sc-testing .sc-num{color:#f472b6}
-.sc-testing .sc-icon-badge{color:#f472b6;background:rgba(236, 72, 153, 0.15);border-color:rgba(236, 72, 153, 0.35)}
+.skill-cyber-card.sc-testing{
+  border-color:rgba(236, 72, 153, 0.45);
+  box-shadow:0 12px 35px rgba(0, 0, 0, 0.4), 0 0 15px rgba(236, 72, 153, 0.12);
+}
+.skill-cyber-card.sc-testing:hover{
+  border-color:rgba(236, 72, 153, 0.8);
+  box-shadow:0 16px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(236, 72, 153, 0.28);
+}
+.sc-testing .sc-num{background:rgba(236, 72, 153, 0.18);border:1px solid rgba(236, 72, 153, 0.5);color:#f472b6}
+.sc-testing .sc-icon-badge{color:#f472b6;background:rgba(236, 72, 153, 0.15);border-color:rgba(236, 72, 153, 0.4)}
 
-.skill-cyber-card.sc-tools{border-color:rgba(99, 102, 241, 0.35)}
-.skill-cyber-card.sc-tools:hover{border-color:rgba(99, 102, 241, 0.7);box-shadow:0 0 25px rgba(99, 102, 241, 0.25)}
-.sc-tools .sc-num{color:#818cf8}
-.sc-tools .sc-icon-badge{color:#818cf8;background:rgba(99, 102, 241, 0.15);border-color:rgba(99, 102, 241, 0.35)}
+.skill-cyber-card.sc-tools{
+  border-color:rgba(59, 130, 246, 0.45);
+  box-shadow:0 12px 35px rgba(0, 0, 0, 0.4), 0 0 15px rgba(59, 130, 246, 0.12);
+}
+.skill-cyber-card.sc-tools:hover{
+  border-color:rgba(59, 130, 246, 0.8);
+  box-shadow:0 16px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(59, 130, 246, 0.28);
+}
+.sc-tools .sc-num{background:rgba(59, 130, 246, 0.18);border:1px solid rgba(59, 130, 246, 0.5);color:#60a5fa}
+.sc-tools .sc-icon-badge{color:#60a5fa;background:rgba(59, 130, 246, 0.15);border-color:rgba(59, 130, 246, 0.4)}
 
-.skill-cyber-card.sc-ai-dev{border-color:rgba(217, 70, 239, 0.35)}
-.skill-cyber-card.sc-ai-dev:hover{border-color:rgba(217, 70, 239, 0.7);box-shadow:0 0 25px rgba(217, 70, 239, 0.25)}
-.sc-ai-dev .sc-num{color:#e879f9}
-.sc-ai-dev .sc-icon-badge{color:#e879f9;background:rgba(217, 70, 239, 0.15);border-color:rgba(217, 70, 239, 0.35)}
+.skill-cyber-card.sc-ai-dev{
+  border-color:rgba(217, 70, 239, 0.45);
+  box-shadow:0 12px 35px rgba(0, 0, 0, 0.4), 0 0 15px rgba(217, 70, 239, 0.12);
+}
+.skill-cyber-card.sc-ai-dev:hover{
+  border-color:rgba(217, 70, 239, 0.8);
+  box-shadow:0 16px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(217, 70, 239, 0.28);
+}
+.sc-ai-dev .sc-num{background:rgba(217, 70, 239, 0.18);border:1px solid rgba(217, 70, 239, 0.5);color:#e879f9}
+.sc-ai-dev .sc-icon-badge{color:#e879f9;background:rgba(217, 70, 239, 0.15);border-color:rgba(217, 70, 239, 0.4)}
 
-.skill-cyber-card.sc-automation{border-color:rgba(20, 184, 166, 0.35)}
-.skill-cyber-card.sc-automation:hover{border-color:rgba(20, 184, 166, 0.7);box-shadow:0 0 25px rgba(20, 184, 166, 0.25)}
-.sc-automation .sc-num{color:#2dd4bf}
-.sc-automation .sc-icon-badge{color:#2dd4bf;background:rgba(20, 184, 166, 0.15);border-color:rgba(20, 184, 166, 0.35)}
+.skill-cyber-card.sc-automation{
+  border-color:rgba(20, 184, 166, 0.45);
+  box-shadow:0 12px 35px rgba(0, 0, 0, 0.4), 0 0 15px rgba(20, 184, 166, 0.12);
+}
+.skill-cyber-card.sc-automation:hover{
+  border-color:rgba(20, 184, 166, 0.8);
+  box-shadow:0 16px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(20, 184, 166, 0.28);
+}
+.sc-automation .sc-num{background:rgba(20, 184, 166, 0.18);border:1px solid rgba(20, 184, 166, 0.5);color:#2dd4bf}
+.sc-automation .sc-icon-badge{color:#2dd4bf;background:rgba(20, 184, 166, 0.15);border-color:rgba(20, 184, 166, 0.4)}
 
 .sc-head{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  margin-bottom:10px;
+  margin-bottom:14px;
   min-height:34px;
 }
 .sc-num{
   font-family:var(--font-head);
-  font-size:17px;
+  font-size:12.5px;
   font-weight:800;
   letter-spacing:0.04em;
+  padding:2px 10px;
+  border-radius:9999px;
+  flex-shrink:0;
 }
 .sc-title{
   font-family:var(--font-head);
-  font-size:11px;
+  font-size:12.5px;
   font-weight:700;
-  letter-spacing:0.06em;
+  letter-spacing:0.04em;
   color:#ffffff;
   text-transform:uppercase;
   flex:1;
-  margin:0 8px;
+  margin:0 10px;
   line-height:1.25;
-  min-height:28px;
   display:flex;
   align-items:center;
 }
 [data-theme="light"] .sc-title{color:#0f172a}
 .sc-icon-badge{
-  width:30px;
-  height:30px;
-  border-radius:8px;
+  width:32px;
+  height:32px;
+  border-radius:9px;
   background:rgba(139, 92, 246, 0.15);
-  border:1px solid rgba(139, 92, 246, 0.3);
+  border:1px solid rgba(139, 92, 246, 0.35);
   display:flex;
   align-items:center;
   justify-content:center;
@@ -1591,52 +1727,61 @@ h1.hero-name{
 }
 .sc-visual{
   width:100%;
-  height:72px;
-  border-radius:10px;
+  height:122px;
+  border-radius:12px;
   overflow:hidden;
-  margin-bottom:12px;
-  background:rgba(0, 0, 0, 0.35);
-  border:1px solid rgba(255, 255, 255, 0.05);
+  margin-bottom:14px;
+  background:rgba(0, 0, 0, 0.5);
+  border:1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:inset 0 2px 8px rgba(0, 0, 0, 0.6);
   display:flex;
   align-items:center;
   justify-content:center;
+  position:relative;
 }
 .sc-visual img{
   width:100%;
   height:100%;
-  object-fit:contain;
+  object-fit:cover;
+  border-radius:11px;
+  transition:transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.skill-cyber-card:hover .sc-visual img{
+  transform:scale(1.05);
 }
 .sc-tags{
   display:flex;
   flex-wrap:wrap;
-  gap:5px;
+  gap:6px;
   margin-top:auto;
+  padding-top:8px;
 }
 .sc-tag{
-  font-size:11px;
-  line-height:1.25;
-  padding:3.5px 8.5px;
+  font-size:11.5px;
+  line-height:1.3;
+  padding:4px 9.5px;
   border-radius:9999px;
-  background:rgba(15, 23, 42, 0.8);
+  background:rgba(15, 23, 42, 0.85);
   border:1px solid rgba(255, 255, 255, 0.12);
   color:rgba(241, 245, 249, 0.95);
-  font-weight:500;
+  font-weight:600;
   white-space:nowrap;
   display:inline-flex;
   align-items:center;
+  transition:all 0.2s ease;
 }
 [data-theme="light"] .sc-tag{
-  background:rgba(248, 250, 252, 0.9);
+  background:rgba(248, 250, 252, 0.95);
   border-color:rgba(15, 23, 42, 0.15);
   color:#0f172a;
 }
-.sc-tag.sc-cyan{border-color:rgba(56,189,248,0.35);color:#bae6fd}
-.sc-tag.sc-emerald{border-color:rgba(16,185,129,0.35);color:#a7f3d0}
-.sc-tag.sc-amber{border-color:rgba(245,158,11,0.35);color:#fde68a}
-.sc-tag.sc-pink{border-color:rgba(236,72,153,0.35);color:#fbcfe8}
-.sc-tag.sc-indigo{border-color:rgba(99,102,241,0.35);color:#c7d2fe}
-.sc-tag.sc-fuchsia{border-color:rgba(217,70,239,0.35);color:#f5d0fe}
-.sc-tag.sc-teal{border-color:rgba(20,184,166,0.35);color:#99f6e4}
+.sc-tag.sc-cyan{border-color:rgba(56,189,248,0.38);color:#bae6fd}
+.sc-tag.sc-emerald{border-color:rgba(16,185,129,0.38);color:#a7f3d0}
+.sc-tag.sc-amber{border-color:rgba(245,158,11,0.38);color:#fde68a}
+.sc-tag.sc-pink{border-color:rgba(236,72,153,0.38);color:#fbcfe8}
+.sc-tag.sc-blue{border-color:rgba(59,130,246,0.38);color:#bfdbfe}
+.sc-tag.sc-fuchsia{border-color:rgba(217,70,239,0.38);color:#f5d0fe}
+.sc-tag.sc-teal{border-color:rgba(20,184,166,0.38);color:#99f6e4}
 
 /* Visual Transition Bridge Between Skills and Projects */
 .skills-projects-bridge{
@@ -4194,43 +4339,50 @@ main{display:block}
 <!-- SKILLS -->
 <section id="skills">
   <div class="skills-top-header fade-in">
-    <div class="section-tag-inline">
-      <span>TECHNICAL SKILLS</span>
-      <span class="section-tag-rule" aria-hidden="true"></span>
+    <div class="skills-pill-badge">
+      <span class="badge-icon" aria-hidden="true">&lt;/&gt;</span>
+      <span>SKILLS</span>
+      <span class="badge-dash" aria-hidden="true">—</span>
     </div>
-    <h2 class="section-hero-title">My Tech Arsenal</h2>
-    <p class="section-tagline">A well-rounded stack across full-stack development, cloud technologies, testing and AI-powered solutions.</p>
+    <h2 class="skills-hero-title">
+      <span class="skills-title-white">Technical Skills &amp; </span><span class="skills-title-accent">Expertise</span>
+    </h2>
+    <p class="skills-tagline">A well-rounded stack across full-stack development, cloud technologies, testing and AI-powered solutions.</p>
   </div>
 
   <!-- Top 3 Stats Pills -->
   <div class="skills-summary-bar fade-in" aria-label="Skills overview">
     <div class="skill-stat-pill">
-      <span class="skill-stat-icon">&lt;/&gt;</span>
+      <span class="skill-stat-icon" aria-hidden="true">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+      </span>
       <span class="skill-stat-text"><strong>8+</strong> Skill Categories</span>
     </div>
     <div class="skill-stat-pill">
-      <span class="skill-stat-icon">📚</span>
+      <span class="skill-stat-icon" aria-hidden="true">&lt;/&gt;</span>
       <span class="skill-stat-text"><strong>50+</strong> Technologies &amp; Tools</span>
     </div>
     <div class="skill-stat-pill">
-      <span class="skill-stat-icon">🛡️</span>
-      <span class="skill-stat-text">Full-Stack Development Ready</span>
+      <span class="skill-stat-icon" aria-hidden="true">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+      </span>
+      <span class="skill-stat-text"><strong>Full-Stack</strong> Development Ready</span>
     </div>
   </div>
 
-  <!-- 8 Neon Cyber Category Cards -->
+  <!-- 8 Neon Cyber Category Cards in 4x2 Desktop Grid -->
   <div class="skills-cyber-grid fade-in">
     <!-- Card 01: Backend & APIs -->
     <div class="skill-cyber-card sc-backend">
       <div class="sc-head">
         <div class="sc-num">01</div>
-        <h3 class="sc-title">BACKEND &amp; APIs</h3>
+        <h3 class="sc-title">Backend &amp; APIs</h3>
         <div class="sc-icon-badge" aria-hidden="true">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
         </div>
       </div>
       <div class="sc-visual">
-        <img src="assets/skill_1.webp" alt="Backend &amp; APIs servers graphic" width="222" height="78" loading="lazy">
+        <img src="assets/skill_1.webp" alt="Backend and APIs server towers with Spring Boot code illustration" width="600" height="334" loading="lazy">
       </div>
       <div class="sc-tags">
         <span class="sc-tag">Java</span>
@@ -4248,13 +4400,13 @@ main{display:block}
     <div class="skill-cyber-card sc-frontend">
       <div class="sc-head">
         <div class="sc-num">02</div>
-        <h3 class="sc-title">FRONTEND DEVELOPMENT</h3>
+        <h3 class="sc-title">Frontend Development</h3>
         <div class="sc-icon-badge" aria-hidden="true">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
         </div>
       </div>
       <div class="sc-visual">
-        <img src="assets/skill_2.webp" alt="Frontend Development React graphic" width="222" height="78" loading="lazy">
+        <img src="assets/skill_2.webp" alt="Frontend development laptop with React code and UI badges" width="600" height="334" loading="lazy">
       </div>
       <div class="sc-tags">
         <span class="sc-tag sc-cyan">React.js</span>
@@ -4270,13 +4422,13 @@ main{display:block}
     <div class="skill-cyber-card sc-database">
       <div class="sc-head">
         <div class="sc-num">03</div>
-        <h3 class="sc-title">DATABASES &amp; OPTIMIZATION</h3>
+        <h3 class="sc-title">Databases &amp; Optimization</h3>
         <div class="sc-icon-badge" aria-hidden="true">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
         </div>
       </div>
       <div class="sc-visual">
-        <img src="assets/skill_3.webp" alt="Databases MySQL and PostgreSQL canisters" width="222" height="78" loading="lazy">
+        <img src="assets/skill_3.webp" alt="Databases canisters and query optimization performance chart" width="600" height="334" loading="lazy">
       </div>
       <div class="sc-tags">
         <span class="sc-tag sc-emerald">MySQL</span>
@@ -4286,7 +4438,7 @@ main{display:block}
         <span class="sc-tag sc-emerald">Indexing</span>
         <span class="sc-tag sc-emerald">Pagination</span>
         <span class="sc-tag sc-emerald">Query Optimization</span>
-        <span class="sc-tag sc-emerald">N+1 Query Optimization</span>
+        <span class="sc-tag sc-emerald">N+1 Optimization</span>
       </div>
     </div>
 
@@ -4294,13 +4446,13 @@ main{display:block}
     <div class="skill-cyber-card sc-devops">
       <div class="sc-head">
         <div class="sc-num">04</div>
-        <h3 class="sc-title">DEVOPS &amp; CLOUD</h3>
+        <h3 class="sc-title">DevOps &amp; Cloud</h3>
         <div class="sc-icon-badge" aria-hidden="true">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
         </div>
       </div>
       <div class="sc-visual">
-        <img src="assets/skill_4.webp" alt="DevOps and AWS Cloud graphic" width="222" height="78" loading="lazy">
+        <img src="assets/skill_4.webp" alt="DevOps Docker and CI/CD automated pipeline illustration" width="600" height="334" loading="lazy">
       </div>
       <div class="sc-tags">
         <span class="sc-tag sc-amber">Docker</span>
@@ -4316,22 +4468,22 @@ main{display:block}
     <div class="skill-cyber-card sc-testing">
       <div class="sc-head">
         <div class="sc-num">05</div>
-        <h3 class="sc-title">TESTING &amp; QA</h3>
+        <h3 class="sc-title">Testing &amp; QA</h3>
         <div class="sc-icon-badge" aria-hidden="true">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
         </div>
       </div>
       <div class="sc-visual">
-        <img src="assets/skill_5.webp" alt="Testing and QA verification graphic" width="222" height="78" loading="lazy">
+        <img src="assets/skill_5.webp" alt="Testing and QA verification suite with passing checks" width="600" height="334" loading="lazy">
       </div>
       <div class="sc-tags">
-        <span class="sc-tag sc-purple">JUnit 5</span>
-        <span class="sc-tag sc-purple">Mockito</span>
-        <span class="sc-tag sc-purple">API Testing</span>
-        <span class="sc-tag sc-purple">Postman</span>
-        <span class="sc-tag sc-purple">Smoke Testing</span>
-        <span class="sc-tag sc-purple">Integration Testing</span>
-        <span class="sc-tag sc-purple">Automated Testing</span>
+        <span class="sc-tag sc-pink">JUnit 5</span>
+        <span class="sc-tag sc-pink">Mockito</span>
+        <span class="sc-tag sc-pink">API Testing</span>
+        <span class="sc-tag sc-pink">Postman</span>
+        <span class="sc-tag sc-pink">Smoke Testing</span>
+        <span class="sc-tag sc-pink">Integration Testing</span>
+        <span class="sc-tag sc-pink">Automated Testing</span>
       </div>
     </div>
 
@@ -4339,13 +4491,13 @@ main{display:block}
     <div class="skill-cyber-card sc-tools">
       <div class="sc-head">
         <div class="sc-num">06</div>
-        <h3 class="sc-title">DEVELOPER TOOLS &amp; CONCEPTS</h3>
+        <h3 class="sc-title">Developer Tools &amp; Concepts</h3>
         <div class="sc-icon-badge" aria-hidden="true">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
         </div>
       </div>
       <div class="sc-visual">
-        <img src="assets/skill_6.webp" alt="Developer tools Git IntelliJ VS Code graphic" width="222" height="78" loading="lazy">
+        <img src="assets/skill_6.webp" alt="Developer tools Git IntelliJ VS Code architectural blueprint" width="600" height="334" loading="lazy">
       </div>
       <div class="sc-tags">
         <span class="sc-tag sc-blue">Git</span>
@@ -4364,23 +4516,23 @@ main{display:block}
     <div class="skill-cyber-card sc-ai-dev">
       <div class="sc-head">
         <div class="sc-num">07</div>
-        <h3 class="sc-title">AI-ASSISTED DEVELOPMENT</h3>
+        <h3 class="sc-title">AI-Assisted Development</h3>
         <div class="sc-icon-badge" aria-hidden="true">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
       </div>
       <div class="sc-visual">
-        <img src="assets/skill_7.webp" alt="AI Assisted Development ChatGPT Claude Gemini graphic" width="222" height="78" loading="lazy">
+        <img src="assets/skill_7.webp" alt="AI assisted development humanoid assistant with LLM badges" width="600" height="334" loading="lazy">
       </div>
       <div class="sc-tags">
-        <span class="sc-tag sc-pink">ChatGPT</span>
-        <span class="sc-tag sc-pink">Claude</span>
-        <span class="sc-tag sc-pink">OpenAI Codex</span>
-        <span class="sc-tag sc-pink">Google Gemini</span>
-        <span class="sc-tag sc-pink">Google Antigravity</span>
-        <span class="sc-tag sc-pink">Prompt Engineering</span>
-        <span class="sc-tag sc-pink">AI-Assisted Debugging</span>
-        <span class="sc-tag sc-pink">Code Review Assistance</span>
+        <span class="sc-tag sc-fuchsia">ChatGPT</span>
+        <span class="sc-tag sc-fuchsia">Claude</span>
+        <span class="sc-tag sc-fuchsia">OpenAI Codex</span>
+        <span class="sc-tag sc-fuchsia">Google Gemini</span>
+        <span class="sc-tag sc-fuchsia">Google Antigravity</span>
+        <span class="sc-tag sc-fuchsia">Prompt Engineering</span>
+        <span class="sc-tag sc-fuchsia">AI-Assisted Debugging</span>
+        <span class="sc-tag sc-fuchsia">Code Review Assistance</span>
       </div>
     </div>
 
@@ -4388,18 +4540,19 @@ main{display:block}
     <div class="skill-cyber-card sc-automation">
       <div class="sc-head">
         <div class="sc-num">08</div>
-        <h3 class="sc-title">AI INTEGRATION &amp; AUTOMATION</h3>
+        <h3 class="sc-title">AI Integration &amp; Automation</h3>
         <div class="sc-icon-badge" aria-hidden="true">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
         </div>
       </div>
       <div class="sc-visual">
-        <img src="assets/skill_8.webp" alt="AI integration OCR and document automation graphic" width="222" height="78" loading="lazy">
+        <img src="assets/skill_8.webp" alt="Document OCR processing pipeline and robotic automation gears" width="600" height="334" loading="lazy">
       </div>
       <div class="sc-tags">
         <span class="sc-tag sc-teal">OCR-Assisted Processing</span>
         <span class="sc-tag sc-teal">Document Workflow Automation</span>
         <span class="sc-tag sc-teal">Scripting Tools</span>
+        <span class="sc-tag sc-teal">Process Automation</span>
       </div>
     </div>
   </div>
