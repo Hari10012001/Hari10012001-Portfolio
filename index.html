@@ -2348,34 +2348,627 @@ h1.hero-name{
 }
 
 /* EXPERIENCE */
-#experience{display:block}
-.exp-grid{display:flex;flex-direction:column;gap:0}
-.exp-item{display:grid;grid-template-columns:200px minmax(0,1fr);gap:0;position:relative}
-.exp-item::before{content:'';position:absolute;left:199px;top:20px;bottom:0;width:1px;background:var(--border)}
-.exp-left{padding:24px 0;border-right:1px solid var(--border);padding-right:32px;text-align:right}
-.exp-date{font-size:12px;color:var(--accent2);font-weight:600;letter-spacing:0.06em}
-.exp-type{font-size:12px;color:var(--subtle);margin-top:4px}
-.exp-right{padding:24px 0 40px 40px;position:relative}
-.exp-right::before{content:'';position:absolute;left:-5px;top:28px;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
-.exp-company{font-size:12px;color:var(--accent-text);letter-spacing:0.08em;text-transform:uppercase;font-weight:600;margin-bottom:6px}
-.exp-role{font-family:var(--font-head);font-size:20px;font-weight:700;margin-bottom:12px}
-.exp-bullets{list-style:none;display:flex;flex-direction:column;gap:8px}
-.exp-bullets li{font-size:14px;color:var(--muted);padding-left:16px;position:relative;line-height:1.7}
-.exp-bullets li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:12px}
-.exp-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
-.exp-tag{font-size:11px;padding:3px 10px;border-radius:4px;background:rgba(108,110,255,0.08);border:1px solid rgba(108,110,255,0.15);color:var(--accent2)}
+#experience{display:block;position:relative}
+.exp-top-header{margin-bottom:34px}
+.exp-header-row{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:24px;
+  flex-wrap:wrap;
+}
+.exp-pill-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 14px;
+  border-radius:9999px;
+  background:rgba(147, 51, 234, 0.15);
+  border:1px solid rgba(168, 85, 247, 0.45);
+  color:#c084fc;
+  font-size:11.5px;
+  font-weight:700;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  margin-bottom:16px;
+  box-shadow:0 0 16px rgba(168, 85, 247, 0.22);
+}
+.exp-pill-badge .badge-icon{display:inline-flex;color:#e879f9}
+[data-theme="light"] .exp-pill-badge{
+  background:rgba(147, 51, 234, 0.08);
+  border-color:rgba(147, 51, 234, 0.35);
+  color:#7e22ce;
+  box-shadow:none;
+}
+.exp-hero-title{
+  font-family:var(--font-head);
+  font-size:clamp(2.2rem, 3.8vw, 3.4rem);
+  font-weight:800;
+  line-height:1.15;
+  letter-spacing:-0.025em;
+  margin:0 0 12px;
+}
+.exp-title-white{
+  color:#ffffff;
+  text-shadow:0 2px 20px rgba(255,255,255,0.12);
+}
+[data-theme="light"] .exp-title-white{
+  color:#0f172a;
+  text-shadow:none;
+}
+.exp-title-grad{
+  background:linear-gradient(135deg, #c084fc 0%, #a855f7 45%, #38bdf8 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+[data-theme="light"] .exp-title-grad{
+  background:linear-gradient(135deg, #7e22ce 0%, #6366f1 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.exp-tagline{
+  font-size:1.05rem;
+  color:rgba(226, 232, 240, 0.78);
+  margin:0;
+  font-weight:400;
+  max-width:850px;
+}
+[data-theme="light"] .exp-tagline{
+  color:#475569;
+}
 
-/* CERTIFICATIONS */
-#certifications{display:block}
-.cert-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
-.cert-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;transition:all 0.3s;display:flex;gap:20px;align-items:flex-start}
-.cert-card:hover{border-color:rgba(108,110,255,0.35);transform:translateY(-3px)}
-.cert-icon{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
-.cert-title{font-family:var(--font-head);font-size:16px;font-weight:700;margin-bottom:6px}
-.cert-org{font-size:13px;color:var(--accent2);margin-bottom:4px}
-.cert-year{font-size:12px;color:var(--subtle)}
-.cert-badge{display:inline-block;background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.2);color:var(--green);font-size:10px;padding:2px 8px;border-radius:4px;letter-spacing:0.08em;text-transform:uppercase;margin-top:8px}
-.cert-badge.edu{background:rgba(56,189,248,0.1);border-color:rgba(56,189,248,0.25);color:var(--accent3)}
+/* Header Capsule Stats (Top Right) */
+.exp-header-capsule{
+  display:inline-flex;
+  align-items:center;
+  gap:16px;
+  padding:12px 22px;
+  border-radius:9999px;
+  background:rgba(15, 23, 42, 0.78);
+  border:1px solid rgba(139, 92, 246, 0.3);
+  backdrop-filter:blur(14px);
+  box-shadow:0 8px 30px rgba(0, 0, 0, 0.35);
+  flex-wrap:wrap;
+}
+[data-theme="light"] .exp-header-capsule{
+  background:#ffffff;
+  border-color:rgba(99, 102, 241, 0.22);
+  box-shadow:0 4px 16px rgba(0,0,0,0.05);
+}
+.exp-cap-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.exp-cap-item:not(:last-child){
+  padding-right:16px;
+  border-right:1px solid rgba(255, 255, 255, 0.1);
+}
+[data-theme="light"] .exp-cap-item:not(:last-child){
+  border-right-color:rgba(15, 23, 42, 0.1);
+}
+.exp-cap-icon{
+  width:32px;
+  height:32px;
+  border-radius:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+}
+.exp-cap-icon.ec-violet{background:rgba(168, 85, 247, 0.15);color:#c084fc;border:1px solid rgba(168, 85, 247, 0.35)}
+.exp-cap-icon.ec-purple{background:rgba(147, 51, 234, 0.15);color:#a855f7;border:1px solid rgba(147, 51, 234, 0.35)}
+.exp-cap-icon.ec-blue{background:rgba(59, 130, 246, 0.15);color:#60a5fa;border:1px solid rgba(59, 130, 246, 0.35)}
+.exp-cap-icon.ec-cyan{background:rgba(56, 189, 248, 0.15);color:#38bdf8;border:1px solid rgba(56, 189, 248, 0.35)}
+.exp-cap-text{
+  display:flex;
+  flex-direction:column;
+}
+.exp-cap-text strong{
+  font-family:var(--font-head);
+  font-size:14px;
+  font-weight:800;
+  color:#ffffff;
+  line-height:1.2;
+}
+[data-theme="light"] .exp-cap-text strong{color:#0f172a}
+.exp-cap-text span{
+  font-size:11px;
+  color:rgba(226, 232, 240, 0.7);
+  white-space:nowrap;
+}
+[data-theme="light"] .exp-cap-text span{color:#64748b}
+
+/* Timeline Container & Rows */
+.exp-timeline-container{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  gap:32px;
+}
+.exp-timeline-spine{
+  position:absolute;
+  left:264px;
+  top:40px;
+  bottom:40px;
+  width:2px;
+  background:linear-gradient(180deg, #a855f7 0%, #38bdf8 50%, #c084fc 100%);
+  box-shadow:0 0 12px rgba(168, 85, 247, 0.6);
+  z-index:0;
+}
+.exp-timeline-row{
+  display:grid;
+  grid-template-columns:240px 48px minmax(0, 1fr);
+  align-items:flex-start;
+  position:relative;
+  z-index:1;
+}
+
+/* Left Date Card */
+.exp-date-card{
+  background:rgba(10, 14, 34, 0.85);
+  border:1px solid rgba(139, 92, 246, 0.3);
+  border-radius:18px;
+  padding:20px 18px;
+  backdrop-filter:blur(14px);
+  box-shadow:0 12px 30px rgba(0, 0, 0, 0.4);
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  transition:all 0.3s ease;
+}
+.exp-date-card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 16px 36px rgba(0, 0, 0, 0.5);
+}
+[data-theme="light"] .exp-date-card{
+  background:#ffffff;
+  border-color:rgba(99, 102, 241, 0.22);
+  box-shadow:0 4px 16px rgba(0,0,0,0.05);
+}
+.exp-date-card.ec-border-violet{border-color:rgba(168, 85, 247, 0.45)}
+.exp-date-card.ec-border-blue{border-color:rgba(56, 189, 248, 0.45)}
+.exp-date-card.ec-border-purple{border-color:rgba(192, 132, 252, 0.45)}
+
+.exp-date-period{
+  font-family:var(--font-head);
+  font-size:15px;
+  font-weight:800;
+  color:#ffffff;
+  letter-spacing:-0.01em;
+}
+[data-theme="light"] .exp-date-period{color:#0f172a}
+
+.exp-role-status{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:11.5px;
+  font-weight:700;
+  padding:3px 10px;
+  border-radius:9999px;
+  width:fit-content;
+}
+.rs-dot{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+}
+.exp-role-status.rs-current{
+  background:rgba(34, 197, 94, 0.15);
+  border:1px solid rgba(34, 197, 94, 0.45);
+  color:#4ade80;
+}
+.rs-current .rs-dot{
+  background:#22c55e;
+  box-shadow:0 0 8px #22c55e;
+}
+.exp-role-status.rs-previous{
+  background:rgba(56, 189, 248, 0.15);
+  border:1px solid rgba(56, 189, 248, 0.45);
+  color:#38bdf8;
+}
+.rs-previous .rs-dot{
+  background:#38bdf8;
+  box-shadow:0 0 8px #38bdf8;
+}
+.exp-role-status.rs-earlier{
+  background:rgba(192, 132, 252, 0.15);
+  border:1px solid rgba(192, 132, 252, 0.45);
+  color:#c084fc;
+}
+.rs-earlier .rs-dot{
+  background:#c084fc;
+  box-shadow:0 0 8px #c084fc;
+}
+
+.exp-duration-box{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:6px 12px;
+  border-radius:10px;
+  background:rgba(15, 23, 42, 0.65);
+  border:1px solid rgba(255, 255, 255, 0.08);
+  font-size:11.5px;
+  color:rgba(226, 232, 240, 0.85);
+  font-weight:600;
+}
+[data-theme="light"] .exp-duration-box{
+  background:rgba(241, 245, 249, 0.85);
+  border-color:rgba(15, 23, 42, 0.08);
+  color:#475569;
+}
+.exp-duration-box svg{color:#38bdf8;flex-shrink:0}
+
+/* Glowing Timeline Center Node */
+.exp-timeline-node{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  height:60px;
+}
+.node-ring{
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  background:#090d24;
+  border:2.5px solid #a855f7;
+  box-shadow:0 0 16px rgba(168, 85, 247, 0.8);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.node-violet .node-ring{border-color:#a855f7;box-shadow:0 0 16px rgba(168, 85, 247, 0.8)}
+.node-blue .node-ring{border-color:#38bdf8;box-shadow:0 0 16px rgba(56, 189, 248, 0.8)}
+.node-purple .node-ring{border-color:#c084fc;box-shadow:0 0 16px rgba(192, 132, 252, 0.8)}
+
+.node-dot{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#ffffff;
+  box-shadow:0 0 6px #ffffff;
+}
+
+/* Right Experience Card */
+.exp-detail-card{
+  background:rgba(10, 14, 34, 0.82);
+  border:1px solid rgba(139, 92, 246, 0.28);
+  border-radius:20px;
+  padding:24px 26px;
+  backdrop-filter:blur(16px);
+  box-shadow:0 16px 40px rgba(0, 0, 0, 0.45);
+  display:flex;
+  flex-direction:column;
+  position:relative;
+  transition:transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.35s ease;
+}
+.exp-detail-card:hover{
+  transform:translateY(-3px);
+}
+[data-theme="light"] .exp-detail-card{
+  background:#ffffff;
+  border-color:rgba(99, 102, 241, 0.22);
+  box-shadow:0 8px 24px rgba(0,0,0,0.04);
+}
+.exp-detail-card.card-violet{
+  border-color:rgba(168, 85, 247, 0.45);
+  box-shadow:0 16px 40px rgba(0, 0, 0, 0.45), 0 0 20px rgba(168, 85, 247, 0.12);
+}
+.exp-detail-card.card-violet:hover{
+  border-color:rgba(168, 85, 247, 0.85);
+  box-shadow:0 20px 48px rgba(0, 0, 0, 0.55), 0 0 35px rgba(168, 85, 247, 0.28);
+}
+.exp-detail-card.card-blue{
+  border-color:rgba(56, 189, 248, 0.45);
+  box-shadow:0 16px 40px rgba(0, 0, 0, 0.45), 0 0 20px rgba(56, 189, 248, 0.12);
+}
+.exp-detail-card.card-blue:hover{
+  border-color:rgba(56, 189, 248, 0.85);
+  box-shadow:0 20px 48px rgba(0, 0, 0, 0.55), 0 0 35px rgba(56, 189, 248, 0.28);
+}
+.exp-detail-card.card-purple{
+  border-color:rgba(192, 132, 252, 0.45);
+  box-shadow:0 16px 40px rgba(0, 0, 0, 0.45), 0 0 20px rgba(192, 132, 252, 0.12);
+}
+.exp-detail-card.card-purple:hover{
+  border-color:rgba(192, 132, 252, 0.85);
+  box-shadow:0 20px 48px rgba(0, 0, 0, 0.55), 0 0 35px rgba(192, 132, 252, 0.28);
+}
+
+/* Card Header */
+.exp-card-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:18px;
+  flex-wrap:wrap;
+}
+.exp-brand-row{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+.exp-company-logo{
+  width:52px;
+  height:52px;
+  border-radius:14px;
+  background:#ffffff;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 4px 14px rgba(0, 0, 0, 0.25);
+  padding:4px;
+  flex-shrink:0;
+}
+.logo-subtext{
+  font-family:var(--font-head);
+  font-size:7px;
+  font-weight:800;
+  letter-spacing:0.04em;
+  color:#1e3a8a;
+  margin-top:-2px;
+}
+.rrd-logo-box{
+  font-family:var(--font-head);
+  font-weight:900;
+  font-size:18px;
+  color:#1d4ed8;
+  letter-spacing:-0.03em;
+  line-height:1;
+}
+.rrd-logo-sub{
+  font-family:var(--font-head);
+  font-size:6.5px;
+  font-weight:800;
+  letter-spacing:0.06em;
+  color:#1e3a8a;
+  margin-top:2px;
+}
+.adecco-logo-box{
+  font-family:var(--font-head);
+  font-weight:900;
+  font-size:16px;
+  color:#dc2626;
+  letter-spacing:-0.02em;
+}
+
+.exp-title-block{
+  display:flex;
+  flex-direction:column;
+}
+.exp-company-name{
+  font-family:var(--font-head);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:#c084fc;
+  margin-bottom:2px;
+}
+.card-blue .exp-company-name{color:#38bdf8}
+.card-purple .exp-company-name{color:#e879f9}
+[data-theme="light"] .exp-company-name{color:#6b21a8}
+
+.exp-role-title{
+  font-family:var(--font-head);
+  font-size:19px;
+  font-weight:800;
+  color:#ffffff;
+  letter-spacing:-0.015em;
+  margin:0;
+  line-height:1.25;
+}
+[data-theme="light"] .exp-role-title{color:#0f172a}
+
+.exp-badge-current{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:5px 14px;
+  border-radius:9999px;
+  background:rgba(34, 197, 94, 0.15);
+  border:1px solid rgba(34, 197, 94, 0.45);
+  color:#4ade80;
+  font-family:var(--font-head);
+  font-size:12px;
+  font-weight:700;
+}
+.bc-dot{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#22c55e;
+  box-shadow:0 0 8px #22c55e;
+}
+.exp-badge-duration{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:5px 14px;
+  border-radius:9999px;
+  background:rgba(15, 23, 42, 0.7);
+  border:1px solid rgba(255, 255, 255, 0.12);
+  color:#e2e8f0;
+  font-family:var(--font-head);
+  font-size:12px;
+  font-weight:700;
+}
+[data-theme="light"] .exp-badge-duration{
+  background:#f1f5f9;
+  border-color:rgba(15, 23, 42, 0.12);
+  color:#334155;
+}
+.exp-badge-duration svg{color:#38bdf8}
+
+/* Card Body (Two Columns: Bullets & Right 3D Visual) */
+.exp-card-body{
+  display:grid;
+  grid-template-columns:minmax(0, 1fr) 140px;
+  gap:20px;
+  align-items:center;
+  margin-bottom:20px;
+}
+.exp-bullet-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+}
+.exp-bullet-list li{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  font-size:13px;
+  line-height:1.55;
+  color:rgba(226, 232, 240, 0.85);
+}
+[data-theme="light"] .exp-bullet-list li{color:#334155}
+.exp-check-icon{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  color:#c084fc;
+  margin-top:2px;
+  flex-shrink:0;
+}
+.card-blue .exp-check-icon{color:#38bdf8}
+.card-purple .exp-check-icon{color:#e879f9}
+
+.exp-card-visual{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
+.exp-card-visual img{
+  width:100%;
+  max-width:135px;
+  height:auto;
+  object-fit:contain;
+  filter:drop-shadow(0 0 20px rgba(168, 85, 247, 0.35));
+  transition:transform 0.4s ease;
+}
+.card-blue .exp-card-visual img{filter:drop-shadow(0 0 20px rgba(56, 189, 248, 0.35))}
+.card-purple .exp-card-visual img{filter:drop-shadow(0 0 20px rgba(192, 132, 252, 0.35))}
+.exp-detail-card:hover .exp-card-visual img{
+  transform:scale(1.08) translateY(-2px);
+}
+
+/* Bottom Tech Stack Chips */
+.exp-tech-strip{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  padding-top:14px;
+  border-top:1px solid rgba(255, 255, 255, 0.08);
+}
+[data-theme="light"] .exp-tech-strip{
+  border-top-color:rgba(15, 23, 42, 0.08);
+}
+.exp-tech-label{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:4px 10px;
+  border-radius:9999px;
+  background:rgba(147, 51, 234, 0.15);
+  border:1px solid rgba(168, 85, 247, 0.4);
+  color:#c084fc;
+  font-family:var(--font-head);
+  font-size:11px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:0.04em;
+  flex-shrink:0;
+}
+[data-theme="light"] .exp-tech-label{
+  background:rgba(147, 51, 234, 0.08);
+  border-color:rgba(147, 51, 234, 0.3);
+  color:#7e22ce;
+}
+.exp-tech-chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+.exp-chip{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:3.5px 10px;
+  border-radius:9999px;
+  background:rgba(15, 23, 42, 0.82);
+  border:1px solid rgba(255, 255, 255, 0.1);
+  color:#e2e8f0;
+  font-size:11.5px;
+  font-weight:600;
+  line-height:1.2;
+  transition:all 0.2s ease;
+}
+.exp-chip:hover{
+  border-color:rgba(56, 189, 248, 0.5);
+  color:#ffffff;
+  transform:translateY(-1px);
+}
+[data-theme="light"] .exp-chip{
+  background:rgba(241, 245, 249, 0.9);
+  border-color:rgba(15, 23, 42, 0.12);
+  color:#334155;
+}
+.exp-chip svg{color:#38bdf8;flex-shrink:0}
+
+/* Responsive Overrides */
+@media(max-width:1024px){
+  .exp-timeline-spine{left:20px}
+  .exp-timeline-row{
+    grid-template-columns:1fr;
+    gap:16px;
+    padding-left:42px;
+  }
+  .exp-timeline-node{
+    position:absolute;
+    left:10px;
+    top:16px;
+    height:auto;
+  }
+  .exp-date-card{
+    width:100%;
+    max-width:320px;
+  }
+}
+@media(max-width:680px){
+  .exp-header-row{flex-direction:column;align-items:flex-start;gap:18px}
+  .exp-header-capsule{
+    width:100%;
+    border-radius:18px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    padding:14px;
+  }
+  .exp-cap-item:not(:last-child){
+    border-right:none;
+    padding-right:0;
+  }
+  .exp-card-body{
+    grid-template-columns:1fr;
+  }
+  .exp-card-visual{display:none}
+  .exp-date-card{max-width:100%}
+  .exp-timeline-row{padding-left:36px}
+  .exp-timeline-spine{left:16px}
+  .exp-timeline-node{left:6px}
+}
 
 /* ACHIEVEMENTS */
 #achievements{display:block}
@@ -5258,185 +5851,419 @@ main{display:block}
 
 <!-- EXPERIENCE -->
 <section id="experience">
-  <div class="section-header-row fade-in">
-    <div class="section-header-left">
-      <div class="section-tag-inline">
-        <span>WORK HISTORY</span>
-        <span class="section-tag-rule" aria-hidden="true"></span>
+  <div class="exp-top-header fade-in">
+    <div class="exp-header-row">
+      <div class="exp-header-left">
+        <div class="exp-pill-badge">
+          <span class="badge-icon" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </span>
+          <span>WORK HISTORY</span>
+        </div>
+        <h2 class="exp-hero-title">
+          <span class="exp-title-white">Expe</span><span class="exp-title-grad">rience</span>
+        </h2>
+        <p class="exp-tagline">A 4+ year journey across full-stack development, technical support, and document automation.</p>
       </div>
-      <h2 class="section-hero-title">Experience</h2>
-      <p class="section-tagline">Experience across full-stack development, technical support, and document automation.</p>
-    </div>
-    <div class="section-header-strip" aria-label="Experience overview">
-      <div class="header-strip-item">
-        <div class="strip-icon-box strip-blue">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+
+      <!-- Right Header Capsule Stats -->
+      <div class="exp-header-capsule" aria-label="Experience overview stats">
+        <div class="exp-cap-item">
+          <div class="exp-cap-icon ec-violet" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div class="exp-cap-text">
+            <strong>4+</strong>
+            <span>Years Experience</span>
+          </div>
         </div>
-        <div class="strip-text">
-          <span class="strip-num">4+</span>
-          <span class="strip-label">Years Experience</span>
+        <div class="exp-cap-item">
+          <div class="exp-cap-icon ec-purple" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <div class="exp-cap-text">
+            <strong>1+</strong>
+            <span>Year Java Full Stack</span>
+          </div>
         </div>
-      </div>
-      <div class="header-strip-item">
-        <div class="strip-icon-box strip-purple">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        <div class="exp-cap-item">
+          <div class="exp-cap-icon ec-blue" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="exp-cap-text">
+            <strong>Chennai</strong>
+            <span>Based In</span>
+          </div>
         </div>
-        <div class="strip-text">
-          <span class="strip-num">1+</span>
-          <span class="strip-label">Year Java Full Stack</span>
-        </div>
-      </div>
-      <div class="header-strip-item">
-        <div class="strip-icon-box strip-magenta">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <div class="strip-text">
-          <span class="strip-num">Chennai</span>
-          <span class="strip-label">Based In</span>
-        </div>
-      </div>
-      <div class="header-strip-item">
-        <div class="strip-icon-box strip-cyan">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-        </div>
-        <div class="strip-text">
-          <span class="strip-num">Open</span>
-          <span class="strip-label">To New Opportunities</span>
+        <div class="exp-cap-item">
+          <div class="exp-cap-icon ec-cyan" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg>
+          </div>
+          <div class="exp-cap-text">
+            <strong>Open</strong>
+            <span>To New Opportunities</span>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="timeline-container fade-in">
-    <!-- Item 1: Approtech -->
-    <div class="timeline-row exp-item">
-      <div class="timeline-date-card">
-        <div class="t-date-main exp-date">Jun 2025 – Present</div>
-        <div class="t-date-sub">Current Role</div>
-        <div class="t-date-dur exp-type">
+  <div class="exp-timeline-container fade-in">
+    <!-- Center glowing vertical spine -->
+    <div class="exp-timeline-spine" aria-hidden="true"></div>
+
+    <!-- Row 1: Approtech -->
+    <div class="exp-timeline-row">
+      <!-- Left Date Card -->
+      <div class="exp-date-card ec-border-violet">
+        <div class="exp-date-period">Jun 2025 – Present</div>
+        <div class="exp-role-status rs-current">
+          <span class="rs-dot"></span>
+          <span>Current Role</span>
+        </div>
+        <div class="exp-duration-box">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          <span>1 Year 5 Months (Ongoing) <span class="exp-current-badge">Current</span></span>
+          <span>1 Year 5 Months (Ongoing)</span>
         </div>
       </div>
-      <div class="timeline-node">
-        <div class="t-dot-pulse"></div>
+
+      <!-- Center Node -->
+      <div class="exp-timeline-node node-violet" aria-hidden="true">
+        <div class="node-ring">
+          <div class="node-dot"></div>
+        </div>
       </div>
-      <div class="timeline-detail-card">
-        <div class="t-card-head">
-          <div class="t-card-brand">
-            <div class="company-logo-box approtech-logo" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 20L12 4L20 20"/><path d="M7 14h10"/></svg>
+
+      <!-- Right Experience Card -->
+      <div class="exp-detail-card card-violet">
+        <div class="exp-card-header">
+          <div class="exp-brand-row">
+            <div class="exp-company-logo" aria-hidden="true">
+              <svg width="34" height="34" viewBox="0 0 100 100">
+                <polygon points="50,12 88,88 12,88" fill="none" stroke="#2563eb" stroke-width="12" stroke-linejoin="round"/>
+                <polygon points="50,30 76,82 24,82" fill="#38bdf8"/>
+                <line x1="32" y1="62" x2="68" y2="62" stroke="#ffffff" stroke-width="8"/>
+              </svg>
+              <span class="logo-subtext">APPROTECH</span>
             </div>
-            <div>
-              <div class="company-sub exp-company">APPROTECH R&amp;D SOLUTIONS PVT. LTD.</div>
-              <h3 class="role-title exp-role">Java Full Stack Developer</h3>
+            <div class="exp-title-block">
+              <span class="exp-company-name">APPROTECH R&amp;D SOLUTIONS PVT. LTD.</span>
+              <h3 class="exp-role-title">Java Full Stack Developer</h3>
             </div>
           </div>
-          <span class="t-status-pill pill-current">Current</span>
+          <div class="exp-badge-current">
+            <span class="bc-dot"></span>
+            <span>Current</span>
+          </div>
         </div>
-        <ul class="t-bullets exp-bullets">
-          <li>Designed and implemented REST APIs using Spring Boot, Spring MVC and JPA/Hibernate.</li>
-          <li>Engineered RBAC using Spring Security and JWT, securing all API endpoints across user roles.</li>
-          <li>Applied pagination, SQL indexing and N+1 query handling while integrating React frontends.</li>
-          <li>Containerized the application with Docker and configured GitHub Actions CI/CD pipelines for automated builds.</li>
-          <li>Wrote JUnit 5 and Mockito tests for service-layer validation.</li>
-        </ul>
-        <div class="t-tech-tags exp-tags">
-          <span class="t-tag exp-tag"><span class="tag-ic">☕</span>Java</span>
-          <span class="t-tag exp-tag"><span class="tag-ic">🌱</span>Spring Boot</span>
-          <span class="t-tag exp-tag"><span class="tag-ic">⚙️</span>Spring MVC</span>
-          <span class="t-tag exp-tag"><span class="tag-ic">🛡️</span>Spring Security</span>
-          <span class="t-tag exp-tag"><span class="tag-ic">🗄️</span>JPA / Hibernate</span>
-          <span class="t-tag exp-tag"><span class="tag-ic">🔑</span>JWT</span>
-          <span class="t-tag exp-tag"><span class="tag-ic">⚛️</span>React</span>
-          <span class="t-tag exp-tag"><span class="tag-ic">🐬</span>MySQL</span>
-          <span class="t-tag exp-tag"><span class="tag-ic">🐳</span>Docker</span>
-          <span class="t-tag exp-tag"><span class="tag-ic">🔄</span>GitHub Actions</span>
-          <span class="t-tag exp-tag"><span class="tag-ic">🧪</span>JUnit</span>
+
+        <div class="exp-card-body">
+          <ul class="exp-bullet-list">
+            <li>
+              <span class="exp-check-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span>Designed and implemented REST APIs using Spring Boot, Spring MVC and JPA/Hibernate.</span>
+            </li>
+            <li>
+              <span class="exp-check-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span>Engineered RBAC using Spring Security and JWT, securing all API endpoints across user roles.</span>
+            </li>
+            <li>
+              <span class="exp-check-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span>Applied pagination, SQL indexing and N+1 query handling while integrating React frontends.</span>
+            </li>
+            <li>
+              <span class="exp-check-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span>Containerized the application with Docker and configured GitHub Actions CI/CD pipelines for automated builds.</span>
+            </li>
+            <li>
+              <span class="exp-check-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span>Wrote JUnit 5 and Mockito tests for service-layer validation.</span>
+            </li>
+          </ul>
+
+          <div class="exp-card-visual" aria-hidden="true">
+            <img src="assets/exp_ill_1.webp" alt="3D isometric laptop with code" width="135" height="115" loading="lazy">
+          </div>
+        </div>
+
+        <div class="exp-tech-strip">
+          <div class="exp-tech-label">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            <span>Tech Stack</span>
+          </div>
+          <div class="exp-tech-chips">
+            <span class="exp-chip">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+              <span>Java</span>
+            </span>
+            <span class="exp-chip">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M2.5 12c0-4.4 3.6-8 8-8 3.5 0 6.6 2.3 7.6 5.6-2.1.2-4.1 1.2-5.5 2.8-1.5 1.7-2.3 3.9-2.1 6.1-4.6-.2-8-3.7-8-6.5z"/></svg>
+              <span>Spring Boot</span>
+            </span>
+            <span class="exp-chip">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+              <span>Spring MVC</span>
+            </span>
+            <span class="exp-chip">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span>Spring Security</span>
+            </span>
+            <span class="exp-chip">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+              <span>JPA / Hibernate</span>
+            </span>
+            <span class="exp-chip">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="2.5"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(30 12 12)" fill="none" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(90 12 12)" fill="none" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(150 12 12)" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+              <span>React</span>
+            </span>
+            <span class="exp-chip">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M22 13.5c-.5-.3-1.4-.4-2-.2-.3-.5-.9-.9-1.6-.9-.3 0-.7.1-1 .3-.7-.7-1.8-1-2.9-.8-.4-.9-1.3-1.5-2.3-1.6-.3 0-.6 0-.9.1V6.5h-3v3H5v3.5H2v4.8c0 2.3 2.5 4.2 7 4.2 5.5 0 9.8-2.6 10.9-6.9.7-.1 1.4-.4 1.8-.9.4-.6.4-1.2.3-1.7z"/></svg>
+              <span>Docker</span>
+            </span>
+            <span class="exp-chip">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 9v12"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>
+              <span>GitHub Actions</span>
+            </span>
+            <span class="exp-chip">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 2v7.31M14 9.3V2M8.5 2h7M14 9.3a6.5 6.5 0 1 1-4 0"/></svg>
+              <span>JUnit</span>
+            </span>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Item 2: RR Donnelley -->
-    <div class="timeline-row exp-item">
-      <div class="timeline-date-card">
-        <div class="t-date-main exp-date">Jun 2022 – Dec 2024</div>
-        <div class="t-date-sub">Previous Role</div>
-        <div class="t-date-dur exp-type">
+    <!-- Row 2: RR Donnelley -->
+    <div class="exp-timeline-row">
+      <!-- Left Date Card -->
+      <div class="exp-date-card ec-border-blue">
+        <div class="exp-date-period">Jun 2022 – Dec 2024</div>
+        <div class="exp-role-status rs-previous">
+          <span class="rs-dot"></span>
+          <span>Previous Role</span>
+        </div>
+        <div class="exp-duration-box">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
           <span>2 Years 6 Months</span>
         </div>
       </div>
-      <div class="timeline-node">
-        <div class="t-dot-pulse"></div>
+
+      <!-- Center Node -->
+      <div class="exp-timeline-node node-blue" aria-hidden="true">
+        <div class="node-ring">
+          <div class="node-dot"></div>
+        </div>
       </div>
-      <div class="timeline-detail-card">
-        <div class="t-card-head">
-          <div class="t-card-brand">
-            <div class="company-logo-box rrd-logo" aria-hidden="true">RR</div>
-            <div>
-              <div class="company-sub exp-company">RR DONNELLEY</div>
-              <h3 class="role-title exp-role">CSA – Technical Support (Frontend Support)</h3>
+
+      <!-- Right Experience Card -->
+      <div class="exp-detail-card card-blue">
+        <div class="exp-card-header">
+          <div class="exp-brand-row">
+            <div class="exp-company-logo" aria-hidden="true">
+              <div class="rrd-logo-box">RR</div>
+              <span class="rrd-logo-sub">DONNELLEY</span>
+            </div>
+            <div class="exp-title-block">
+              <span class="exp-company-name">RR DONNELLEY</span>
+              <h3 class="exp-role-title">CSA – Technical Support (Frontend Support)</h3>
             </div>
           </div>
-          <span class="t-status-pill">2 Years 6 Months</span>
+          <div class="exp-badge-duration">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span>2 Years 6 Months</span>
+          </div>
         </div>
-        <ul class="t-bullets exp-bullets">
-          <li>Investigated and diagnosed REST API failures, frontend defects and deployment issues through root cause analysis.</li>
-          <li>Supported and maintained React-based UI components, issue resolution and sprint ticket triage in an Agile environment.</li>
-          <li>Collaborated with cross-functional teams for application maintenance and release deployments.</li>
-          <li>Analyzed application logs, debugged API and UI issues, and provided timely resolutions.</li>
-        </ul>
-        <div class="t-tech-tags exp-tags">
-          <span class="t-tag exp-tag"><span class="tag-ic">⚛️</span>React</span>
-          <span class="t-tag exp-tag"><span class="tag-ic">📜</span>JavaScript</span>
-          <span class="t-tag exp-tag"><span class="tag-ic">🌐</span>HTML5</span>
-          <span class="t-tag exp-tag"><span class="tag-ic">🎨</span>CSS3</span>
-          <span class="t-tag exp-tag"><span class="tag-ic">🔍</span>API Debugging</span>
-          <span class="t-tag exp-tag"><span class="tag-ic">⚡</span>Agile</span>
-          <span class="t-tag exp-tag"><span class="tag-ic">📋</span>Jira</span>
-          <span class="t-tag exp-tag"><span class="tag-ic">📮</span>Postman</span>
+
+        <div class="exp-card-body">
+          <ul class="exp-bullet-list">
+            <li>
+              <span class="exp-check-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span>Investigated and diagnosed REST API failures, frontend defects and deployment issues through root cause analysis.</span>
+            </li>
+            <li>
+              <span class="exp-check-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span>Supported and maintained React-based UI components, issue resolution and sprint ticket triage in an Agile environment.</span>
+            </li>
+            <li>
+              <span class="exp-check-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span>Collaborated with cross-functional teams for application maintenance and release deployments.</span>
+            </li>
+            <li>
+              <span class="exp-check-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span>Analyzed application logs, debugged API and UI issues, and provided timely resolutions.</span>
+            </li>
+          </ul>
+
+          <div class="exp-card-visual" aria-hidden="true">
+            <img src="assets/exp_ill_2.webp" alt="3D isometric browser window with gear" width="135" height="115" loading="lazy">
+          </div>
+        </div>
+
+        <div class="exp-tech-strip">
+          <div class="exp-tech-label">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            <span>Tech Stack</span>
+          </div>
+          <div class="exp-tech-chips">
+            <span class="exp-chip">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="2.5"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(30 12 12)" fill="none" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(90 12 12)" fill="none" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(150 12 12)" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+              <span>React</span>
+            </span>
+            <span class="exp-chip">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              <span>JavaScript</span>
+            </span>
+            <span class="exp-chip">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+              <span>HTML5</span>
+            </span>
+            <span class="exp-chip">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              <span>CSS3</span>
+            </span>
+            <span class="exp-chip">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <span>API Debugging</span>
+            </span>
+            <span class="exp-chip">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+              <span>Agile</span>
+            </span>
+            <span class="exp-chip">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="9" x2="15" y2="15"/><line x1="15" y1="9" x2="9" y2="15"/></svg>
+              <span>Jira</span>
+            </span>
+            <span class="exp-chip">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+              <span>Postman</span>
+            </span>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Item 3: Adecco -->
-    <div class="timeline-row exp-item">
-      <div class="timeline-date-card">
-        <div class="t-date-main exp-date">Nov 2021 – May 2022</div>
-        <div class="t-date-sub">Earlier Role</div>
-        <div class="t-date-dur exp-type">
+    <!-- Row 3: Adecco -->
+    <div class="exp-timeline-row">
+      <!-- Left Date Card -->
+      <div class="exp-date-card ec-border-purple">
+        <div class="exp-date-period">Nov 2021 – May 2022</div>
+        <div class="exp-role-status rs-earlier">
+          <span class="rs-dot"></span>
+          <span>Earlier Role</span>
+        </div>
+        <div class="exp-duration-box">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
           <span>6 Months</span>
         </div>
       </div>
-      <div class="timeline-node">
-        <div class="t-dot-pulse"></div>
+
+      <!-- Center Node -->
+      <div class="exp-timeline-node node-purple" aria-hidden="true">
+        <div class="node-ring">
+          <div class="node-dot"></div>
+        </div>
       </div>
-      <div class="timeline-detail-card">
-        <div class="t-card-head">
-          <div class="t-card-brand">
-            <div class="company-logo-box adecco-logo" aria-hidden="true">A</div>
-            <div>
-              <div class="company-sub exp-company">ADECCO</div>
-              <h3 class="role-title exp-role">Document Specialist</h3>
+
+      <!-- Right Experience Card -->
+      <div class="exp-detail-card card-purple">
+        <div class="exp-card-header">
+          <div class="exp-brand-row">
+            <div class="exp-company-logo" aria-hidden="true">
+              <div class="adecco-logo-box">Adecco</div>
+            </div>
+            <div class="exp-title-block">
+              <span class="exp-company-name">ADECCO</span>
+              <h3 class="exp-role-title">Document Specialist</h3>
             </div>
           </div>
-          <span class="t-status-pill">6 Months</span>
+          <div class="exp-badge-duration">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span>6 Months</span>
+          </div>
         </div>
-        <ul class="t-bullets exp-bullets">
-          <li>Automated repetitive document-processing workflows using scripting tools.</li>
-          <li>Handled data validation, file processing and document management as per business requirements.</li>
-          <li>Ensured accuracy and timely delivery of processed documents.</li>
-          <li>Created and maintained reports, performed document quality checks and resolved data discrepancies.</li>
-        </ul>
-        <div class="t-tech-tags exp-tags">
-          <span class="t-tag exp-tag"><span class="tag-ic">💻</span>Scripting</span>
-          <span class="t-tag exp-tag"><span class="tag-ic">⚙️</span>Automation</span>
-          <span class="t-tag exp-tag"><span class="tag-ic">📊</span>Data Processing</span>
-          <span class="t-tag exp-tag"><span class="tag-ic">📄</span>Document Management</span>
-          <span class="t-tag exp-tag"><span class="tag-ic">📈</span>Excel</span>
-          <span class="t-tag exp-tag"><span class="tag-ic">📁</span>File Handling</span>
+
+        <div class="exp-card-body">
+          <ul class="exp-bullet-list">
+            <li>
+              <span class="exp-check-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span>Automated repetitive document-processing workflows using scripting tools.</span>
+            </li>
+            <li>
+              <span class="exp-check-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span>Handled data validation, file processing and document management as per business requirements.</span>
+            </li>
+            <li>
+              <span class="exp-check-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span>Ensured accuracy and timely delivery of processed documents.</span>
+            </li>
+            <li>
+              <span class="exp-check-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span>Created and maintained reports, performed document quality checks and resolved data discrepancies.</span>
+            </li>
+          </ul>
+
+          <div class="exp-card-visual" aria-hidden="true">
+            <img src="assets/exp_ill_3.webp" alt="3D isometric document stack with check shield" width="135" height="115" loading="lazy">
+          </div>
+        </div>
+
+        <div class="exp-tech-strip">
+          <div class="exp-tech-label">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            <span>Tech Stack</span>
+          </div>
+          <div class="exp-tech-chips">
+            <span class="exp-chip">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+              <span>Scripting</span>
+            </span>
+            <span class="exp-chip">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+              <span>Automation</span>
+            </span>
+            <span class="exp-chip">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+              <span>Data Processing</span>
+            </span>
+            <span class="exp-chip">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              <span>Document Management</span>
+            </span>
+            <span class="exp-chip">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="3" y1="9" x2="21" y2="9"/></svg>
+              <span>Excel</span>
+            </span>
+            <span class="exp-chip">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+              <span>File Handling</span>
+            </span>
+          </div>
         </div>
       </div>
     </div>
