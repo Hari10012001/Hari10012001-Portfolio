@@ -1846,54 +1846,128 @@ h1.hero-name{
 
 /* ==================== PROJECTS SECTION ==================== */
 #projects{display:block;position:relative}
-.projects-top-header{margin-bottom:30px;max-width:100%;overflow:hidden;box-sizing:border-box}
+.projects-top-header{margin-bottom:28px}
 .projects-title-row{
   display:flex;
   align-items:flex-end;
   justify-content:space-between;
   gap:24px;
   flex-wrap:wrap;
+  margin-bottom:28px;
 }
+.projects-pill-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 14px;
+  border-radius:9999px;
+  background:rgba(147, 51, 234, 0.15);
+  border:1px solid rgba(168, 85, 247, 0.45);
+  color:#c084fc;
+  font-size:11.5px;
+  font-weight:700;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  margin-bottom:16px;
+  box-shadow:0 0 16px rgba(168, 85, 247, 0.22);
+}
+.projects-pill-badge .badge-icon{display:inline-flex;color:#e879f9}
+.projects-pill-badge .badge-dash{color:rgba(168, 85, 247, 0.6);margin-left:2px}
+[data-theme="light"] .projects-pill-badge{
+  background:rgba(147, 51, 234, 0.08);
+  border-color:rgba(147, 51, 234, 0.35);
+  color:#7e22ce;
+  box-shadow:none;
+}
+.projects-hero-title{
+  font-family:var(--font-head);
+  font-size:clamp(2.2rem, 3.8vw, 3.4rem);
+  font-weight:800;
+  line-height:1.15;
+  letter-spacing:-0.025em;
+  margin:0 0 12px;
+}
+.projects-title-white{
+  color:#ffffff;
+  text-shadow:0 2px 20px rgba(255,255,255,0.12);
+}
+[data-theme="light"] .projects-title-white{
+  color:#0f172a;
+  text-shadow:none;
+}
+.projects-title-accent{
+  background:linear-gradient(90deg, #a855f7 0%, #c084fc 35%, #38bdf8 80%, #22d3ee 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 0 18px rgba(168, 85, 247, 0.35));
+}
+.projects-tagline{
+  font-size:1.05rem;
+  color:rgba(226, 232, 240, 0.78);
+  margin:0;
+  font-weight:400;
+  max-width:850px;
+}
+[data-theme="light"] .projects-tagline{
+  color:#475569;
+}
+
+/* Category Filter Tabs Bar */
 .projects-filter-bar{
   display:flex;
-  gap:8px;
+  gap:10px;
   flex-wrap:wrap;
-  max-width:100%;
-  box-sizing:border-box;
+  align-items:center;
 }
 .filter-pill{
-  padding:8px 18px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:9px 18px;
   border-radius:9999px;
-  background:rgba(15, 23, 42, 0.7);
-  border:1px solid rgba(255, 255, 255, 0.12);
-  color:rgba(226, 232, 240, 0.75);
+  background:rgba(15, 23, 42, 0.78);
+  border:1px solid rgba(139, 92, 246, 0.28);
+  backdrop-filter:blur(12px);
+  color:rgba(226, 232, 240, 0.85);
   font-family:var(--font-head);
-  font-size:12px;
+  font-size:12.5px;
   font-weight:600;
   cursor:pointer;
-  transition:all 0.25s ease;
+  transition:all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow:0 4px 15px rgba(0, 0, 0, 0.2);
+}
+.filter-pill:hover{
+  border-color:rgba(56, 189, 248, 0.6);
+  color:#ffffff;
+  transform:translateY(-1px);
 }
 [data-theme="light"] .filter-pill{
   background:#ffffff;
-  border-color:rgba(20, 20, 43, 0.15);
+  border-color:rgba(99, 102, 241, 0.25);
   color:#475569;
+  box-shadow:0 2px 8px rgba(0,0,0,0.04);
 }
 .filter-pill.active{
   background:linear-gradient(135deg, #a855f7 0%, #3b82f6 100%);
   color:#ffffff;
   border-color:transparent;
-  box-shadow:0 0 16px rgba(168, 85, 247, 0.45);
+  box-shadow:0 0 20px rgba(168, 85, 247, 0.5);
+}
+.filter-icon{
+  display:inline-flex;
+  font-size:14px;
 }
 
+/* 3x2 Desktop Projects Grid */
 .projects-cyber-grid{
   display:grid;
   grid-template-columns:repeat(3, minmax(0, 1fr));
-  gap:22px;
+  gap:24px;
 }
 .proj-cyber-card{
-  background:rgba(10, 14, 35, 0.82);
+  background:rgba(10, 14, 34, 0.82);
   border:1px solid rgba(139, 92, 246, 0.28);
-  border-radius:18px;
+  border-radius:20px;
   overflow:hidden;
   backdrop-filter:blur(16px);
   display:flex;
@@ -1901,37 +1975,147 @@ h1.hero-name{
   height:100%;
   position:relative;
   z-index:1;
+  box-shadow:0 16px 40px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.05);
   transition:transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.35s ease;
 }
 [data-theme="light"] .proj-cyber-card{
   background:#ffffff;
-  border-color:rgba(99, 102, 241, 0.25);
-  box-shadow:0 12px 30px rgba(0,0,0,0.05);
+  border-color:rgba(99, 102, 241, 0.22);
+  box-shadow:0 10px 30px rgba(0,0,0,0.04);
 }
 .proj-cyber-card:hover{
   transform:translateY(-6px);
   z-index:5;
-  border-color:rgba(168, 85, 247, 0.65);
-  box-shadow:0 0 35px rgba(168, 85, 247, 0.28);
 }
+
+/* Category / Project Glow Theming */
+.proj-cyber-card.pc-crimson{
+  border-color:rgba(244, 63, 94, 0.4);
+  box-shadow:0 16px 40px rgba(0, 0, 0, 0.45), 0 0 16px rgba(244, 63, 94, 0.12);
+}
+.proj-cyber-card.pc-crimson:hover{
+  border-color:rgba(244, 63, 94, 0.85);
+  box-shadow:0 20px 45px rgba(0, 0, 0, 0.55), 0 0 32px rgba(244, 63, 94, 0.3);
+}
+.pc-crimson .proj-num{background:rgba(244, 63, 94, 0.2);border:1px solid rgba(244, 63, 94, 0.5);color:#fb7185}
+.pc-crimson .proj-icon-circle{background:rgba(244, 63, 94, 0.18);border:1px solid rgba(244, 63, 94, 0.45);color:#fb7185}
+.pc-crimson .proj-domain{color:#fb7185}
+
+.proj-cyber-card.pc-violet{
+  border-color:rgba(168, 85, 247, 0.4);
+  box-shadow:0 16px 40px rgba(0, 0, 0, 0.45), 0 0 16px rgba(168, 85, 247, 0.12);
+}
+.proj-cyber-card.pc-violet:hover{
+  border-color:rgba(168, 85, 247, 0.85);
+  box-shadow:0 20px 45px rgba(0, 0, 0, 0.55), 0 0 32px rgba(168, 85, 247, 0.3);
+}
+.pc-violet .proj-num{background:rgba(168, 85, 247, 0.2);border:1px solid rgba(168, 85, 247, 0.5);color:#c084fc}
+.pc-violet .proj-icon-circle{background:rgba(168, 85, 247, 0.18);border:1px solid rgba(168, 85, 247, 0.45);color:#c084fc}
+.pc-violet .proj-domain{color:#c084fc}
+
+.proj-cyber-card.pc-emerald{
+  border-color:rgba(16, 185, 129, 0.4);
+  box-shadow:0 16px 40px rgba(0, 0, 0, 0.45), 0 0 16px rgba(16, 185, 129, 0.12);
+}
+.proj-cyber-card.pc-emerald:hover{
+  border-color:rgba(16, 185, 129, 0.85);
+  box-shadow:0 20px 45px rgba(0, 0, 0, 0.55), 0 0 32px rgba(16, 185, 129, 0.3);
+}
+.pc-emerald .proj-num{background:rgba(16, 185, 129, 0.2);border:1px solid rgba(16, 185, 129, 0.5);color:#34d399}
+.pc-emerald .proj-icon-circle{background:rgba(16, 185, 129, 0.18);border:1px solid rgba(16, 185, 129, 0.45);color:#34d399}
+.pc-emerald .proj-domain{color:#34d399}
+
+.proj-cyber-card.pc-purple{
+  border-color:rgba(192, 132, 252, 0.4);
+  box-shadow:0 16px 40px rgba(0, 0, 0, 0.45), 0 0 16px rgba(192, 132, 252, 0.12);
+}
+.proj-cyber-card.pc-purple:hover{
+  border-color:rgba(192, 132, 252, 0.85);
+  box-shadow:0 20px 45px rgba(0, 0, 0, 0.55), 0 0 32px rgba(192, 132, 252, 0.3);
+}
+.pc-purple .proj-num{background:rgba(192, 132, 252, 0.2);border:1px solid rgba(192, 132, 252, 0.5);color:#e879f9}
+.pc-purple .proj-icon-circle{background:rgba(192, 132, 252, 0.18);border:1px solid rgba(192, 132, 252, 0.45);color:#e879f9}
+.pc-purple .proj-domain{color:#e879f9}
+
+.proj-cyber-card.pc-cyan{
+  border-color:rgba(56, 189, 248, 0.4);
+  box-shadow:0 16px 40px rgba(0, 0, 0, 0.45), 0 0 16px rgba(56, 189, 248, 0.12);
+}
+.proj-cyber-card.pc-cyan:hover{
+  border-color:rgba(56, 189, 248, 0.85);
+  box-shadow:0 20px 45px rgba(0, 0, 0, 0.55), 0 0 32px rgba(56, 189, 248, 0.3);
+}
+.pc-cyan .proj-num{background:rgba(56, 189, 248, 0.2);border:1px solid rgba(56, 189, 248, 0.5);color:#38bdf8}
+.pc-cyan .proj-icon-circle{background:rgba(56, 189, 248, 0.18);border:1px solid rgba(56, 189, 248, 0.45);color:#38bdf8}
+.pc-cyan .proj-domain{color:#38bdf8}
+
+.proj-cyber-card.pc-amber{
+  border-color:rgba(245, 158, 11, 0.4);
+  box-shadow:0 16px 40px rgba(0, 0, 0, 0.45), 0 0 16px rgba(245, 158, 11, 0.12);
+}
+.proj-cyber-card.pc-amber:hover{
+  border-color:rgba(245, 158, 11, 0.85);
+  box-shadow:0 20px 45px rgba(0, 0, 0, 0.55), 0 0 32px rgba(245, 158, 11, 0.3);
+}
+.pc-amber .proj-num{background:rgba(245, 158, 11, 0.2);border:1px solid rgba(245, 158, 11, 0.5);color:#fbbf24}
+.pc-amber .proj-icon-circle{background:rgba(245, 158, 11, 0.18);border:1px solid rgba(245, 158, 11, 0.45);color:#fbbf24}
+.pc-amber .proj-domain{color:#fbbf24}
+
+/* Card Visual Banner & Overlays */
 .proj-visual-banner{
   width:100%;
-  aspect-ratio:16 / 9.5;
-  max-height:170px;
+  position:relative;
+  height:175px;
   overflow:hidden;
   background:#070918;
-  border-bottom:1px solid rgba(139, 92, 246, 0.2);
+  border-bottom:1px solid rgba(255, 255, 255, 0.08);
 }
 .proj-visual-banner img{
   width:100%;
   height:100%;
   object-fit:cover;
   object-position:center;
-  transition:transform 0.4s ease;
+  transition:transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .proj-cyber-card:hover .proj-visual-banner img{
-  transform:scale(1.04);
+  transform:scale(1.05);
 }
+.proj-banner-overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  padding:14px;
+  pointer-events:none;
+  background:linear-gradient(180deg, rgba(7, 9, 24, 0.75) 0%, rgba(7, 9, 24, 0) 50%, rgba(7, 9, 24, 0.4) 100%);
+}
+.proj-num{
+  font-family:var(--font-head);
+  font-size:12.5px;
+  font-weight:800;
+  letter-spacing:0.04em;
+  padding:3px 12px;
+  border-radius:9999px;
+  backdrop-filter:blur(8px);
+}
+.proj-type-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:3px 12px;
+  border-radius:9999px;
+  background:rgba(15, 23, 42, 0.85);
+  border:1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter:blur(8px);
+  color:#e2e8f0;
+  font-family:var(--font-head);
+  font-size:11.5px;
+  font-weight:700;
+}
+.proj-type-badge svg{color:#38bdf8}
+
+/* Card Body & Content */
 .proj-card-body{
   padding:18px 20px 20px;
   display:flex;
@@ -1940,233 +2124,208 @@ h1.hero-name{
 }
 .proj-card-head{
   display:flex;
-  align-items:flex-start;
+  align-items:center;
   gap:12px;
-  margin-bottom:8px;
+  margin-bottom:10px;
 }
-.proj-badge-num{
-  width:30px;
-  height:30px;
+.proj-icon-circle{
+  width:36px;
+  height:36px;
   border-radius:50%;
-  background:linear-gradient(135deg, #3b82f6, #8b5cf6);
-  color:#ffffff;
-  font-family:var(--font-head);
-  font-size:12.5px;
-  font-weight:800;
   display:flex;
   align-items:center;
   justify-content:center;
   flex-shrink:0;
-  box-shadow:0 0 10px rgba(59, 130, 246, 0.5);
 }
 .proj-head-text{
-  flex:1;
-  min-height:46px;
+  display:flex;
+  flex-direction:column;
+  min-width:0;
 }
 .proj-title{
   font-family:var(--font-head);
-  font-size:17px;
-  font-weight:700;
-  color:#ffffff;
-  margin-bottom:3px;
+  font-size:16.5px;
+  font-weight:800;
   line-height:1.25;
-  min-height:24px;
-}
-[data-theme="light"] .proj-title{color:#0f172a}
-.proj-category-pill{
-  font-size:11.5px;
-  color:#38bdf8;
-  font-weight:500;
-  display:block;
-}
-[data-theme="light"] .proj-category-pill{color:#0284c7}
-.proj-desc{
-  font-size:12.5px;
-  color:rgba(226, 232, 240, 0.75);
-  line-height:1.58;
-  margin-bottom:14px;
-  min-height:62px;
-}
-[data-theme="light"] .proj-desc{color:#475569}
-
-.proj-feature-pills{
-  display:grid;
-  grid-template-columns:repeat(2, minmax(0, 1fr));
-  gap:6px;
-  margin-bottom:14px;
-  min-height:58px;
-}
-.feat-pill{
-  font-size:10.5px;
-  padding:4.5px 8px;
-  border-radius:8px;
-  background:rgba(15, 23, 42, 0.65);
-  border:1px solid rgba(255, 255, 255, 0.08);
-  color:rgba(226, 232, 240, 0.88);
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
+  color:#ffffff;
+  margin:0 0 2px;
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
 }
-[data-theme="light"] .feat-pill{
-  background:rgba(241, 245, 249, 0.8);
-  border-color:rgba(0,0,0,0.06);
-  color:#334155;
+[data-theme="light"] .proj-title{color:#0f172a}
+.proj-domain{
+  font-family:var(--font-head);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  line-height:1.2;
 }
-.feat-ic{font-size:11px}
+.proj-desc{
+  font-size:12.5px;
+  line-height:1.55;
+  color:rgba(226, 232, 240, 0.76);
+  margin:0 0 14px;
+  min-height:38px;
+}
+[data-theme="light"] .proj-desc{color:#475569}
 
-.proj-tech-chips{
+/* Feature Badges (Row 1) */
+.proj-features-row{
   display:flex;
   flex-wrap:wrap;
-  gap:5px;
-  margin-bottom:18px;
-  min-height:28px;
+  gap:6px;
+  margin-bottom:12px;
 }
-.tech-pill{
-  font-size:10.5px;
-  padding:3px 9px;
+.proj-feat-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:3.5px 9px;
   border-radius:9999px;
-  background:rgba(59, 130, 246, 0.1);
-  border:1px solid rgba(59, 130, 246, 0.25);
-  color:#93c5fd;
-  font-weight:500;
+  background:rgba(15, 23, 42, 0.82);
+  border:1px solid rgba(255, 255, 255, 0.1);
+  color:#e2e8f0;
+  font-size:11px;
+  font-weight:600;
+  line-height:1.2;
 }
-[data-theme="light"] .tech-pill{
-  background:rgba(99, 102, 241, 0.08);
-  border-color:rgba(99, 102, 241, 0.2);
-  color:#4338ca;
+[data-theme="light"] .proj-feat-pill{
+  background:rgba(241, 245, 249, 0.9);
+  border-color:rgba(15, 23, 42, 0.12);
+  color:#334155;
 }
+.proj-feat-pill svg{color:#38bdf8;flex-shrink:0}
 
-.proj-card-actions{
+/* Tech Badges (Row 2) */
+.proj-tech-row{
   display:flex;
-  gap:8px;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-bottom:18px;
   margin-top:auto;
-  min-height:42px;
 }
-.btn-proj-git{
-  flex:1;
+.proj-tech-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:4px 10px;
+  border-radius:9999px;
+  background:rgba(10, 14, 34, 0.9);
+  border:1px solid rgba(255, 255, 255, 0.12);
+  color:rgba(241, 245, 249, 0.92);
+  font-size:11.5px;
+  font-weight:600;
+  line-height:1.2;
+}
+[data-theme="light"] .proj-tech-pill{
+  background:rgba(248, 250, 252, 0.95);
+  border-color:rgba(15, 23, 42, 0.15);
+  color:#0f172a;
+}
+.proj-tech-pill.pt-react{border-color:rgba(56,189,248,0.4);color:#7dd3fc}
+.proj-tech-pill.pt-react svg{color:#38bdf8}
+.proj-tech-pill.pt-spring{border-color:rgba(34,197,94,0.4);color:#86efac}
+.proj-tech-pill.pt-spring svg{color:#22c55e}
+.proj-tech-pill.pt-security{border-color:rgba(59,130,246,0.4);color:#93c5fd}
+.proj-tech-pill.pt-security svg{color:#3b82f6}
+.proj-tech-pill.pt-mysql{border-color:rgba(20,184,166,0.4);color:#5eead4}
+.proj-tech-pill.pt-mysql svg{color:#14b8a6}
+
+/* Two Consistent CTA Buttons */
+.proj-card-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:auto;
+}
+.btn-proj-github{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  gap:7px;
-  padding:9px 14px;
-  border-radius:10px;
-  background:rgba(15, 23, 42, 0.8);
-  border:1px solid rgba(255, 255, 255, 0.15);
+  gap:8px;
+  padding:10px 16px;
+  border-radius:9999px;
+  background:rgba(15, 23, 42, 0.85);
+  border:1px solid rgba(255, 255, 255, 0.18);
   color:#ffffff;
   font-family:var(--font-head);
-  font-size:12px;
-  font-weight:600;
-  text-decoration:none;
-  transition:all 0.2s ease;
-}
-[data-theme="light"] .btn-proj-git{
-  background:#ffffff;
-  border-color:rgba(20, 20, 43, 0.2);
-  color:#1e293b;
-}
-.btn-proj-git:hover{
-  border-color:#38bdf8;
-  background:rgba(56, 189, 248, 0.12);
-}
-
-/* Full width repository button for verified open-source projects without live demo */
-.btn-proj-git.btn-proj-full{
-  width:100%;
-  flex:1 1 100%;
-  background:rgba(23, 17, 45, 0.85);
-  border:1px solid rgba(168, 85, 247, 0.4);
-  color:#f8fafc;
-  font-weight:600;
-  box-shadow:0 0 12px rgba(168, 85, 247, 0.15);
-}
-.btn-proj-git.btn-proj-full:hover{
-  background:rgba(168, 85, 247, 0.2);
-  border-color:rgba(168, 85, 247, 0.8);
-  color:#ffffff;
-  box-shadow:0 0 20px rgba(168, 85, 247, 0.35);
-  transform:translateY(-1px);
-}
-[data-theme="light"] .btn-proj-git.btn-proj-full{
-  background:#f8fafc;
-  border-color:rgba(99, 102, 241, 0.35);
-  color:#1e293b;
-  box-shadow:0 2px 8px rgba(99, 102, 241, 0.08);
-}
-[data-theme="light"] .btn-proj-git.btn-proj-full:hover{
-  background:rgba(99, 102, 241, 0.1);
-  border-color:#6366f1;
-}
-
-.btn-proj-demo{
-  flex:1;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:7px;
-  padding:9px 14px;
-  border-radius:10px;
-  background:linear-gradient(135deg, #a855f7 0%, #3b82f6 100%);
-  border:none;
-  color:#ffffff;
-  font-family:var(--font-head);
-  font-size:12px;
+  font-size:13px;
   font-weight:700;
   text-decoration:none;
-  box-shadow:0 0 15px rgba(168, 85, 247, 0.4);
-  transition:all 0.2s ease;
+  cursor:pointer;
+  transition:all 0.25s ease;
+  box-shadow:0 4px 12px rgba(0, 0, 0, 0.25);
 }
-.btn-proj-demo:hover{
-  box-shadow:0 0 25px rgba(168, 85, 247, 0.7);
-  transform:translateY(-1px);
+.btn-proj-github:hover{
+  background:rgba(30, 41, 59, 0.95);
+  border-color:rgba(255, 255, 255, 0.35);
+  transform:translateY(-2px);
+  color:#ffffff;
+  box-shadow:0 6px 18px rgba(0, 0, 0, 0.35);
 }
-
-@media(max-width:480px){
-  .site-header{padding:0 8px;top:10px}
-  .site-header nav{padding:6px 8px;gap:4px}
-  .nav-brand{gap:6px;padding:2px 4px}
-  .brand-name{font-size:13px}
-  .nav-actions{gap:4px}
-  .nav-cta{padding:7px 12px;font-size:11px;gap:5px}
-  .nav-cta span{display:none} /* Show iconic send button on ultra-compact mobile */
-  .nav-cta{padding:8px;border-radius:50%;min-width:36px;height:36px;justify-content:center}
-  
-  /* Hero portal scale on mobile */
-  .cyber-portal-wrapper{width:min(100%, 250px)}
-  .orbit-badge{width:36px;height:36px;font-size:16px;border-radius:10px}
-  .badge-orbit-java{top:-4px;left:24%}
-  .badge-orbit-spring{top:20%;left:-10px}
-  .badge-orbit-react{top:50%;left:-14px}
-  .badge-orbit-code{bottom:12%;left:0px}
-  .badge-orbit-cloud{top:16%;right:-8px}
-  .badge-orbit-mysql{top:56%;right:-12px}
-  
-  /* Mini stat card font size */
-  .mini-stat-text{font-size:14px}
+[data-theme="light"] .btn-proj-github{
+  background:#f1f5f9;
+  border-color:rgba(15, 23, 42, 0.18);
+  color:#0f172a;
+}
+[data-theme="light"] .btn-proj-github:hover{
+  background:#e2e8f0;
+  color:#0f172a;
+}
+.btn-proj-live{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:10px 16px;
+  border-radius:9999px;
+  background:linear-gradient(135deg, #a855f7 0%, #3b82f6 100%);
+  border:1px solid transparent;
+  color:#ffffff;
+  font-family:var(--font-head);
+  font-size:13px;
+  font-weight:700;
+  text-decoration:none;
+  cursor:pointer;
+  transition:all 0.25s ease;
+  box-shadow:0 0 18px rgba(168, 85, 247, 0.4);
+}
+.btn-proj-live:hover{
+  background:linear-gradient(135deg, #c084fc 0%, #60a5fa 100%);
+  transform:translateY(-2px);
+  box-shadow:0 0 25px rgba(168, 85, 247, 0.6);
+  color:#ffffff;
+}
+.btn-proj-disabled{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  padding:10px 16px;
+  border-radius:9999px;
+  background:rgba(30, 41, 59, 0.35);
+  border:1px solid rgba(255, 255, 255, 0.08);
+  color:rgba(148, 163, 184, 0.6);
+  font-family:var(--font-head);
+  font-size:12.5px;
+  font-weight:600;
+  cursor:not-allowed;
+  pointer-events:none;
+  user-select:none;
+}
+[data-theme="light"] .btn-proj-disabled{
+  background:rgba(226, 232, 240, 0.5);
+  border-color:rgba(15, 23, 42, 0.08);
+  color:#94a3b8;
 }
 
 /* Responsive Overrides */
-
 @media(max-width:1024px){
   .skills-cyber-grid{grid-template-columns:repeat(2, minmax(0, 1fr));gap:16px}
-  .projects-cyber-grid{grid-template-columns:repeat(2, minmax(0, 1fr));gap:20px}
-  .core-focus-grid{grid-template-columns:repeat(2, minmax(0, 1fr))}
-}
-@media(max-width:960px){
-  .about-two-col{grid-template-columns:1fr;gap:36px}
-  .about-right-col .journey-card{position:static}
-  .about-stat-row-4{grid-template-columns:repeat(2, minmax(0, 1fr))}
-  .core-focus-grid-nested{grid-template-columns:repeat(2, minmax(0, 1fr))}
-  .hero-main-grid{grid-template-columns:1fr;gap:48px}
-  .hero-right-col{order:-1;display:flex;justify-content:center;width:100%}
-  .clean-portrait-wrapper{width:min(65vw, 270px);height:min(65vw, 270px)}
-  .hero-stats-banner{grid-template-columns:repeat(3, minmax(0, 1fr))}
-}
-@media(max-width:768px){
-  .hero-stats-banner{grid-template-columns:1fr;gap:14px}
-  .core-focus-grid-nested{grid-template-columns:1fr}
+  .projects-cyber-grid{grid-template-columns:repeat(2, minmax(0, 1fr));gap:18px}
+  .about-two-col{grid-template-columns:1fr;gap:24px}
 }
 @media(max-width:680px){
   .skills-cyber-grid{grid-template-columns:1fr;gap:14px}
@@ -4575,288 +4734,520 @@ main{display:block}
   <div class="projects-top-header fade-in">
     <div class="projects-title-row">
       <div>
-        <div class="section-tag-inline">
-          <span>PROJECTS</span>
-          <span class="section-tag-rule" aria-hidden="true"></span>
+        <div class="projects-pill-badge">
+          <span class="badge-icon" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          </span>
+          <span>MY PROJECTS</span>
+          <span class="badge-dash" aria-hidden="true">—</span>
         </div>
-        <h2 class="section-hero-title">Featured Projects</h2>
-        <p class="section-tagline">Showcasing 6 featured full-stack applications built to solve real-world problems with clean design, secure backend development and modern web technologies.</p>
+        <h2 class="projects-hero-title">
+          <span class="projects-title-white">Featured </span><span class="projects-title-accent">Projects</span>
+        </h2>
+        <p class="projects-tagline">A collection of real-world, full-stack applications built with modern technologies, clean architecture and user-focused design.</p>
       </div>
 
       <!-- Category Filter Tabs matching mockup -->
       <div class="projects-filter-bar" role="tablist" aria-label="Project categories">
-        <button type="button" class="filter-pill active" data-filter="all" role="tab" aria-selected="true">All Projects</button>
-        <button type="button" class="filter-pill" data-filter="java-fullstack" role="tab" aria-selected="false">Java Full Stack</button>
-        <button type="button" class="filter-pill" data-filter="webapp" role="tab" aria-selected="false">Web Application</button>
-        <button type="button" class="filter-pill" data-filter="management" role="tab" aria-selected="false">Management System</button>
+        <button type="button" class="filter-pill active" data-filter="all" role="tab" aria-selected="true">
+          <span class="filter-icon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          </span>
+          <span>All Projects (6)</span>
+        </button>
+        <button type="button" class="filter-pill" data-filter="java-fullstack" role="tab" aria-selected="false">
+          <span class="filter-icon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          </span>
+          <span>Java Full Stack (6)</span>
+        </button>
+        <button type="button" class="filter-pill" data-filter="webapp" role="tab" aria-selected="false">
+          <span class="filter-icon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </span>
+          <span>Web Application (6)</span>
+        </button>
+        <button type="button" class="filter-pill" data-filter="management" role="tab" aria-selected="false">
+          <span class="filter-icon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          </span>
+          <span>Management System (5)</span>
+        </button>
+        <button type="button" class="filter-pill" data-filter="real-world" role="tab" aria-selected="false">
+          <span class="filter-icon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          </span>
+          <span>Real-World (6)</span>
+        </button>
       </div>
     </div>
   </div>
 
   <div class="projects-cyber-grid fade-in">
     <!-- Project 01: Smart Blood Bank Management System -->
-    <article class="proj-cyber-card" data-category="java-fullstack webapp management">
+    <article class="proj-cyber-card pc-crimson" data-category="java-fullstack webapp management real-world">
       <div class="proj-visual-banner">
-        <img src="assets/proj_1.webp" alt="Smart Blood Bank Management System Dashboard" loading="lazy" width="307" height="110">
+        <img src="assets/proj_1.webp" alt="Smart Blood Bank Management System Healthcare Dashboard" loading="lazy" width="600" height="338">
+        <div class="proj-banner-overlay">
+          <span class="proj-num">01</span>
+          <span class="proj-type-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            <span>Full Stack</span>
+          </span>
+        </div>
       </div>
       <div class="proj-card-body">
         <div class="proj-card-head">
-          <div class="proj-badge-num">01</div>
+          <div class="proj-icon-circle" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+          </div>
           <div class="proj-head-text">
             <h3 class="proj-title">Smart Blood Bank Management System</h3>
-            <span class="proj-category-pill">Healthcare &amp; Donor Management</span>
+            <span class="proj-domain">Healthcare &amp; Donor Management</span>
           </div>
         </div>
-        <p class="proj-desc">
-          Manage donors, blood stock, emergency requests, appointments and location-based search with real-time notifications.
-        </p>
+        <p class="proj-desc">Manage donors, blood stock, emergency requests, appointments and location-based search with real-time notifications.</p>
 
-        <!-- Feature Pills with mini icons -->
-        <div class="proj-feature-pills" aria-label="Key features">
-          <span class="feat-pill"><span class="feat-ic">👤</span>Donor Management</span>
-          <span class="feat-pill"><span class="feat-ic">🩸</span>Blood Stock Tracking</span>
-          <span class="feat-pill"><span class="feat-ic">➕</span>Emergency Requests</span>
-          <span class="feat-pill"><span class="feat-ic">📍</span>Location Search</span>
+        <!-- Feature Pills Row 1 -->
+        <div class="proj-features-row" aria-label="Key features">
+          <span class="proj-feat-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span>Donor Management</span>
+          </span>
+          <span class="proj-feat-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+            <span>Blood Stock</span>
+          </span>
+          <span class="proj-feat-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span>Appointments</span>
+          </span>
+          <span class="proj-feat-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <span>Alerts</span>
+          </span>
         </div>
 
-        <!-- Tech Stack Chips -->
-        <div class="proj-tech-chips" aria-label="Technologies used">
-          <span class="tech-pill">Java 21</span>
-          <span class="tech-pill">Spring Boot</span>
-          <span class="tech-pill">Spring Security</span>
-          <span class="tech-pill">MySQL</span>
-          <span class="tech-pill">React.js</span>
+        <!-- Tech Badges Row 2 -->
+        <div class="proj-tech-row" aria-label="Technologies used">
+          <span class="proj-tech-pill pt-react">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="2.5"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(30 12 12)" fill="none" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(90 12 12)" fill="none" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(150 12 12)" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+            <span>React</span>
+          </span>
+          <span class="proj-tech-pill pt-spring">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M2.5 12c0-4.4 3.6-8 8-8 3.5 0 6.6 2.3 7.6 5.6-2.1.2-4.1 1.2-5.5 2.8-1.5 1.7-2.3 3.9-2.1 6.1-4.6-.2-8-3.7-8-6.5z"/></svg>
+            <span>Spring Boot</span>
+          </span>
+          <span class="proj-tech-pill pt-security">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Spring Security</span>
+          </span>
+          <span class="proj-tech-pill pt-mysql">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            <span>MySQL</span>
+          </span>
         </div>
 
         <!-- Action CTAs -->
         <div class="proj-card-actions">
-          <a class="btn-proj-git btn-proj-full" data-link="GITHUB_URL_BLOOD_BANK" href="https://github.com/Hari10012001/blood-bank-donor-emergency-request-management-system" target="_blank" rel="noopener noreferrer" aria-label="Smart Blood Bank Management System: GitHub repository (opens in new tab)">
+          <a class="btn-proj-github" data-link="GITHUB_URL_BLOOD_BANK" href="https://github.com/Hari10012001/blood-bank-donor-emergency-request-management-system" target="_blank" rel="noopener noreferrer" aria-label="Smart Blood Bank Management System: GitHub repository (opens in new tab)">
             <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.929.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
-            <span>View Repository ↗</span>
+            <span>GitHub</span>
           </a>
+          <span class="btn-proj-disabled" aria-disabled="true">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+            <span>Demo Unavailable</span>
+          </span>
         </div>
       </div>
     </article>
 
     <!-- Project 02: DonationDesk -->
-    <article class="proj-cyber-card" data-category="java-fullstack webapp management">
+    <article class="proj-cyber-card pc-violet" data-category="java-fullstack webapp management real-world">
       <div class="proj-visual-banner">
-        <img src="assets/proj_2.webp" alt="DonationDesk Community Management Dashboard" loading="lazy" width="307" height="110">
+        <img src="assets/proj_2.webp" alt="DonationDesk Community & Social-Service Management Dashboard" loading="lazy" width="600" height="338">
+        <div class="proj-banner-overlay">
+          <span class="proj-num">02</span>
+          <span class="proj-type-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            <span>Full Stack</span>
+          </span>
+        </div>
       </div>
       <div class="proj-card-body">
         <div class="proj-card-head">
-          <div class="proj-badge-num">02</div>
+          <div class="proj-icon-circle" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+          </div>
           <div class="proj-head-text">
             <h3 class="proj-title">DonationDesk</h3>
-            <span class="proj-category-pill">Community &amp; Social-Service Management</span>
+            <span class="proj-domain">Community &amp; Social-Service Management</span>
           </div>
         </div>
-        <p class="proj-desc">
-          Handle donation requests, inventory, distribution and beneficiary management with role-based access and detailed tracking.
-        </p>
+        <p class="proj-desc">Handle donation requests, inventory, distribution and beneficiary management with role-based access and detailed tracking.</p>
 
-        <!-- Feature Pills with mini icons -->
-        <div class="proj-feature-pills" aria-label="Key features">
-          <span class="feat-pill"><span class="feat-ic">❤️</span>Donation Management</span>
-          <span class="feat-pill"><span class="feat-ic">📦</span>Inventory Tracking</span>
-          <span class="feat-pill"><span class="feat-ic">👥</span>Beneficiary Requests</span>
-          <span class="feat-pill"><span class="feat-ic">📊</span>Reports &amp; Analytics</span>
+        <!-- Feature Pills Row 1 -->
+        <div class="proj-features-row" aria-label="Key features">
+          <span class="proj-feat-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            <span>Donation Requests</span>
+          </span>
+          <span class="proj-feat-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+            <span>Inventory Tracking</span>
+          </span>
+          <span class="proj-feat-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span>Beneficiaries</span>
+          </span>
+          <span class="proj-feat-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            <span>Reports</span>
+          </span>
         </div>
 
-        <!-- Tech Stack Chips -->
-        <div class="proj-tech-chips" aria-label="Technologies used">
-          <span class="tech-pill">Java 21</span>
-          <span class="tech-pill">Spring Boot</span>
-          <span class="tech-pill">Spring Security</span>
-          <span class="tech-pill">MySQL</span>
-          <span class="tech-pill">Bootstrap</span>
+        <!-- Tech Badges Row 2 -->
+        <div class="proj-tech-row" aria-label="Technologies used">
+          <span class="proj-tech-pill pt-react">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="2.5"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(30 12 12)" fill="none" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(90 12 12)" fill="none" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(150 12 12)" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+            <span>React</span>
+          </span>
+          <span class="proj-tech-pill pt-spring">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M2.5 12c0-4.4 3.6-8 8-8 3.5 0 6.6 2.3 7.6 5.6-2.1.2-4.1 1.2-5.5 2.8-1.5 1.7-2.3 3.9-2.1 6.1-4.6-.2-8-3.7-8-6.5z"/></svg>
+            <span>Spring Boot</span>
+          </span>
+          <span class="proj-tech-pill pt-security">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Spring Security</span>
+          </span>
+          <span class="proj-tech-pill pt-mysql">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            <span>MySQL</span>
+          </span>
         </div>
 
         <!-- Action CTAs -->
         <div class="proj-card-actions">
-          <a class="btn-proj-git btn-proj-full" data-link="GITHUB_URL_DONATIONDESK" href="https://github.com/Hari10012001/DonationDesk" target="_blank" rel="noopener noreferrer" aria-label="DonationDesk: GitHub repository (opens in new tab)">
+          <a class="btn-proj-github" data-link="GITHUB_URL_DONATIONDESK" href="https://github.com/Hari10012001/DonationDesk" target="_blank" rel="noopener noreferrer" aria-label="DonationDesk: GitHub repository (opens in new tab)">
             <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.929.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
-            <span>View Repository ↗</span>
+            <span>GitHub</span>
           </a>
+          <span class="btn-proj-disabled" aria-disabled="true">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+            <span>Demo Unavailable</span>
+          </span>
         </div>
       </div>
     </article>
 
     <!-- Project 03: WarrantyWise -->
-    <article class="proj-cyber-card" data-category="java-fullstack webapp management">
+    <article class="proj-cyber-card pc-emerald" data-category="java-fullstack webapp management real-world">
       <div class="proj-visual-banner">
-        <img src="assets/proj_3.webp" alt="WarrantyWise Product and Warranty Tracker" loading="lazy" width="307" height="110">
+        <img src="assets/proj_3.webp" alt="WarrantyWise Product and Warranty Tracker Dashboard" loading="lazy" width="600" height="338">
+        <div class="proj-banner-overlay">
+          <span class="proj-num">03</span>
+          <span class="proj-type-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            <span>Full Stack</span>
+          </span>
+        </div>
       </div>
       <div class="proj-card-body">
         <div class="proj-card-head">
-          <div class="proj-badge-num">03</div>
+          <div class="proj-icon-circle" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 12 15 16 10"/></svg>
+          </div>
           <div class="proj-head-text">
             <h3 class="proj-title">WarrantyWise</h3>
-            <span class="proj-category-pill">Warranty &amp; Asset Management</span>
+            <span class="proj-domain">Warranty &amp; Asset Management</span>
           </div>
         </div>
-        <p class="proj-desc">
-          Track products, warranty periods, service history, renewal reminders and generate reports with analytics.
-        </p>
+        <p class="proj-desc">Track products, warranty periods, service history, renewal reminders and generate reports with analytics.</p>
 
-        <!-- Feature Pills with mini icons -->
-        <div class="proj-feature-pills" aria-label="Key features">
-          <span class="feat-pill"><span class="feat-ic">📦</span>Product Tracking</span>
-          <span class="feat-pill"><span class="feat-ic">⏰</span>Warranty Reminders</span>
-          <span class="feat-pill"><span class="feat-ic">🔧</span>Service History</span>
-          <span class="feat-pill"><span class="feat-ic">📊</span>Reports &amp; Analytics</span>
+        <!-- Feature Pills Row 1 -->
+        <div class="proj-features-row" aria-label="Key features">
+          <span class="proj-feat-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            <span>Product Tracking</span>
+          </span>
+          <span class="proj-feat-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Warranty Reminders</span>
+          </span>
+          <span class="proj-feat-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            <span>Service History</span>
+          </span>
+          <span class="proj-feat-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            <span>Analytics</span>
+          </span>
         </div>
 
-        <!-- Tech Stack Chips -->
-        <div class="proj-tech-chips" aria-label="Technologies used">
-          <span class="tech-pill">Java 21</span>
-          <span class="tech-pill">Spring Boot</span>
-          <span class="tech-pill">Spring Security</span>
-          <span class="tech-pill">MySQL</span>
-          <span class="tech-pill">Bootstrap</span>
+        <!-- Tech Badges Row 2 -->
+        <div class="proj-tech-row" aria-label="Technologies used">
+          <span class="proj-tech-pill pt-react">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="2.5"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(30 12 12)" fill="none" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(90 12 12)" fill="none" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(150 12 12)" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+            <span>React</span>
+          </span>
+          <span class="proj-tech-pill pt-spring">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M2.5 12c0-4.4 3.6-8 8-8 3.5 0 6.6 2.3 7.6 5.6-2.1.2-4.1 1.2-5.5 2.8-1.5 1.7-2.3 3.9-2.1 6.1-4.6-.2-8-3.7-8-6.5z"/></svg>
+            <span>Spring Boot</span>
+          </span>
+          <span class="proj-tech-pill pt-security">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Spring Security</span>
+          </span>
+          <span class="proj-tech-pill pt-mysql">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            <span>MySQL</span>
+          </span>
         </div>
 
         <!-- Action CTAs -->
         <div class="proj-card-actions">
-          <a class="btn-proj-git" data-link="GITHUB_URL_WARRANTYWISE" href="https://github.com/Hari10012001/WarrantyWise-" target="_blank" rel="noopener noreferrer" aria-label="WarrantyWise: GitHub repository (opens in new tab)">
+          <a class="btn-proj-github" data-link="GITHUB_URL_WARRANTYWISE" href="https://github.com/Hari10012001/WarrantyWise-" target="_blank" rel="noopener noreferrer" aria-label="WarrantyWise: GitHub repository (opens in new tab)">
             <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.929.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
             <span>GitHub</span>
           </a>
-          <a class="btn-proj-demo" data-link="LIVE_DEMO_URL_WARRANTYWISE" href="https://warrantywise-tg3t.onrender.com" target="_blank" rel="noopener noreferrer" aria-label="WarrantyWise: Live demo deployment on Render (opens in new tab)">
+          <a class="btn-proj-live" data-link="LIVE_DEMO_URL_WARRANTYWISE" href="https://warrantywise-tg3t.onrender.com" target="_blank" rel="noopener noreferrer" aria-label="WarrantyWise: Live demo deployment on Render (opens in new tab)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             <span>Live Demo ↗</span>
           </a>
         </div>
       </div>
     </article>
 
-    <!-- Project 04: FoundIt -->
-    <article class="proj-cyber-card" data-category="java-fullstack webapp">
+    <!-- Project 04: AI-Powered Expense Analyzer -->
+    <article class="proj-cyber-card pc-purple" data-category="java-fullstack webapp real-world">
       <div class="proj-visual-banner">
-        <img src="assets/proj_4.webp" alt="FoundIt Lost and Found Asset Tracking" loading="lazy" width="307" height="110">
+        <img src="assets/proj_4.webp" alt="AI-Powered Expense Analyzer Analytics Dashboard" loading="lazy" width="600" height="338">
+        <div class="proj-banner-overlay">
+          <span class="proj-num">04</span>
+          <span class="proj-type-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            <span>Full Stack</span>
+          </span>
+        </div>
       </div>
       <div class="proj-card-body">
         <div class="proj-card-head">
-          <div class="proj-badge-num">04</div>
+          <div class="proj-icon-circle" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
           <div class="proj-head-text">
-            <h3 class="proj-title">FoundIt</h3>
-            <span class="proj-category-pill">Lost &amp; Found Asset Tracking</span>
+            <h3 class="proj-title">AI-Powered Expense Analyzer</h3>
+            <span class="proj-domain">Personal Finance &amp; Expense Insights</span>
           </div>
         </div>
-        <p class="proj-desc">
-          Post and search lost &amp; found items, claim ownership with verification and manage listings with admin review workflows.
-        </p>
+        <p class="proj-desc">Track income and expenses, categorize spending and get AI-powered insights with detailed reports and visual analytics.</p>
 
-        <!-- Feature Pills with mini icons -->
-        <div class="proj-feature-pills" aria-label="Key features">
-          <span class="feat-pill"><span class="feat-ic">📦</span>Post Lost Items</span>
-          <span class="feat-pill"><span class="feat-ic">🔍</span>Search &amp; Filter</span>
-          <span class="feat-pill"><span class="feat-ic">🛡️</span>Claim Verification</span>
-          <span class="feat-pill"><span class="feat-ic">👤</span>Admin Management</span>
+        <!-- Feature Pills Row 1 -->
+        <div class="proj-features-row" aria-label="Key features">
+          <span class="proj-feat-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            <span>Expense Tracking</span>
+          </span>
+          <span class="proj-feat-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+            <span>Categories</span>
+          </span>
+          <span class="proj-feat-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <span>AI Insights</span>
+          </span>
+          <span class="proj-feat-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            <span>Reports</span>
+          </span>
         </div>
 
-        <!-- Tech Stack Chips -->
-        <div class="proj-tech-chips" aria-label="Technologies used">
-          <span class="tech-pill">Java 21</span>
-          <span class="tech-pill">Spring Boot</span>
-          <span class="tech-pill">MySQL</span>
-          <span class="tech-pill">Bootstrap</span>
-          <span class="tech-pill">JavaScript</span>
+        <!-- Tech Badges Row 2 -->
+        <div class="proj-tech-row" aria-label="Technologies used">
+          <span class="proj-tech-pill pt-react">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="2.5"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(30 12 12)" fill="none" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(90 12 12)" fill="none" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(150 12 12)" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+            <span>React</span>
+          </span>
+          <span class="proj-tech-pill pt-spring">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M2.5 12c0-4.4 3.6-8 8-8 3.5 0 6.6 2.3 7.6 5.6-2.1.2-4.1 1.2-5.5 2.8-1.5 1.7-2.3 3.9-2.1 6.1-4.6-.2-8-3.7-8-6.5z"/></svg>
+            <span>Spring Boot</span>
+          </span>
+          <span class="proj-tech-pill pt-security">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Spring Security</span>
+          </span>
+          <span class="proj-tech-pill pt-mysql">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            <span>MySQL</span>
+          </span>
         </div>
 
         <!-- Action CTAs -->
         <div class="proj-card-actions">
-          <a class="btn-proj-git btn-proj-full" data-link="GITHUB_URL_FOUNDIT" href="https://github.com/Hari10012001/FoundIt-Lost-and-Found-Asset-Tracking-Platform" target="_blank" rel="noopener noreferrer" aria-label="FoundIt: GitHub repository (opens in new tab)">
+          <a class="btn-proj-github" data-link="GITHUB_URL_EXPENSE_ANALYZER" href="https://github.com/Hari10012001/AI-Powered-Expense-Analyzer" target="_blank" rel="noopener noreferrer" aria-label="AI-Powered Expense Analyzer: GitHub repository (opens in new tab)">
             <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.929.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
-            <span>View Repository ↗</span>
+            <span>GitHub</span>
           </a>
+          <span class="btn-proj-disabled" aria-disabled="true">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+            <span>Demo Unavailable</span>
+          </span>
         </div>
       </div>
     </article>
 
-    <!-- Project 05: AI-Powered Expense Analyzer -->
-    <article class="proj-cyber-card" data-category="java-fullstack webapp management">
+    <!-- Project 05: FoundIt -->
+    <article class="proj-cyber-card pc-cyan" data-category="java-fullstack webapp management real-world">
       <div class="proj-visual-banner">
-        <img src="assets/proj_5.webp" alt="AI Powered Expense Analyzer Analytics Dashboard" loading="lazy" width="307" height="110">
+        <img src="assets/proj_5.webp" alt="FoundIt Lost and Found Asset Tracking Dashboard" loading="lazy" width="600" height="338">
+        <div class="proj-banner-overlay">
+          <span class="proj-num">05</span>
+          <span class="proj-type-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            <span>Full Stack</span>
+          </span>
+        </div>
       </div>
       <div class="proj-card-body">
         <div class="proj-card-head">
-          <div class="proj-badge-num">05</div>
+          <div class="proj-icon-circle" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
           <div class="proj-head-text">
-            <h3 class="proj-title">AI-Powered Expense Analyzer</h3>
-            <span class="proj-category-pill">Finance &amp; Expense Management</span>
+            <h3 class="proj-title">FoundIt</h3>
+            <span class="proj-domain">Lost &amp; Found Management</span>
           </div>
         </div>
-        <p class="proj-desc">
-          Track income and expenses, view analytics and scan bills using OCR for quick entry and smart categorization.
-        </p>
+        <p class="proj-desc">Report and find lost items, track claims, and manage item listings with status updates and notifications.</p>
 
-        <!-- Feature Pills with mini icons -->
-        <div class="proj-feature-pills" aria-label="Key features">
-          <span class="feat-pill"><span class="feat-ic">💳</span>Expense Tracking</span>
-          <span class="feat-pill"><span class="feat-ic">🧾</span>Bill OCR Scanning</span>
-          <span class="feat-pill"><span class="feat-ic">📊</span>Category Analytics</span>
-          <span class="feat-pill"><span class="feat-ic">📈</span>Reports &amp; Charts</span>
+        <!-- Feature Pills Row 1 -->
+        <div class="proj-features-row" aria-label="Key features">
+          <span class="proj-feat-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <span>Report Item</span>
+          </span>
+          <span class="proj-feat-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <span>Find Item</span>
+          </span>
+          <span class="proj-feat-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Claim &amp; Track</span>
+          </span>
+          <span class="proj-feat-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <span>Notifications</span>
+          </span>
         </div>
 
-        <!-- Tech Stack Chips -->
-        <div class="proj-tech-chips" aria-label="Technologies used">
-          <span class="tech-pill">Java 21</span>
-          <span class="tech-pill">Servlet / JSP</span>
-          <span class="tech-pill">MySQL</span>
-          <span class="tech-pill">Tesseract OCR</span>
-          <span class="tech-pill">Chart.js</span>
+        <!-- Tech Badges Row 2 -->
+        <div class="proj-tech-row" aria-label="Technologies used">
+          <span class="proj-tech-pill pt-react">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="2.5"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(30 12 12)" fill="none" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(90 12 12)" fill="none" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(150 12 12)" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+            <span>React</span>
+          </span>
+          <span class="proj-tech-pill pt-spring">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M2.5 12c0-4.4 3.6-8 8-8 3.5 0 6.6 2.3 7.6 5.6-2.1.2-4.1 1.2-5.5 2.8-1.5 1.7-2.3 3.9-2.1 6.1-4.6-.2-8-3.7-8-6.5z"/></svg>
+            <span>Spring Boot</span>
+          </span>
+          <span class="proj-tech-pill pt-security">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Spring Security</span>
+          </span>
+          <span class="proj-tech-pill pt-mysql">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            <span>MySQL</span>
+          </span>
         </div>
 
         <!-- Action CTAs -->
         <div class="proj-card-actions">
-          <a class="btn-proj-git btn-proj-full" data-link="GITHUB_URL_EXPENSE_ANALYZER" href="https://github.com/Hari10012001/AI-Powered-Expense-Analyzer" target="_blank" rel="noopener noreferrer" aria-label="AI-Powered Expense Analyzer: GitHub repository (opens in new tab)">
+          <a class="btn-proj-github" data-link="GITHUB_URL_FOUNDIT" href="https://github.com/Hari10012001/FoundIt-Lost-and-Found-Asset-Tracking-Platform" target="_blank" rel="noopener noreferrer" aria-label="FoundIt: GitHub repository (opens in new tab)">
             <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.929.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
-            <span>View Repository ↗</span>
+            <span>GitHub</span>
           </a>
+          <span class="btn-proj-disabled" aria-disabled="true">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+            <span>Demo Unavailable</span>
+          </span>
         </div>
       </div>
     </article>
 
     <!-- Project 06: RideRent -->
-    <article class="proj-cyber-card" data-category="java-fullstack webapp management">
+    <article class="proj-cyber-card pc-amber" data-category="java-fullstack webapp management real-world">
       <div class="proj-visual-banner">
-        <img src="assets/proj_6.webp" alt="RideRent Vehicle Rental Management System" loading="lazy" width="307" height="110">
+        <img src="assets/proj_6.webp" alt="RideRent Vehicle Rental Management System Dashboard" loading="lazy" width="600" height="338">
+        <div class="proj-banner-overlay">
+          <span class="proj-num">06</span>
+          <span class="proj-type-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            <span>Full Stack</span>
+          </span>
+        </div>
       </div>
       <div class="proj-card-body">
         <div class="proj-card-head">
-          <div class="proj-badge-num">06</div>
+          <div class="proj-icon-circle" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M5 17H3v-4l2-5h9l4 5h1a2 2 0 0 1 2 2v2h-2"/><polyline points="9 5 14 5 14 9"/></svg>
+          </div>
           <div class="proj-head-text">
             <h3 class="proj-title">RideRent</h3>
-            <span class="proj-category-pill">Vehicle Rental Management</span>
+            <span class="proj-domain">Vehicle Rental Management</span>
           </div>
         </div>
-        <p class="proj-desc">
-          Manage vehicle inventory, customer registration, bookings, rental history and availability with a simple and clean workflow.
-        </p>
+        <p class="proj-desc">Rent bikes and cars, manage bookings, vehicle availability and generate rental reports for admins.</p>
 
-        <!-- Feature Pills with mini icons -->
-        <div class="proj-feature-pills" aria-label="Key features">
-          <span class="feat-pill"><span class="feat-ic">🚗</span>Vehicle Management</span>
-          <span class="feat-pill"><span class="feat-ic">📋</span>Booking System</span>
-          <span class="feat-pill"><span class="feat-ic">👤</span>Customer Management</span>
-          <span class="feat-pill"><span class="feat-ic">📊</span>Reports &amp; Analytics</span>
+        <!-- Feature Pills Row 1 -->
+        <div class="proj-features-row" aria-label="Key features">
+          <span class="proj-feat-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M5 17H3v-4l2-5h9l4 5h1a2 2 0 0 1 2 2v2h-2"/></svg>
+            <span>Vehicle Listing</span>
+          </span>
+          <span class="proj-feat-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span>Bookings</span>
+          </span>
+          <span class="proj-feat-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            <span>Payments</span>
+          </span>
+          <span class="proj-feat-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            <span>Reports</span>
+          </span>
         </div>
 
-        <!-- Tech Stack Chips -->
-        <div class="proj-tech-chips" aria-label="Technologies used">
-          <span class="tech-pill">Java 21</span>
-          <span class="tech-pill">Spring Boot</span>
-          <span class="tech-pill">MySQL</span>
-          <span class="tech-pill">Bootstrap</span>
-          <span class="tech-pill">JavaScript</span>
+        <!-- Tech Badges Row 2 -->
+        <div class="proj-tech-row" aria-label="Technologies used">
+          <span class="proj-tech-pill pt-react">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="2.5"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(30 12 12)" fill="none" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(90 12 12)" fill="none" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(150 12 12)" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+            <span>React</span>
+          </span>
+          <span class="proj-tech-pill pt-spring">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M2.5 12c0-4.4 3.6-8 8-8 3.5 0 6.6 2.3 7.6 5.6-2.1.2-4.1 1.2-5.5 2.8-1.5 1.7-2.3 3.9-2.1 6.1-4.6-.2-8-3.7-8-6.5z"/></svg>
+            <span>Spring Boot</span>
+          </span>
+          <span class="proj-tech-pill pt-security">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Spring Security</span>
+          </span>
+          <span class="proj-tech-pill pt-mysql">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            <span>MySQL</span>
+          </span>
         </div>
 
         <!-- Action CTAs -->
         <div class="proj-card-actions">
-          <a class="btn-proj-git btn-proj-full" data-link="GITHUB_URL_RIDE_RENT" href="https://github.com/Hari10012001/RideRent" target="_blank" rel="noopener noreferrer" aria-label="RideRent: GitHub repository (opens in new tab)">
+          <a class="btn-proj-github" data-link="GITHUB_URL_RIDE_RENT" href="https://github.com/Hari10012001/RideRent" target="_blank" rel="noopener noreferrer" aria-label="RideRent: GitHub repository (opens in new tab)">
             <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.929.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
-            <span>View Repository ↗</span>
+            <span>GitHub</span>
           </a>
+          <span class="btn-proj-disabled" aria-disabled="true">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+            <span>Demo Unavailable</span>
+          </span>
         </div>
       </div>
     </article>
@@ -5822,7 +6213,7 @@ if(rt && !reduce()){
   window.matchMedia('(min-width:961px)').addEventListener('change',function(e){if(e.matches) setOpen(false)});
 })();
 
-/* ---------- Project links: a button exists only when site-config.js holds a valid, specific URL ---------- */
+/* ---------- site-config.js wiring: verified project URLs ---------- */
 (function(){
   var cfgAll=window.SITE_CONFIG||{}, cfg=cfgAll.projectLinks||{};
   function valid(key,value){
@@ -5830,34 +6221,22 @@ if(rt && !reduce()){
     var u; try{u=new URL(value.trim())}catch(e){return false}
     if(u.protocol!=='https:') return false;
     if(key.indexOf('GITHUB_URL_')===0){
-      return u.hostname==='github.com' && /^\/[^\/]+\/[^\/]+\/?$/.test(u.pathname); // a repository, never a profile root
+      return u.hostname==='github.com' && /^\/[^\/]+\/[^\/]+\/?$/.test(u.pathname);
     }
     if(key.indexOf('LIVE_DEMO_URL_')===0){
-      // Reject any demo link pointing to GitHub
       if(u.hostname==='github.com') return false;
     }
     return true;
   }
-  $$('.proj-card, .proj-cyber-card').forEach(function(card){
-    var footer=$('.proj-footer',card), title=($('.proj-title',card)||{}).textContent||'Project', count=0;
+  $$('.proj-cyber-card').forEach(function(card){
+    var title=($('.proj-title',card)||{}).textContent||'Project';
     $$('a[data-link]',card).forEach(function(el){
       var key=el.getAttribute('data-link'), value=cfg[key];
       if(valid(key,value)){
         el.href=value.trim(); el.target='_blank'; el.rel='noopener noreferrer';
         el.setAttribute('aria-label',title+': '+(key.indexOf('GITHUB_URL_')===0?'GitHub repository':'live deployment')+' (opens in new tab)');
-        count++;
-      }else{el.parentNode.removeChild(el)}
-    });
-    // If only one link remains, ensure it is full-width with "View Repository ↗"
-    var remainingLinks = $$('.proj-card-actions a', card);
-    if(remainingLinks.length === 1){
-      remainingLinks[0].classList.add('btn-proj-full');
-      var span = remainingLinks[0].querySelector('span');
-      if(span && span.textContent.trim() === 'GitHub'){
-        span.textContent = 'View Repository ↗';
       }
-    }
-    if(count&&footer) footer.hidden=false;
+    });
   });
   if(cfgAll.isTestData===true){
     var b=document.createElement('div'); b.className='test-banner'; b.setAttribute('role','status');
