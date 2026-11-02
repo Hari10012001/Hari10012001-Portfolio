@@ -990,9 +990,80 @@ h1.hero-name{
 [data-theme="light"] .section-tagline{color:#475569}
 
 /* ================= TWO-COLUMN ABOUT SECTION ================= */
+.about-top-bar{
+  margin-bottom:32px;
+}
+.about-pill-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 14px;
+  border-radius:9999px;
+  background:rgba(147, 51, 234, 0.15);
+  border:1px solid rgba(168, 85, 247, 0.45);
+  color:#c084fc;
+  font-size:11.5px;
+  font-weight:700;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  margin-bottom:16px;
+  box-shadow:0 0 16px rgba(168, 85, 247, 0.22);
+}
+[data-theme="light"] .about-pill-badge{
+  background:rgba(147, 51, 234, 0.08);
+  border-color:rgba(147, 51, 234, 0.35);
+  color:#7e22ce;
+  box-shadow:none;
+}
+.about-hero-title{
+  font-family:var(--font-head);
+  font-size:clamp(2.2rem, 3.8vw, 3.4rem);
+  font-weight:800;
+  line-height:1.15;
+  letter-spacing:-0.025em;
+  margin:0 0 12px;
+}
+.about-title-white{
+  color:#ffffff;
+  text-shadow:0 2px 20px rgba(255,255,255,0.12);
+}
+[data-theme="light"] .about-title-white{
+  color:#0f172a;
+  text-shadow:none;
+}
+.about-title-grad-wrap{
+  display:inline-block;
+  position:relative;
+}
+.about-title-grad{
+  background:linear-gradient(90deg, #c084fc 0%, #a855f7 32%, #38bdf8 72%, #22d3ee 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 0 18px rgba(56, 189, 248, 0.28));
+}
+.about-title-swoosh{
+  position:absolute;
+  right:0;
+  bottom:-8px;
+  width:130px;
+  height:16px;
+  pointer-events:none;
+  overflow:visible;
+  filter:drop-shadow(0 0 6px rgba(34, 211, 238, 0.5));
+}
+.about-tagline{
+  font-size:1.05rem;
+  color:rgba(226, 232, 240, 0.78);
+  margin:0 0 28px;
+  font-weight:400;
+}
+[data-theme="light"] .about-tagline{
+  color:#475569;
+}
+
 .about-two-col{
   display:grid;
-  grid-template-columns:1.08fr 0.92fr;
+  grid-template-columns:1.06fr 0.94fr;
   gap:36px;
   align-items:start;
   margin-bottom:48px;
@@ -1000,103 +1071,147 @@ h1.hero-name{
 .about-left-col{
   display:flex;
   flex-direction:column;
-  gap:24px;
+  gap:22px;
 }
 .about-paragraphs p{
-  color:rgba(226, 232, 240, 0.78);
-  font-size:15.5px;
-  line-height:1.8;
+  color:rgba(226, 232, 240, 0.82);
+  font-size:15px;
+  line-height:1.78;
   margin-bottom:14px;
 }
 .about-paragraphs p:last-child{margin-bottom:0}
-[data-theme="light"] .about-paragraphs p{color:#334155}
+.about-paragraphs .hl-tech{
+  color:#ffffff;
+  font-weight:600;
+  text-shadow:0 0 10px rgba(168, 85, 247, 0.25);
+}
+[data-theme="light"] .about-paragraphs p{
+  color:#334155;
+}
+[data-theme="light"] .about-paragraphs .hl-tech{
+  color:#0f172a;
+  font-weight:700;
+  text-shadow:none;
+}
 
-/* 4 Mini Stat Cards in 2x2 */
-.about-stat-mini-grid{
+/* 4 Compact Stat Cards in 1 Row on Desktop */
+.about-stat-row-4{
   display:grid;
-  grid-template-columns:repeat(2, minmax(0, 1fr));
+  grid-template-columns:repeat(4, minmax(0, 1fr));
   gap:12px;
 }
-.mini-stat-card{
-  background:rgba(15, 23, 42, 0.75);
+.mini-stat-card-v2{
+  background:rgba(12, 16, 36, 0.72);
   border:1px solid rgba(139, 92, 246, 0.25);
   border-radius:14px;
-  padding:14px 16px;
+  padding:14px 10px;
   display:flex;
+  flex-direction:column;
   align-items:center;
-  gap:12px;
-  backdrop-filter:blur(10px);
-  box-shadow:0 4px 20px rgba(0,0,0,0.25);
+  text-align:center;
+  backdrop-filter:blur(12px);
+  box-shadow:0 8px 24px rgba(0, 0, 0, 0.28);
+  transition:all 0.25s ease;
 }
-[data-theme="light"] .mini-stat-card{
+.mini-stat-card-v2:hover{
+  transform:translateY(-2px);
+  border-color:rgba(56, 189, 248, 0.55);
+  box-shadow:0 8px 25px rgba(56, 189, 248, 0.18);
+}
+[data-theme="light"] .mini-stat-card-v2{
   background:#ffffff;
-  border-color:rgba(99, 102, 241, 0.2);
-  box-shadow:0 4px 12px rgba(0,0,0,0.04);
+  border-color:rgba(99, 102, 241, 0.22);
+  box-shadow:0 4px 14px rgba(0,0,0,0.04);
 }
-.mini-stat-icon{
-  width:38px;
-  height:38px;
+.mstat-icon{
+  width:36px;
+  height:36px;
   border-radius:10px;
   display:flex;
   align-items:center;
   justify-content:center;
   font-family:var(--font-head);
   font-weight:700;
-  font-size:14px;
+  font-size:13.5px;
+  margin-bottom:8px;
   flex-shrink:0;
 }
-.icon-code-cyan{background:rgba(56,189,248,0.15);color:#38bdf8;border:1px solid rgba(56,189,248,0.3)}
-.icon-case-blue{background:rgba(59,130,246,0.15);color:#60a5fa;border:1px solid rgba(59,130,246,0.3)}
-.icon-layers-violet{background:rgba(168,85,247,0.15);color:#c084fc;border:1px solid rgba(168,85,247,0.3)}
-.icon-pin-magenta{background:rgba(236,72,153,0.15);color:#f472b6;border:1px solid rgba(236,72,153,0.3)}
+.icon-code-cyan{background:rgba(56,189,248,0.15);color:#38bdf8;border:1px solid rgba(56,189,248,0.35)}
+.icon-layers-violet{background:rgba(168,85,247,0.15);color:#c084fc;border:1px solid rgba(168,85,247,0.35)}
+.icon-case-blue{background:rgba(59,130,246,0.15);color:#60a5fa;border:1px solid rgba(59,130,246,0.35)}
+.icon-pin-magenta{background:rgba(236,72,153,0.15);color:#f472b6;border:1px solid rgba(236,72,153,0.35)}
 
-.mini-stat-num{
+.mstat-num{
   font-family:var(--font-head);
-  font-size:20px;
+  font-size:21px;
   font-weight:800;
   color:#ffffff;
-  line-height:1.1;
+  line-height:1.15;
+  margin-bottom:4px;
 }
-[data-theme="light"] .mini-stat-num{color:#0f172a}
-.mini-stat-text{font-size:16px}
-.mini-stat-label{
+[data-theme="light"] .mstat-num{color:#0f172a}
+.mstat-num-split{
+  font-size:13.5px;
+  font-weight:800;
+  line-height:1.25;
+}
+.mstat-num-loc{
+  font-size:17px;
+}
+.mstat-label{
   font-size:11px;
-  color:rgba(226, 232, 240, 0.65);
+  color:rgba(226, 232, 240, 0.68);
   line-height:1.3;
+  font-weight:500;
 }
-[data-theme="light"] .mini-stat-label{color:#64748b}
+[data-theme="light"] .mstat-label{color:#64748b}
 
 /* Core Focus Nested in Left Column */
 .about-core-focus{
-  background:rgba(10, 14, 35, 0.55);
-  border:1px solid rgba(139, 92, 246, 0.25);
+  background:rgba(10, 14, 32, 0.72);
+  border:1px solid rgba(139, 92, 246, 0.28);
   border-radius:18px;
-  padding:20px 22px;
-  box-shadow:0 10px 30px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.05);
+  padding:22px 22px 20px;
+  box-shadow:0 12px 30px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  backdrop-filter:blur(14px);
 }
 [data-theme="light"] .about-core-focus{
-  background:rgba(255, 255, 255, 0.85);
-  border-color:rgba(99, 102, 241, 0.2);
+  background:rgba(255, 255, 255, 0.9);
+  border-color:rgba(99, 102, 241, 0.22);
   box-shadow:0 10px 25px rgba(0, 0, 0, 0.04);
 }
 .core-focus-header{
   display:flex;
   align-items:center;
-  gap:10px;
+  gap:12px;
   margin-bottom:16px;
 }
-.cf-target-icon{font-size:20px}
+.cf-target-badge{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  background:rgba(236, 72, 153, 0.15);
+  border:1.5px solid rgba(236, 72, 153, 0.5);
+  color:#ec4899;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+  box-shadow:0 0 14px rgba(236, 72, 153, 0.3);
+}
 .cf-heading{
   font-family:var(--font-head);
   font-size:18px;
   font-weight:700;
-  color:#f8fafc;
+  color:#ffffff;
   line-height:1.2;
+  margin:0 0 2px;
 }
 [data-theme="light"] .cf-heading{color:#0f172a}
 .cf-sub{
   font-size:12px;
-  color:rgba(226, 232, 240, 0.65);
+  color:rgba(226, 232, 240, 0.68);
+  display:block;
 }
 [data-theme="light"] .cf-sub{color:#64748b}
 
@@ -1106,9 +1221,9 @@ h1.hero-name{
   gap:12px;
 }
 .core-focus-grid-nested .cf-card{
-  background:rgba(15, 23, 42, 0.7);
+  background:rgba(16, 22, 46, 0.72);
   border:1px solid rgba(139, 92, 246, 0.22);
-  border-radius:14px;
+  border-radius:12px;
   padding:14px 14px;
   display:flex;
   align-items:flex-start;
@@ -1134,23 +1249,23 @@ h1.hero-name{
   justify-content:center;
   flex-shrink:0;
 }
-.cf-gear{background:rgba(59,130,246,0.15);color:#60a5fa;border:1px solid rgba(59,130,246,0.3)}
-.cf-shield{background:rgba(56,189,248,0.15);color:#38bdf8;border:1px solid rgba(56,189,248,0.3)}
-.cf-desktop{background:rgba(129,140,248,0.15);color:#818cf8;border:1px solid rgba(129,140,248,0.3)}
-.cf-cube{background:rgba(168,85,247,0.15);color:#c084fc;border:1px solid rgba(168,85,247,0.3)}
+.cf-desktop{background:rgba(56,189,248,0.15);color:#38bdf8;border:1px solid rgba(56,189,248,0.35)}
+.cf-gear{background:rgba(6,182,212,0.15);color:#22d3ee;border:1px solid rgba(6,182,212,0.35)}
+.cf-shield{background:rgba(59,130,246,0.15);color:#60a5fa;border:1px solid rgba(59,130,246,0.35)}
+.cf-cube{background:rgba(168,85,247,0.15);color:#c084fc;border:1px solid rgba(168,85,247,0.35)}
 
 .cf-title{
   font-family:var(--font-head);
   font-size:13.5px;
   font-weight:700;
-  color:#f8fafc;
-  margin-bottom:2px;
+  color:#ffffff;
+  margin-bottom:3px;
 }
 [data-theme="light"] .cf-title{color:#0f172a}
 .cf-desc{
   font-size:11.5px;
-  color:rgba(226, 232, 240, 0.7);
-  line-height:1.4;
+  color:rgba(226, 232, 240, 0.72);
+  line-height:1.45;
 }
 [data-theme="light"] .cf-desc{color:#64748b}
 
@@ -1160,12 +1275,12 @@ h1.hero-name{
   flex-direction:column;
 }
 .journey-card{
-  background:rgba(10, 14, 35, 0.75);
-  border:1px solid rgba(139, 92, 246, 0.3);
+  background:rgba(10, 14, 34, 0.78);
+  border:1px solid rgba(139, 92, 246, 0.32);
   border-radius:20px;
-  padding:26px 24px;
+  padding:26px 26px 24px;
   backdrop-filter:blur(16px);
-  box-shadow:0 15px 35px rgba(0,0,0,0.4);
+  box-shadow:0 16px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 [data-theme="light"] .journey-card{
   background:#ffffff;
@@ -1175,106 +1290,167 @@ h1.hero-name{
 .journey-header{
   display:flex;
   align-items:center;
-  gap:12px;
+  justify-content:space-between;
   margin-bottom:24px;
+  padding-bottom:14px;
+  border-bottom:1px solid rgba(148, 163, 184, 0.12);
+}
+.journey-header-left{
+  display:flex;
+  align-items:center;
+  gap:12px;
 }
 .journey-icon-wrap{
   width:42px;
   height:42px;
   border-radius:12px;
-  background:rgba(168, 85, 247, 0.15);
-  border:1px solid rgba(168, 85, 247, 0.35);
+  background:rgba(168, 85, 247, 0.16);
+  border:1px solid rgba(168, 85, 247, 0.4);
   color:#c084fc;
   display:flex;
   align-items:center;
   justify-content:center;
   flex-shrink:0;
+  box-shadow:0 0 16px rgba(168, 85, 247, 0.25);
+}
+.journey-trend-icon{
+  width:38px;
+  height:38px;
+  border-radius:10px;
+  background:rgba(168, 85, 247, 0.1);
+  border:1px solid rgba(168, 85, 247, 0.25);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+  filter:drop-shadow(0 0 8px rgba(168, 85, 247, 0.3));
 }
 .journey-title{
   font-family:var(--font-head);
-  font-size:18px;
+  font-size:19px;
   font-weight:700;
   color:#ffffff;
+  margin:0 0 2px;
 }
 [data-theme="light"] .journey-title{color:#0f172a}
 .journey-subtitle{
-  font-size:12px;
-  color:rgba(226, 232, 240, 0.65);
+  font-size:12.5px;
+  color:rgba(226, 232, 240, 0.68);
+  margin:0;
 }
 [data-theme="light"] .journey-subtitle{color:#64748b}
 
 .journey-timeline{
   display:flex;
   flex-direction:column;
-  gap:20px;
+  gap:24px;
+  position:relative;
+  padding-left:26px;
+}
+.journey-timeline::before{
+  content:'';
+  position:absolute;
+  left:5px;
+  top:8px;
+  bottom:16px;
+  width:2px;
+  background:linear-gradient(180deg, #22d3ee 0%, #06b6d4 50%, rgba(6, 182, 212, 0.3) 100%);
+  box-shadow:0 0 8px rgba(6, 182, 212, 0.4);
 }
 .j-item{
   position:relative;
-  padding-left:22px;
-  border-left:2px solid rgba(139, 92, 246, 0.35);
 }
-.j-item:last-child{border-left-color:transparent}
 .j-dot-pulse{
   position:absolute;
-  left:-7px;
+  left:-26px;
   top:4px;
   width:12px;
   height:12px;
   border-radius:50%;
-  background:#38bdf8;
-  box-shadow:0 0 10px #38bdf8;
+  background:#22d3ee;
+  box-shadow:0 0 10px #22d3ee, 0 0 18px rgba(34, 211, 238, 0.55);
+  border:2px solid #0a0e22;
+}
+[data-theme="light"] .j-dot-pulse{
+  border-color:#ffffff;
 }
 .j-meta{
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:8px;
-  margin-bottom:4px;
+  margin-bottom:6px;
 }
 .j-dates{
-  font-size:11px;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-size:11.5px;
   font-weight:700;
-  color:#a78bfa;
+  color:#38bdf8;
   letter-spacing:0.05em;
   text-transform:uppercase;
 }
 .j-badge{
-  font-size:10px;
+  font-size:10.5px;
   font-weight:700;
-  padding:2px 8px;
+  padding:2px 10px;
   border-radius:9999px;
   letter-spacing:0.02em;
 }
 .badge-current{
-  background:rgba(168, 85, 247, 0.2);
+  background:rgba(147, 51, 234, 0.25);
   border:1px solid rgba(168, 85, 247, 0.6);
-  color:#c084fc;
+  color:#d8b4fe;
+  box-shadow:0 0 10px rgba(168, 85, 247, 0.2);
 }
 .badge-duration{
-  background:rgba(56, 189, 248, 0.15);
-  border:1px solid rgba(56, 189, 248, 0.4);
-  color:#38bdf8;
+  background:rgba(14, 165, 233, 0.18);
+  border:1px solid rgba(56, 189, 248, 0.55);
+  color:#7dd3fc;
+  box-shadow:0 0 10px rgba(56, 189, 248, 0.15);
 }
 .j-role{
   font-family:var(--font-head);
-  font-size:15px;
+  font-size:16px;
   font-weight:700;
   color:#ffffff;
   margin-bottom:2px;
 }
 [data-theme="light"] .j-role{color:#0f172a}
 .j-company{
-  font-size:12.5px;
-  color:rgba(226, 232, 240, 0.7);
-  margin-bottom:6px;
+  font-size:13px;
+  color:#94a3b8;
+  font-weight:500;
+  margin-bottom:8px;
 }
 [data-theme="light"] .j-company{color:#475569}
-.j-desc{
-  font-size:12.5px;
-  color:rgba(226, 232, 240, 0.65);
-  line-height:1.6;
+.j-bullets{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  gap:5px;
 }
-[data-theme="light"] .j-desc{color:#64748b}
+.j-bullet-item{
+  display:flex;
+  align-items:baseline;
+  font-size:12.5px;
+  color:rgba(226, 232, 240, 0.82);
+  line-height:1.55;
+}
+[data-theme="light"] .j-bullet-item{color:#334155}
+.j-bullet-dot{
+  display:inline-block;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#a855f7;
+  box-shadow:0 0 6px #a855f7;
+  margin-right:8px;
+  flex-shrink:0;
+}
 
 #skills{display:block;position:relative}
 .skills-top-header{margin-bottom:24px}
@@ -1836,6 +2012,7 @@ h1.hero-name{
 @media(max-width:960px){
   .about-two-col{grid-template-columns:1fr;gap:36px}
   .about-right-col .journey-card{position:static}
+  .about-stat-row-4{grid-template-columns:repeat(2, minmax(0, 1fr))}
   .core-focus-grid-nested{grid-template-columns:repeat(2, minmax(0, 1fr))}
   .hero-main-grid{grid-template-columns:1fr;gap:48px}
   .hero-right-col{order:-1;display:flex;justify-content:center;width:100%}
@@ -1863,7 +2040,7 @@ h1.hero-name{
   .filter-pill{white-space:nowrap;flex-shrink:0}
   .core-focus-grid{grid-template-columns:1fr}
   .hero-stats-banner{grid-template-columns:1fr}
-  .about-stat-mini-grid{grid-template-columns:1fr}
+  .about-stat-row-4{grid-template-columns:repeat(2, minmax(0, 1fr));gap:10px}
 }
 
 /* EXPERIENCE */
@@ -3808,14 +3985,28 @@ main{display:block}
 <!-- ABOUT -->
 <section id="about">
   <div class="about-top-bar fade-in">
-    <div class="section-tag-inline">
+    <div class="about-pill-badge">
+      <svg class="about-badge-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
       <span>ABOUT ME</span>
-      <span class="section-tag-rule" aria-hidden="true"></span>
     </div>
-    <h2 class="section-hero-title">
-      The Developer<br><span class="neon-title-accent">Behind the Code</span>
+    <h2 class="about-hero-title">
+      <span class="about-title-white">The Developer</span><br>
+      <span class="about-title-grad-wrap">
+        <span class="about-title-grad">Behind the Code</span>
+        <svg class="about-title-swoosh" width="130" height="16" viewBox="0 0 130 16" fill="none" aria-hidden="true">
+          <path d="M3 11C35 4 80 14 125 5" stroke="url(#aboutSwooshGrad)" stroke-width="3" stroke-linecap="round"/>
+          <path d="M30 13C60 10 95 14 124 7" stroke="url(#aboutSwooshGrad)" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+          <defs>
+            <linearGradient id="aboutSwooshGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#a855f7"/>
+              <stop offset="60%" stop-color="#38bdf8"/>
+              <stop offset="100%" stop-color="#22d3ee"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </span>
     </h2>
-    <p class="section-tagline">Turning ideas into real-world web applications</p>
+    <p class="about-tagline">Turning ideas into real-world web applications</p>
   </div>
 
   <!-- Two-Column About Layout: Bio & Core Focus on Left, Professional Journey on Right -->
@@ -3823,53 +4014,51 @@ main{display:block}
     <!-- LEFT COLUMN: Narrative Bio + 4 Mini Stat Cards + Core Focus Grid -->
     <div class="about-left-col">
       <div class="about-paragraphs">
-        <p>I'm a Java Full Stack Developer based in Chennai, India, building web applications with <strong style="color:var(--text)">Java, Spring Boot, React and SQL databases</strong>.</p>
+        <p>I'm a Java Full Stack Developer based in Chennai, India, building scalable and secure web applications with <strong class="hl-tech">Java, Spring Boot, React and SQL databases</strong>.</p>
         <p>At Approtech R&amp;D Solutions, I develop REST APIs, implement Spring Security and JWT-based access control, work with JPA and SQL performance patterns, and integrate React frontends. My workflow also includes Docker, automated testing and GitHub Actions.</p>
         <p>Previously, at RR Donnelley, I supported technical and frontend systems, investigating API, React UI and deployment issues. At Adecco, I worked on scripting-based document-processing workflows.</p>
       </div>
 
-      <!-- 4 Stat Mini-Cards in 2x2 grid -->
-      <div class="about-stat-mini-grid" aria-label="Key background highlights">
-        <div class="mini-stat-card">
-          <div class="mini-stat-icon icon-code-cyan">&lt;/&gt;</div>
-          <div class="mini-stat-content">
-            <div class="mini-stat-num">4+</div>
-            <div class="mini-stat-label">Years<br>IT Experience</div>
-          </div>
+      <!-- 4 Compact Stat Cards in 1 Row on Desktop -->
+      <div class="about-stat-row-4" aria-label="Key background highlights">
+        <div class="mini-stat-card-v2">
+          <div class="mstat-icon icon-code-cyan" aria-hidden="true">&lt;/&gt;</div>
+          <div class="mstat-num">4+</div>
+          <div class="mstat-label">Years<br>IT Experience</div>
         </div>
-        <div class="mini-stat-card">
-          <div class="mini-stat-icon icon-case-blue">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        <div class="mini-stat-card-v2">
+          <div class="mstat-icon icon-layers-violet" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
           </div>
-          <div class="mini-stat-content">
-            <div class="mini-stat-num">1+</div>
-            <div class="mini-stat-label">Year<br>Java Full Stack</div>
-          </div>
+          <div class="mstat-num mstat-num-split">2 Years<br>6 Months</div>
+          <div class="mstat-label">Technical Support</div>
         </div>
-        <div class="mini-stat-card">
-          <div class="mini-stat-icon icon-layers-violet">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+        <div class="mini-stat-card-v2">
+          <div class="mstat-icon icon-case-blue" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
           </div>
-          <div class="mini-stat-content">
-            <div class="mini-stat-num">3+</div>
-            <div class="mini-stat-label">Years<br>Technical Support</div>
-          </div>
+          <div class="mstat-num">1+</div>
+          <div class="mstat-label">Year<br>Java Full Stack</div>
         </div>
-        <div class="mini-stat-card">
-          <div class="mini-stat-icon icon-pin-magenta">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div class="mini-stat-card-v2">
+          <div class="mstat-icon icon-pin-magenta" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           </div>
-          <div class="mini-stat-content">
-            <div class="mini-stat-num mini-stat-text">Chennai</div>
-            <div class="mini-stat-label">Based In</div>
-          </div>
+          <div class="mstat-num mstat-num-loc">Chennai</div>
+          <div class="mstat-label">Based In</div>
         </div>
       </div>
 
-            <!-- Core Focus Section (Integrated into Left Column) -->
+      <!-- Core Focus Section (Integrated into Left Column) -->
       <div class="about-core-focus">
         <div class="core-focus-header">
-          <span class="cf-target-icon" aria-hidden="true">🎯</span>
+          <div class="cf-target-badge" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <circle cx="12" cy="12" r="10"/>
+              <circle cx="12" cy="12" r="6"/>
+              <circle cx="12" cy="12" r="2"/>
+            </svg>
+          </div>
           <div>
             <h3 class="cf-heading">Core Focus</h3>
             <span class="cf-sub">Areas I specialize in and enjoy the most</span>
@@ -3924,50 +4113,76 @@ main{display:block}
     <div class="about-right-col">
       <div class="journey-card">
         <div class="journey-header">
-          <div class="journey-icon-wrap" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          <div class="journey-header-left">
+            <div class="journey-icon-wrap" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            </div>
+            <div>
+              <h3 class="journey-title">My Professional Journey</h3>
+              <p class="journey-subtitle">Experience that shaped my engineering career</p>
+            </div>
           </div>
-          <div>
-            <h3 class="journey-title">My Professional Journey</h3>
-            <p class="journey-subtitle">Experience that shaped my engineering career</p>
+          <div class="journey-trend-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
           </div>
         </div>
 
         <div class="journey-timeline">
           <!-- Item 1: Approtech -->
           <div class="j-item">
-            <div class="j-dot-pulse"></div>
+            <div class="j-dot-pulse" aria-hidden="true"></div>
             <div class="j-meta">
-              <span class="j-dates">JUN 2025 — PRESENT</span>
+              <span class="j-dates">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                JUN 2025 – PRESENT
+              </span>
               <span class="j-badge badge-current">1 Year 5 Months (Current)</span>
             </div>
             <h4 class="j-role">Java Full Stack Developer</h4>
             <div class="j-company">Approtech R&amp;D Solutions Pvt. Ltd.</div>
-            <p class="j-desc">REST API development, Spring Security and JWT, JPA and SQL patterns, React integration, Docker and automated testing.</p>
+            <ul class="j-bullets">
+              <li class="j-bullet-item"><span class="j-bullet-dot" aria-hidden="true"></span>Develop and maintain REST APIs using Spring Boot.</li>
+              <li class="j-bullet-item"><span class="j-bullet-dot" aria-hidden="true"></span>Implement Spring Security and JWT-based access control.</li>
+              <li class="j-bullet-item"><span class="j-bullet-dot" aria-hidden="true"></span>Work with JPA and SQL performance patterns.</li>
+              <li class="j-bullet-item"><span class="j-bullet-dot" aria-hidden="true"></span>Integrate and deliver React frontend features.</li>
+              <li class="j-bullet-item"><span class="j-bullet-dot" aria-hidden="true"></span>Use Docker, automated testing and GitHub Actions.</li>
+            </ul>
           </div>
 
           <!-- Item 2: RR Donnelley -->
           <div class="j-item">
-            <div class="j-dot-pulse"></div>
+            <div class="j-dot-pulse" aria-hidden="true"></div>
             <div class="j-meta">
-              <span class="j-dates">JUN 2022 — DEC 2024</span>
+              <span class="j-dates">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                JUN 2022 – DEC 2024
+              </span>
               <span class="j-badge badge-duration">2 Years 6 Months</span>
             </div>
-            <h4 class="j-role">CSA - Technical Support &amp; Frontend Support</h4>
+            <h4 class="j-role">CSA – Technical Support &amp; Frontend Support</h4>
             <div class="j-company">RR Donnelley</div>
-            <p class="j-desc">Investigated REST API, React frontend and deployment issues; supported UI maintenance and Agile sprint triage.</p>
+            <ul class="j-bullets">
+              <li class="j-bullet-item"><span class="j-bullet-dot" aria-hidden="true"></span>Investigated and resolved REST API and deployment issues.</li>
+              <li class="j-bullet-item"><span class="j-bullet-dot" aria-hidden="true"></span>Supported React UI maintenance and enhancements.</li>
+              <li class="j-bullet-item"><span class="j-bullet-dot" aria-hidden="true"></span>Assisted in system troubleshooting and Agile sprint triage.</li>
+            </ul>
           </div>
 
           <!-- Item 3: Adecco -->
           <div class="j-item">
-            <div class="j-dot-pulse"></div>
+            <div class="j-dot-pulse" aria-hidden="true"></div>
             <div class="j-meta">
-              <span class="j-dates">NOV 2021 — MAY 2022</span>
+              <span class="j-dates">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                NOV 2021 – MAY 2022
+              </span>
               <span class="j-badge badge-duration">6 Months</span>
             </div>
             <h4 class="j-role">Document Specialist</h4>
             <div class="j-company">Adecco</div>
-            <p class="j-desc">Supported document-processing workflows using scripting tools.</p>
+            <ul class="j-bullets">
+              <li class="j-bullet-item"><span class="j-bullet-dot" aria-hidden="true"></span>Supported document-processing workflows using scripting tools.</li>
+            </ul>
           </div>
         </div>
       </div>
