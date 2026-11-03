@@ -3656,66 +3656,372 @@ main{display:block}
   color:#1e293b;
 }
 
-/* Certifications 2-Card Layout */
-.cert-grid-two{
-  display:grid;
-  grid-template-columns:repeat(2, minmax(0, 1fr));
+/* CERTIFICATIONS — Premium Elite 9.8+ Design System */
+#certifications{display:block;position:relative}
+.cert-top-header{margin-bottom:34px}
+.cert-header-row{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
   gap:24px;
+  flex-wrap:wrap;
 }
-.cert-card-pro{
-  background:rgba(15, 23, 42, 0.7);
-  border:1px solid rgba(139, 92, 246, 0.28);
-  border-radius:20px;
-  padding:26px 24px;
+.cert-pill-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 14px;
+  border-radius:9999px;
+  background:rgba(147, 51, 234, 0.15);
+  border:1px solid rgba(168, 85, 247, 0.45);
+  color:#c084fc;
+  font-size:11.5px;
+  font-weight:700;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  margin-bottom:16px;
+  box-shadow:0 0 16px rgba(168, 85, 247, 0.22);
+}
+.cert-pill-badge .badge-icon{display:inline-flex;color:#e879f9}
+[data-theme="light"] .cert-pill-badge{
+  background:rgba(147, 51, 234, 0.08);
+  border-color:rgba(147, 51, 234, 0.35);
+  color:#7e22ce;
+  box-shadow:none;
+}
+.cert-hero-title{
+  font-family:var(--font-head);
+  font-size:clamp(2.2rem, 3.8vw, 3.4rem);
+  font-weight:800;
+  line-height:1.15;
+  letter-spacing:-0.025em;
+  margin:0 0 12px;
+}
+.cert-title-white{
+  color:#ffffff;
+  text-shadow:0 2px 20px rgba(255,255,255,0.12);
+}
+[data-theme="light"] .cert-title-white{
+  color:#0f172a;
+  text-shadow:none;
+}
+.cert-title-grad{
+  background:linear-gradient(135deg, #c084fc 0%, #a855f7 45%, #38bdf8 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+[data-theme="light"] .cert-title-grad{
+  background:linear-gradient(135deg, #7e22ce 0%, #6366f1 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.cert-tagline{
+  font-size:1.05rem;
+  color:rgba(226, 232, 240, 0.78);
+  margin:0;
+  font-weight:400;
+  max-width:850px;
+}
+[data-theme="light"] .cert-tagline{
+  color:#475569;
+}
+
+/* Header Capsule Stats (Top Right) */
+.cert-header-capsule{
+  display:inline-flex;
+  align-items:center;
+  gap:16px;
+  padding:12px 22px;
+  border-radius:9999px;
+  background:rgba(15, 23, 42, 0.78);
+  border:1px solid rgba(139, 92, 246, 0.3);
+  backdrop-filter:blur(14px);
+  box-shadow:0 8px 30px rgba(0, 0, 0, 0.35);
+  flex-wrap:wrap;
+}
+[data-theme="light"] .cert-header-capsule{
+  background:#ffffff;
+  border-color:rgba(99, 102, 241, 0.22);
+  box-shadow:0 4px 16px rgba(0,0,0,0.05);
+}
+.cert-cap-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.cert-cap-item:not(:last-child){
+  padding-right:16px;
+  border-right:1px solid rgba(255, 255, 255, 0.1);
+}
+[data-theme="light"] .cert-cap-item:not(:last-child){
+  border-right-color:rgba(15, 23, 42, 0.1);
+}
+.cert-cap-icon{
+  width:32px;
+  height:32px;
+  border-radius:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+}
+.cert-cap-icon.cc-violet{background:rgba(168, 85, 247, 0.15);color:#c084fc;border:1px solid rgba(168, 85, 247, 0.35)}
+.cert-cap-icon.cc-cyan{background:rgba(56, 189, 248, 0.15);color:#38bdf8;border:1px solid rgba(56, 189, 248, 0.35)}
+.cert-cap-icon.cc-purple{background:rgba(147, 51, 234, 0.15);color:#a855f7;border:1px solid rgba(147, 51, 234, 0.35)}
+.cert-cap-icon.cc-blue{background:rgba(59, 130, 246, 0.15);color:#60a5fa;border:1px solid rgba(59, 130, 246, 0.35)}
+.cert-cap-text{
   display:flex;
   flex-direction:column;
-  gap:16px;
+}
+.cert-cap-text strong{
+  font-family:var(--font-head);
+  font-size:14px;
+  font-weight:800;
+  color:#ffffff;
+  line-height:1.2;
+}
+[data-theme="light"] .cert-cap-text strong{color:#0f172a}
+.cert-cap-text span{
+  font-size:11px;
+  color:rgba(226, 232, 240, 0.7);
+  white-space:nowrap;
+}
+[data-theme="light"] .cert-cap-text span{color:#64748b}
+
+/* Certifications Layout: 2 Equal-Height Balanced Cards + 3D Pedestal Graphic */
+.cert-main-layout{
+  display:grid;
+  grid-template-columns:minmax(0, 1fr) minmax(0, 1fr) 210px;
+  gap:24px;
+  align-items:stretch;
+}
+.cert-card-pro{
+  background:rgba(10, 14, 34, 0.82);
+  border:1px solid rgba(139, 92, 246, 0.28);
+  border-radius:20px;
+  padding:28px 26px;
+  backdrop-filter:blur(16px);
+  box-shadow:0 14px 34px rgba(0, 0, 0, 0.42);
+  display:flex;
+  flex-direction:column;
+  position:relative;
+  transition:transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s ease, box-shadow 0.32s ease;
+  height:100%;
+}
+.cert-card-pro:hover{
+  transform:translateY(-4px);
 }
 [data-theme="light"] .cert-card-pro{
   background:#ffffff;
   border-color:rgba(99, 102, 241, 0.22);
-  box-shadow:0 8px 24px rgba(0, 0, 0, 0.04);
+  box-shadow:0 6px 20px rgba(0, 0, 0, 0.04);
 }
+
+.cert-card-pro.card-code99{
+  border-color:rgba(168, 85, 247, 0.45);
+}
+.cert-card-pro.card-code99:hover{
+  border-color:rgba(168, 85, 247, 0.85);
+  box-shadow:0 18px 44px rgba(0, 0, 0, 0.5), 0 0 28px rgba(168, 85, 247, 0.24);
+}
+
+.cert-card-pro.card-udemy{
+  border-color:rgba(56, 189, 248, 0.45);
+}
+.cert-card-pro.card-udemy:hover{
+  border-color:rgba(56, 189, 248, 0.85);
+  box-shadow:0 18px 44px rgba(0, 0, 0, 0.5), 0 0 28px rgba(56, 189, 248, 0.24);
+}
+
+/* Card Header: Icon, Titles, Year Pill */
 .cert-card-top{
   display:flex;
   align-items:center;
-  gap:14px;
+  gap:16px;
+  margin-bottom:16px;
+  flex-wrap:wrap;
 }
 .cert-badge-icon{
-  width:44px;
-  height:44px;
-  border-radius:12px;
-  background:rgba(139, 92, 246, 0.15);
-  border:1px solid rgba(139, 92, 246, 0.35);
+  width:52px;
+  height:52px;
+  border-radius:14px;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:20px;
   flex-shrink:0;
+  box-shadow:0 4px 14px rgba(0, 0, 0, 0.25);
+  transition:transform 0.3s ease;
 }
-.icon-web{
+.cert-card-pro:hover .cert-badge-icon{
+  transform:scale(1.06);
+}
+.cert-icon-java{
+  background:rgba(168, 85, 247, 0.15);
+  border:1px solid rgba(168, 85, 247, 0.4);
+  color:#c084fc;
+}
+.cert-icon-web{
   background:rgba(56, 189, 248, 0.15);
-  border-color:rgba(56, 189, 248, 0.35);
+  border:1px solid rgba(56, 189, 248, 0.4);
+  color:#38bdf8;
+}
+
+.cert-header-info{
+  display:flex;
+  flex-direction:column;
+  flex:1 1 auto;
 }
 .cert-card-pro .cert-title{
   font-family:var(--font-head);
-  font-size:17px;
-  font-weight:700;
-  color:#f8fafc;
-  margin-bottom:2px;
+  font-size:18.5px;
+  font-weight:800;
+  color:#ffffff;
+  letter-spacing:-0.015em;
+  margin:0 0 3px;
+  line-height:1.25;
 }
 [data-theme="light"] .cert-card-pro .cert-title{color:#0f172a}
 .cert-card-pro .cert-org{
+  font-family:var(--font-head);
   font-size:13px;
-  color:rgba(226, 232, 240, 0.7);
+  font-weight:700;
+  letter-spacing:0.02em;
 }
-[data-theme="light"] .cert-card-pro .cert-org{color:#64748b}
+.card-code99 .cert-org{color:#c084fc}
+.card-udemy .cert-org{color:#38bdf8}
+[data-theme="light"] .card-code99 .cert-org{color:#7e22ce}
+[data-theme="light"] .card-udemy .cert-org{color:#0284c7}
+
+.pill-cert-year{
+  display:inline-flex;
+  align-items:center;
+  padding:4px 12px;
+  border-radius:9999px;
+  font-family:var(--font-head);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:0.02em;
+}
+.card-code99 .pill-cert-year{
+  background:rgba(147, 51, 234, 0.2);
+  border:1px solid rgba(168, 85, 247, 0.45);
+  color:#e879f9;
+}
+.card-udemy .pill-cert-year{
+  background:rgba(56, 189, 248, 0.2);
+  border:1px solid rgba(56, 189, 248, 0.45);
+  color:#38bdf8;
+}
+[data-theme="light"] .card-code99 .pill-cert-year{
+  background:rgba(147, 51, 234, 0.08);
+  border-color:rgba(147, 51, 234, 0.3);
+  color:#7e22ce;
+}
+[data-theme="light"] .card-udemy .pill-cert-year{
+  background:rgba(56, 189, 248, 0.08);
+  border-color:rgba(56, 189, 248, 0.3);
+  color:#0369a1;
+}
+
 .cert-card-pro .cert-desc{
-  font-size:13px;
-  color:rgba(226, 232, 240, 0.72);
-  line-height:1.55;
+  font-size:13.5px;
+  line-height:1.6;
+  color:rgba(226, 232, 240, 0.82);
+  margin:0 0 20px;
+  min-height:66px;
 }
-[data-theme="light"] .cert-card-pro .cert-desc{color:#475569}
+[data-theme="light"] .cert-card-pro .cert-desc{color:#334155}
+
+/* Key Topics Covered Section */
+.cert-subhead{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--font-head);
+  font-size:12.5px;
+  font-weight:800;
+  letter-spacing:0.04em;
+  color:rgba(226, 232, 240, 0.9);
+  margin-bottom:12px;
+}
+.cert-subhead svg{color:#c084fc;flex-shrink:0}
+.card-udemy .cert-subhead svg{color:#38bdf8}
+[data-theme="light"] .cert-subhead{color:#1e293b}
+
+.cert-topics{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  align-content:flex-start;
+  margin-top:auto;
+}
+.cert-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:6.5px;
+  padding:4px 11px;
+  border-radius:9999px;
+  background:rgba(15, 23, 42, 0.82);
+  border:1px solid rgba(255, 255, 255, 0.1);
+  color:#e2e8f0;
+  font-size:11.5px;
+  font-weight:600;
+  line-height:1.2;
+  transition:all 0.22s ease;
+}
+.cert-tag:hover{
+  border-color:rgba(56, 189, 248, 0.55);
+  color:#ffffff;
+  transform:translateY(-1px);
+}
+[data-theme="light"] .cert-tag{
+  background:rgba(241, 245, 249, 0.9);
+  border-color:rgba(15, 23, 42, 0.12);
+  color:#334155;
+}
+.cert-tag svg{flex-shrink:0}
+
+/* Right Side 3D Pedestal Graphic */
+.cert-3d-side-panel{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
+.cert-3d-side-panel img{
+  width:100%;
+  max-width:210px;
+  height:auto;
+  object-fit:contain;
+  filter:drop-shadow(0 0 28px rgba(168, 85, 247, 0.4));
+  transition:transform 0.4s ease;
+}
+.cert-3d-side-panel:hover img{
+  transform:scale(1.05) translateY(-3px);
+}
+
+/* Responsive Overrides */
+@media(max-width:1100px){
+  .cert-main-layout{
+    grid-template-columns:1fr 1fr;
+  }
+  .cert-3d-side-panel{display:none}
+}
+@media(max-width:680px){
+  .cert-header-row{flex-direction:column;align-items:flex-start;gap:18px}
+  .cert-header-capsule{
+    width:100%;
+    border-radius:18px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    padding:14px;
+  }
+  .cert-cap-item:not(:last-child){border-right:none;padding-right:0}
+  .cert-main-layout{grid-template-columns:1fr;gap:18px}
+}
 
 /* Current Role Badge in Experience */
 .exp-current-badge{
@@ -6945,108 +7251,167 @@ main{display:block}
 
 <!-- CERTIFICATIONS -->
 <section id="certifications">
-  <div class="section-header-row fade-in">
-    <div class="section-header-left">
-      <div class="section-tag-inline">
-        <span>CREDENTIALS</span>
-        <span class="section-tag-rule" aria-hidden="true"></span>
+  <div class="cert-top-header fade-in">
+    <div class="cert-header-row">
+      <div class="cert-header-left">
+        <div class="cert-pill-badge">
+          <span class="badge-icon" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </span>
+          <span>CREDENTIALS</span>
+        </div>
+        <h2 class="cert-hero-title">
+          <span class="cert-title-white">Certifi</span><span class="cert-title-grad">cations</span>
+        </h2>
+        <p class="cert-tagline">Professional certifications that have strengthened my technical knowledge and practical skills in full-stack development and web technologies.</p>
       </div>
-      <h2 class="section-hero-title">Certifications</h2>
-      <p class="section-tagline">Professional certifications that have strengthened my technical knowledge and practical skills in full-stack development and web technologies.</p>
-    </div>
-    <div class="section-header-strip" aria-label="Certifications summary">
-      <div class="header-strip-item">
-        <div class="strip-icon-box strip-purple">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+
+      <!-- Right Header Capsule Stats -->
+      <div class="cert-header-capsule" aria-label="Certifications overview metrics">
+        <div class="cert-cap-item">
+          <div class="cert-cap-icon cc-violet" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </div>
+          <div class="cert-cap-text">
+            <strong>2</strong>
+            <span>Certifications Completed</span>
+          </div>
         </div>
-        <div class="strip-text">
-          <span class="strip-num">2</span>
-          <span class="strip-label">Certifications Completed</span>
+        <div class="cert-cap-item">
+          <div class="cert-cap-icon cc-cyan" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div class="cert-cap-text">
+            <strong>2025</strong>
+            <span>Latest Certification</span>
+          </div>
         </div>
-      </div>
-      <div class="header-strip-item">
-        <div class="strip-icon-box strip-blue">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <div class="cert-cap-item">
+          <div class="cert-cap-icon cc-purple" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </div>
+          <div class="cert-cap-text">
+            <strong>2</strong>
+            <span>Platforms (Code99 &amp; Udemy)</span>
+          </div>
         </div>
-        <div class="strip-text">
-          <span class="strip-num">2025</span>
-          <span class="strip-label">Latest Certification</span>
-        </div>
-      </div>
-      <div class="header-strip-item">
-        <div class="strip-icon-box strip-purple">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-        </div>
-        <div class="strip-text">
-          <span class="strip-num">2</span>
-          <span class="strip-label">Platforms (Course Providers)</span>
-        </div>
-      </div>
-      <div class="header-strip-item">
-        <div class="strip-icon-box strip-magenta">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-        </div>
-        <div class="strip-text">
-          <span class="strip-num">100%</span>
-          <span class="strip-label">Relevant to Career</span>
+        <div class="cert-cap-item">
+          <div class="cert-cap-icon cc-blue" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <div class="cert-cap-text">
+            <strong>14+</strong>
+            <span>Core Competencies</span>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="cert-grid-two fade-in">
-    <!-- Card 1: Code99 IT Academy -->
-    <div class="cert-card-pro">
+  <div class="cert-main-layout fade-in">
+    <!-- Card 1: Java Full Stack Development (Code99 IT Academy) -->
+    <div class="cert-card-pro card-code99">
       <div class="cert-card-top">
-        <div class="cert-badge-icon cert-icon-java" aria-hidden="true">☕</div>
+        <div class="cert-badge-icon cert-icon-java" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        </div>
         <div class="cert-header-info">
           <h3 class="cert-title">Java Full Stack Development</h3>
           <div class="cert-org">Code99 IT Academy</div>
         </div>
-        <span class="t-status-pill pill-cert-year">2025</span>
+        <span class="pill-cert-year">2025</span>
       </div>
       <p class="cert-desc">Completed a comprehensive Java Full Stack Development program covering Core Java, Spring Boot, Spring MVC, Spring Security, REST APIs, JPA/Hibernate, React and real-time project development.</p>
       
       <div class="cert-subhead">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
         <span>Key Topics Covered</span>
       </div>
       <div class="cert-topics">
-        <span class="cert-tag"><span class="tag-ic">☕</span>Core Java</span>
-        <span class="cert-tag"><span class="tag-ic">🌱</span>Spring Boot</span>
-        <span class="cert-tag"><span class="tag-ic">⚙️</span>Spring MVC</span>
-        <span class="cert-tag"><span class="tag-ic">&lt;/&gt;</span>REST APIs</span>
-        <span class="cert-tag"><span class="tag-ic">🗄️</span>JPA / Hibernate</span>
-        <span class="cert-tag"><span class="tag-ic">🛡️</span>Spring Security</span>
-        <span class="cert-tag"><span class="tag-ic">⚛️</span>React</span>
-        <span class="cert-tag"><span class="tag-ic">📁</span>Real-time Projects</span>
+        <span class="cert-tag">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          <span>Core Java</span>
+        </span>
+        <span class="cert-tag">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#22c55e"><path d="M2.5 12c0-4.4 3.6-8 8-8 3.5 0 6.6 2.3 7.6 5.6-2.1.2-4.1 1.2-5.5 2.8-1.5 1.7-2.3 3.9-2.1 6.1-4.6-.2-8-3.7-8-6.5z"/></svg>
+          <span>Spring Boot</span>
+        </span>
+        <span class="cert-tag">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#3b82f6"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          <span>Spring MVC</span>
+        </span>
+        <span class="cert-tag">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          <span>REST APIs</span>
+        </span>
+        <span class="cert-tag">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          <span>JPA / Hibernate</span>
+        </span>
+        <span class="cert-tag">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>Spring Security</span>
+        </span>
+        <span class="cert-tag">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#38bdf8"><circle cx="12" cy="12" r="2.5"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(30 12 12)" fill="none" stroke="#38bdf8" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(90 12 12)" fill="none" stroke="#38bdf8" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(150 12 12)" fill="none" stroke="#38bdf8" stroke-width="1.8"/></svg>
+          <span>React</span>
+        </span>
+        <span class="cert-tag">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c084fc" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+          <span>Real-time Projects</span>
+        </span>
       </div>
     </div>
 
-    <!-- Card 2: Udemy -->
-    <div class="cert-card-pro">
+    <!-- Card 2: Web Development (Udemy) -->
+    <div class="cert-card-pro card-udemy">
       <div class="cert-card-top">
-        <div class="cert-badge-icon cert-icon-web" aria-hidden="true">🌐</div>
+        <div class="cert-badge-icon cert-icon-web" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
         <div class="cert-header-info">
           <h3 class="cert-title">Web Development</h3>
           <div class="cert-org">Udemy</div>
         </div>
-        <span class="t-status-pill pill-cert-year">2024</span>
+        <span class="pill-cert-year">2024</span>
       </div>
       <p class="cert-desc">Completed a hands-on web development course covering HTML, CSS, JavaScript, React and modern frontend development practices, with practical projects and real-world implementation.</p>
       
       <div class="cert-subhead">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
         <span>Key Topics Covered</span>
       </div>
       <div class="cert-topics">
-        <span class="cert-tag"><span class="tag-ic">🌐</span>HTML5</span>
-        <span class="cert-tag"><span class="tag-ic">🎨</span>CSS3</span>
-        <span class="cert-tag"><span class="tag-ic">📜</span>JavaScript</span>
-        <span class="cert-tag"><span class="tag-ic">⚛️</span>React</span>
-        <span class="cert-tag"><span class="tag-ic">🖥️</span>Frontend Development</span>
-        <span class="cert-tag"><span class="tag-ic">📱</span>Responsive UI</span>
+        <span class="cert-tag">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          <span>HTML5</span>
+        </span>
+        <span class="cert-tag">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <span>CSS3</span>
+        </span>
+        <span class="cert-tag">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          <span>JavaScript</span>
+        </span>
+        <span class="cert-tag">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#38bdf8"><circle cx="12" cy="12" r="2.5"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(30 12 12)" fill="none" stroke="#38bdf8" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(90 12 12)" fill="none" stroke="#38bdf8" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(150 12 12)" fill="none" stroke="#38bdf8" stroke-width="1.8"/></svg>
+          <span>React</span>
+        </span>
+        <span class="cert-tag">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <span>Frontend Development</span>
+        </span>
+        <span class="cert-tag">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          <span>Responsive UI</span>
+        </span>
       </div>
+    </div>
+
+    <!-- Right Side 3D Pedestal Graphic -->
+    <div class="cert-3d-side-panel" aria-hidden="true">
+      <img src="assets/cert_3d_badge.webp" alt="3D Certificate Pedestal" width="210" height="350" loading="lazy">
     </div>
   </div>
 </section>
