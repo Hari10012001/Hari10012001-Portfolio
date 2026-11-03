@@ -2314,30 +2314,64 @@ h1.hero-name{
   color:#ffffff;
 }
 
-/* Ambient Cyber Cursor Spotlight */
+
+
+/* ==========================================================================
+   Option 1: Ambient Cyber Spotlight Glow
+   - Subtle Cyan (#38bdf8) and Violet (#a855f7) radial-gradient glow
+   - Lightweight fixed-position background layer behind interactive content
+   - pointer-events: none (native browser cursor completely unchanged)
+   - Zero-overhead hardware accelerated transform
+   ========================================================================== */
+.ambient-spotlight {
+  display: none;
+}
+
 @media (hover: hover) and (pointer: fine) {
-  .cursor-spotlight {
+  .ambient-spotlight {
+    display: block;
     position: fixed;
     top: 0;
     left: 0;
-    width: 650px;
-    height: 650px;
-    margin-left: -325px;
-    margin-top: -325px;
+    width: 680px;
+    height: 680px;
+    margin-left: -340px;
+    margin-top: -340px;
     border-radius: 50%;
     pointer-events: none;
-    z-index: 9990;
-    background: radial-gradient(circle, rgba(56, 189, 248, 0.09) 0%, rgba(168, 85, 247, 0.06) 45%, transparent 70%);
+    z-index: 1;
+    background: radial-gradient(
+      circle,
+      rgba(56, 189, 248, 0.12) 0%,
+      rgba(168, 85, 247, 0.08) 35%,
+      rgba(168, 85, 247, 0.02) 60%,
+      transparent 72%
+    );
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.35s ease;
     will-change: transform;
+    contain: layout paint size;
   }
-  .cursor-spotlight.is-active {
+
+  .ambient-spotlight.is-active {
     opacity: 1;
   }
 }
+
+[data-theme="light"] .ambient-spotlight {
+  background: radial-gradient(
+    circle,
+    rgba(56, 189, 248, 0.09) 0%,
+    rgba(168, 85, 247, 0.06) 35%,
+    rgba(168, 85, 247, 0.015) 60%,
+    transparent 72%
+  );
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .cursor-spotlight { display: none !important; }
+  .ambient-spotlight {
+    display: none !important;
+  }
 }
 
 /* Responsive Overrides */
@@ -8730,6 +8764,106 @@ if(rt && !reduce()){
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&isOpen()){setOpen(false);toggle.focus()}});
   document.addEventListener('click',function(e){if(isOpen()&&!e.target.closest('.site-header nav')) setOpen(false)});
   window.matchMedia('(min-width:961px)').addEventListener('change',function(e){if(e.matches) setOpen(false)});
+})();
+
+/* ==========================================================================
+   Option 1: Ambient Cyber Spotlight Glow — Zero-Idle Loop Controller
+   - Smooth transform3d interpolation towards pointer
+   - Halts animation loop completely when pointer is stationary (0 CPU/GPU idle)
+   - Wakes up immediately on mousemove, sleeps on mouseleave
+   - Disabled on touch/mobile and prefers-reduced-motion
+   ========================================================================== */
+(function() {
+  'use strict';
+  if (typeof window === 'undefined' || !window.matchMedia || !window.requestAnimationFrame) return;
+
+  var hoverQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+  var motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  if (!hoverQuery.matches || motionQuery.matches) return;
+
+  var spotlight = document.getElementById('ambient-spotlight');
+  if (!spotlight) {
+    spotlight = document.createElement('div');
+    spotlight.id = 'ambient-spotlight';
+    spotlight.className = 'ambient-spotlight';
+    spotlight.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(spotlight);
+  }
+
+  var targetX = window.innerWidth / 2;
+  var targetY = window.innerHeight / 2;
+  var currentX = targetX;
+  var currentY = targetY;
+  var isAnimating = false;
+  var isVisible = false;
+  var rafId = null;
+
+  var EASE = 0.12;
+  var EPSILON = 0.2;
+
+  function onFrame() {
+    var dx = targetX - currentX;
+    var dy = targetY - currentY;
+
+    if (Math.abs(dx) <= EPSILON && Math.abs(dy) <= EPSILON) {
+      currentX = targetX;
+      currentY = targetY;
+      spotlight.style.transform = 'translate3d(' + currentX.toFixed(1) + 'px,' + currentY.toFixed(1) + 'px,0)';
+      isAnimating = false;
+      rafId = null;
+      return; // Stop animation loop when stationary
+    }
+
+    currentX += dx * EASE;
+    currentY += dy * EASE;
+    spotlight.style.transform = 'translate3d(' + currentX.toFixed(1) + 'px,' + currentY.toFixed(1) + 'px,0)';
+
+    rafId = requestAnimationFrame(onFrame);
+  }
+
+  function startAnimation() {
+    if (!isAnimating) {
+      isAnimating = true;
+      rafId = requestAnimationFrame(onFrame);
+    }
+  }
+
+  function onMouseMove(e) {
+    targetX = e.clientX;
+    targetY = e.clientY;
+
+    if (!isVisible) {
+      isVisible = true;
+      spotlight.classList.add('is-active');
+      currentX = targetX;
+      currentY = targetY;
+      spotlight.style.transform = 'translate3d(' + currentX.toFixed(1) + 'px,' + currentY.toFixed(1) + 'px,0)';
+    }
+
+    startAnimation();
+  }
+
+  function onMouseLeave() {
+    isVisible = false;
+    spotlight.classList.remove('is-active');
+    if (rafId) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
+    isAnimating = false;
+  }
+
+  window.addEventListener('mousemove', onMouseMove, { passive: true });
+  document.addEventListener('mouseleave', onMouseLeave, { passive: true });
+
+  try {
+    motionQuery.addEventListener('change', function(e) {
+      if (e.matches) {
+        onMouseLeave();
+      }
+    });
+  } catch(e) {}
 })();
 
 /* ---------- site-config.js wiring: verified project URLs ---------- */
