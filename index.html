@@ -4169,10 +4169,11 @@ main{display:block}
 /* Certifications Layout: 2 Equal-Height Balanced Cards + 3D Pedestal Graphic */
 .cert-main-layout{
   display:grid;
-  grid-template-columns:minmax(0, 1fr) minmax(0, 1fr) 210px;
-  gap:24px;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:28px;
   align-items:stretch;
 }
+.cert-3d-side-panel{display:none !important}
 .cert-card-pro{
   background:rgba(10, 14, 34, 0.82);
   border:1px solid rgba(139, 92, 246, 0.28);
@@ -8230,10 +8231,7 @@ footer {
       </div>
     </div>
 
-    <!-- Right Side 3D Pedestal Graphic -->
-    <div class="cert-3d-side-panel" aria-hidden="true">
-      <img src="assets/cert_3d_badge.webp" alt="3D Certificate Pedestal" width="210" height="350" loading="lazy">
-    </div>
+
   </div>
 </section>
 
