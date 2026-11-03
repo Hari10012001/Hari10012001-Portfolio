@@ -2313,6 +2313,37 @@ h1.hero-name{
   box-shadow:0 0 25px rgba(168, 85, 247, 0.6);
   color:#ffffff;
 }
+.btn-proj-disabled {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 9999px;
+  background: rgba(15, 23, 42, 0.45);
+  border: 1px dashed rgba(255, 255, 255, 0.22);
+  color: rgba(255, 255, 255, 0.55);
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: not-allowed;
+  user-select: none;
+  transition: all 0.25s ease;
+  box-shadow: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+.btn-proj-disabled svg {
+  opacity: 0.65;
+  flex-shrink: 0;
+}
+[data-theme="light"] .btn-proj-disabled {
+  background: rgba(226, 232, 240, 0.65);
+  border-color: rgba(15, 23, 42, 0.22);
+  color: rgba(15, 23, 42, 0.52);
+}
+
 /* Responsive Overrides */
 @media(max-width:1024px){
   .skills-cyber-grid{grid-template-columns:repeat(2, minmax(0, 1fr));gap:16px}
@@ -6445,7 +6476,7 @@ footer {
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                 JUN 2025 – PRESENT
               </span>
-              <span class="j-badge badge-current">1 Year 5 Months (Current)</span>
+              <span class="j-badge badge-current" data-dynamic-duration="approtech" data-duration-suffix="(Current)">1 Year 5 Months (Current)</span>
             </div>
             <h4 class="j-role">Java Full Stack Developer</h4>
             <div class="j-company">Approtech R&amp;D Solutions Pvt. Ltd.</div>
@@ -6855,14 +6886,14 @@ footer {
 
         <!-- Action CTAs -->
         <div class="proj-card-actions">
-          <a class="btn-proj-github" data-link="GITHUB_URL_BLOOD_BANK" href="https://github.com/Hari10012001/blood-bank-donor-emergency-request-management-system" target="_blank" rel="noopener noreferrer" aria-label="Smart Blood Bank Management System: GitHub repository (opens in new tab)">
-            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.929.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
-            <span>GitHub</span>
-          </a>
-          <a class="btn-proj-live" data-link="LIVE_DEMO_URL_BLOOD_BANK" href="https://bloodbank-management.onrender.com" target="_blank" rel="noopener noreferrer" aria-label="Smart Blood Bank Management System: Live demo deployment (opens in new tab)">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            <span>Live Demo ↗</span>
-          </a>
+          <button type="button" class="btn-proj-disabled" disabled aria-label="Smart Blood Bank Management System: Repository is private enterprise codebase" title="Repository is private / internal enterprise codebase">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            <span>Private Repo</span>
+          </button>
+          <button type="button" class="btn-proj-disabled" disabled aria-label="Smart Blood Bank Management System: Live deployment is currently offline" title="Live deployment is currently offline">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg>
+            <span>Demo Offline</span>
+          </button>
         </div>
       </div>
     </article>
@@ -6933,14 +6964,14 @@ footer {
 
         <!-- Action CTAs -->
         <div class="proj-card-actions">
-          <a class="btn-proj-github" data-link="GITHUB_URL_DONATIONDESK" href="https://github.com/Hari10012001/DonationDesk" target="_blank" rel="noopener noreferrer" aria-label="DonationDesk: GitHub repository (opens in new tab)">
-            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.929.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
-            <span>GitHub</span>
-          </a>
-          <a class="btn-proj-live" data-link="LIVE_DEMO_URL_DONATIONDESK" href="https://donationdesk.onrender.com" target="_blank" rel="noopener noreferrer" aria-label="DonationDesk: Live demo deployment (opens in new tab)">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            <span>Live Demo ↗</span>
-          </a>
+          <button type="button" class="btn-proj-disabled" disabled aria-label="DonationDesk: Repository is private codebase" title="Repository is private / under internal access">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            <span>Private Repo</span>
+          </button>
+          <button type="button" class="btn-proj-disabled" disabled aria-label="DonationDesk: Live deployment is currently offline" title="Live deployment is currently offline">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg>
+            <span>Demo Offline</span>
+          </button>
         </div>
       </div>
     </article>
@@ -7093,10 +7124,10 @@ footer {
             <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.929.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
             <span>GitHub</span>
           </a>
-          <a class="btn-proj-live" data-link="LIVE_DEMO_URL_EXPENSE_ANALYZER" href="https://ai-expense-analyzer.onrender.com" target="_blank" rel="noopener noreferrer" aria-label="AI-Powered Expense Analyzer: Live demo deployment (opens in new tab)">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            <span>Live Demo ↗</span>
-          </a>
+          <button type="button" class="btn-proj-disabled" disabled aria-label="AI-Powered Expense Analyzer: Live demo deployment is currently offline" title="Live deployment is currently offline">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg>
+            <span>Demo Offline</span>
+          </button>
         </div>
       </div>
     </article>
@@ -7171,10 +7202,10 @@ footer {
             <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.929.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
             <span>GitHub</span>
           </a>
-          <a class="btn-proj-live" data-link="LIVE_DEMO_URL_FOUNDIT" href="https://foundit-asset-tracker.onrender.com" target="_blank" rel="noopener noreferrer" aria-label="FoundIt: Live demo deployment (opens in new tab)">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            <span>Live Demo ↗</span>
-          </a>
+          <button type="button" class="btn-proj-disabled" disabled aria-label="FoundIt: Live demo deployment is currently offline" title="Live deployment is currently offline">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg>
+            <span>Demo Offline</span>
+          </button>
         </div>
       </div>
     </article>
@@ -7245,14 +7276,14 @@ footer {
 
         <!-- Action CTAs -->
         <div class="proj-card-actions">
-          <a class="btn-proj-github" data-link="GITHUB_URL_RIDE_RENT" href="https://github.com/Hari10012001/RideRent" target="_blank" rel="noopener noreferrer" aria-label="RideRent: GitHub repository (opens in new tab)">
-            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.929.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
-            <span>GitHub</span>
-          </a>
-          <a class="btn-proj-live" data-link="LIVE_DEMO_URL_RIDE_RENT" href="https://riderent-portal.onrender.com" target="_blank" rel="noopener noreferrer" aria-label="RideRent: Live demo deployment (opens in new tab)">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            <span>Live Demo ↗</span>
-          </a>
+          <button type="button" class="btn-proj-disabled" disabled aria-label="RideRent: Repository is private codebase" title="Repository is private / under internal access">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            <span>Private Repo</span>
+          </button>
+          <button type="button" class="btn-proj-disabled" disabled aria-label="RideRent: Live deployment is currently offline" title="Live deployment is currently offline">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg>
+            <span>Demo Offline</span>
+          </button>
         </div>
       </div>
     </article>
@@ -7335,7 +7366,7 @@ footer {
         </div>
         <div class="exp-duration-box">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          <span>1 Year 5 Months (Ongoing)</span>
+          <span data-dynamic-duration="approtech" data-duration-suffix="(Ongoing)">1 Year 5 Months (Ongoing)</span>
         </div>
       </div>
 
@@ -8520,6 +8551,7 @@ footer {
   <div class="footer-inner-container">
     <!-- Zone 1: Branding -->
     <div class="foot-brand-col">
+      <div class="foot-col-heading">DEVELOPER &amp; IDENTITY</div>
       <div class="foot-brand-name">Hariharan <span class="neon-gradient-text">P</span></div>
       <div class="foot-role-pill">
         <span class="foot-pulse-dot" aria-hidden="true"></span>
@@ -8587,10 +8619,7 @@ footer {
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
           <span>Resume (PDF)</span>
         </a>
-        <a href="#hero" class="foot-top-btn" aria-label="Back to top of page">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
-          <span>Top</span>
-        </a>
+
       </div>
     </div>
   </div>
@@ -8737,6 +8766,29 @@ if(rt && !reduce()){
     b.textContent='TEST MODE: project links on this page are dummy URLs, not real repositories or demos.';
     document.body.appendChild(b);
   }
+})();
+
+/* ---------- Dynamic duration calculation for Approtech (started June 1, 2025) ---------- */
+(function(){
+  try {
+    var startDate = new Date(2025, 5, 1); // June 1, 2025
+    var now = new Date();
+    var months = (now.getFullYear() - startDate.getFullYear()) * 12 + (now.getMonth() - startDate.getMonth());
+    if (now.getDate() < startDate.getDate()) months--;
+    if (months < 1) months = 1;
+    var years = Math.floor(months / 12);
+    var remMonths = months % 12;
+    var durStr = "";
+    if (years > 0) durStr += years + (years === 1 ? " Year" : " Years");
+    if (remMonths > 0) durStr += (durStr ? " " : "") + remMonths + (remMonths === 1 ? " Month" : " Months");
+    if (!durStr) durStr = "1 Month";
+    
+    var badges = document.querySelectorAll('[data-dynamic-duration="approtech"]');
+    for (var i = 0; i < badges.length; i++) {
+      var suffix = badges[i].getAttribute('data-duration-suffix') || '';
+      badges[i].textContent = durStr + (suffix ? ' ' + suffix : '');
+    }
+  } catch(e){}
 })();
 
 /* ---------- Contact form: success is shown only after the server confirms receipt ---------- */

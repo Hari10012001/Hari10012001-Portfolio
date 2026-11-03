@@ -21,3 +21,5 @@ __pycache__/
 # Local Archive / Bin
 Bin/
 bin/
+
+*.zip
