@@ -3681,10 +3681,8 @@ main{display:block}
 
 /* Main Layout: Timeline + Right 3D Side Panel */
 .edu-main-layout{
-  display:grid;
-  grid-template-columns:minmax(0, 1fr) 215px;
-  gap:28px;
-  align-items:end;
+  display:block;
+  width:100%;
 }
 
 /* Timeline Container & Glowing Spine */
@@ -3926,34 +3924,7 @@ main{display:block}
 }
 [data-theme="light"] .edu-loc-pill{color:#64748b}
 
-/* CGPA Golden Banner */
-.edu-cgpa-banner{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  padding:7px 16px;
-  border-radius:12px;
-  background:rgba(251, 191, 36, 0.12);
-  border:1px solid rgba(251, 191, 36, 0.4);
-  box-shadow:0 4px 16px rgba(251, 191, 36, 0.12);
-  width:fit-content;
-}
-.edu-cgpa-banner .cgpa-icon{
-  color:#fbbf24;
-  display:flex;
-  align-items:center;
-}
-.edu-cgpa-banner strong{
-  font-family:var(--font-head);
-  font-size:13.5px;
-  font-weight:800;
-  color:#fbbf24;
-}
-.edu-cgpa-banner span{
-  font-size:11.5px;
-  color:rgba(251, 191, 36, 0.85);
-  font-weight:600;
-}
+.edu-cgpa-banner{display:none !important}
 
 /* Bullet Points */
 .edu-bullets{
@@ -4017,24 +3988,7 @@ main{display:block}
 .edu-tag svg{flex-shrink:0}
 
 /* Right Side 3D Graphic Panel */
-.edu-3d-side-panel{
-  display:flex;
-  align-items:flex-end;
-  justify-content:center;
-  position:relative;
-  padding-bottom:10px;
-}
-.edu-3d-side-panel img{
-  width:100%;
-  max-width:215px;
-  height:auto;
-  object-fit:contain;
-  filter:drop-shadow(0 0 28px rgba(168, 85, 247, 0.4));
-  transition:transform 0.4s ease;
-}
-.edu-3d-side-panel:hover img{
-  transform:scale(1.05) translateY(-3px);
-}
+.edu-3d-side-panel{display:none !important}
 
 /* Responsive Overrides */
 @media(max-width:1100px){
@@ -7954,15 +7908,7 @@ footer {
             <span>Highest Qualification</span>
           </div>
         </div>
-        <div class="edu-cap-item">
-          <div class="edu-cap-icon edc-amber" aria-hidden="true">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          </div>
-          <div class="edu-cap-text">
-            <strong>8.1</strong>
-            <span>MCA CGPA (First Class)</span>
-          </div>
-        </div>
+
       </div>
     </div>
   </div>
@@ -8004,14 +7950,7 @@ footer {
             </div>
           </div>
 
-          <!-- MCA CGPA Golden Glass Banner -->
-          <div class="edu-cgpa-banner">
-            <span class="cgpa-icon" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h2"/><path d="M18 9h2a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-2"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
-            </span>
-            <strong>CGPA: 8.1</strong>
-            <span>(First Class)</span>
-          </div>
+
 
           <ul class="edu-bullets">
             <li class="edu-bullet-item">
@@ -8126,10 +8065,6 @@ footer {
       </div>
     </div>
 
-    <!-- Right Side 3D Graphic Panel -->
-    <div class="edu-3d-side-panel" aria-hidden="true">
-      <img src="assets/edu_3d_badge.webp" alt="3D Graduation Cap and Academic Books" width="205" height="315" loading="lazy">
-    </div>
   </div>
 </section>
 
