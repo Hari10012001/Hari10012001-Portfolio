@@ -17,3 +17,7 @@ __pycache__/
 .env.*
 !.env.example
 /pic2(5).jpeg
+
+# Local Archive / Bin
+Bin/
+bin/
