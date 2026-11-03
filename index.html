@@ -596,10 +596,12 @@ h1.hero-name{
   color:#0f172a;
 }
 .neon-gradient-text{
-  background:linear-gradient(135deg, #a855f7 20%, #38bdf8 100%);
+  background:linear-gradient(135deg, #c084fc 15%, #38bdf8 100%);
   -webkit-background-clip:text;
+  background-clip:text;
   -webkit-text-fill-color:transparent;
-  filter:drop-shadow(0 0 16px rgba(56, 189, 248, 0.45));
+  color:transparent;
+  display:inline-block;
 }
 .hero-role-line{
   font-family:var(--font-head);
@@ -2690,12 +2692,19 @@ h1.hero-name{
   border-radius:14px;
   background:#ffffff;
   display:flex;
-  flex-direction:column;
   align-items:center;
   justify-content:center;
   box-shadow:0 4px 14px rgba(0, 0, 0, 0.25);
   padding:4px;
   flex-shrink:0;
+  overflow:hidden;
+}
+.exp-logo-img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+  border-radius:8px;
 }
 .logo-subtext{
   font-family:var(--font-head);
@@ -7368,12 +7377,7 @@ footer {
         <div class="exp-card-header">
           <div class="exp-brand-row">
             <div class="exp-company-logo" aria-hidden="true">
-              <svg width="34" height="34" viewBox="0 0 100 100">
-                <polygon points="50,12 88,88 12,88" fill="none" stroke="#2563eb" stroke-width="12" stroke-linejoin="round"/>
-                <polygon points="50,30 76,82 24,82" fill="#38bdf8"/>
-                <line x1="32" y1="62" x2="68" y2="62" stroke="#ffffff" stroke-width="8"/>
-              </svg>
-              <span class="logo-subtext">APPROTECH</span>
+              <img src="assets/logo_approtech.webp" alt="Approtech R&amp;D Solutions Logo" width="52" height="52" class="exp-logo-img" loading="lazy">
             </div>
             <div class="exp-title-block">
               <span class="exp-company-name">APPROTECH R&amp;D SOLUTIONS PVT. LTD.</span>
@@ -7499,8 +7503,7 @@ footer {
         <div class="exp-card-header">
           <div class="exp-brand-row">
             <div class="exp-company-logo" aria-hidden="true">
-              <div class="rrd-logo-box">RR</div>
-              <span class="rrd-logo-sub">DONNELLEY</span>
+              <img src="assets/logo_rrd.webp" alt="RR Donnelley Logo" width="52" height="52" class="exp-logo-img" loading="lazy">
             </div>
             <div class="exp-title-block">
               <span class="exp-company-name">RR DONNELLEY</span>
@@ -7616,7 +7619,7 @@ footer {
         <div class="exp-card-header">
           <div class="exp-brand-row">
             <div class="exp-company-logo" aria-hidden="true">
-              <div class="adecco-logo-box">Adecco</div>
+              <img src="assets/logo_adecco.webp" alt="Adecco Logo" width="52" height="52" class="exp-logo-img" loading="lazy">
             </div>
             <div class="exp-title-block">
               <span class="exp-company-name">ADECCO</span>
