@@ -5469,8 +5469,18 @@ main{display:block}
 .c-pro-form {
   display: flex;
   flex-direction: column;
-  gap: 13px;
+  flex: 1;
+  gap: 14px;
   margin-top: 2px;
+}
+.form-group-message {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.form-group-message .input-textarea-wrap {
+  flex: 1;
+  display: flex;
 }
 .form-group-pro {
   display: flex;
@@ -5525,7 +5535,8 @@ main{display:block}
   top: 14px;
 }
 .pro-textarea {
-  min-height: 110px;
+  flex: 1;
+  min-height: 145px;
   resize: vertical;
   line-height: 1.5;
   padding-top: 10px;
@@ -5567,7 +5578,8 @@ main{display:block}
   gap: 6px;
   font-size: 11.5px;
   color: rgba(226, 232, 240, 0.6);
-  margin-top: 6px;
+  margin-top: 10px;
+  margin-bottom: 2px;
   text-align: center;
 }
 [data-theme="light"] .c-privacy-reassurance { color: #64748b; }
@@ -8547,7 +8559,7 @@ footer {
           </div>
         </div>
 
-        <div class="form-group-pro">
+        <div class="form-group-pro form-group-message">
           <label class="form-label-pro" for="cf-message">MESSAGE</label>
           <div class="input-with-icon input-textarea-wrap">
             <span class="input-icon" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
