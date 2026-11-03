@@ -4997,23 +4997,56 @@ main{display:block}
 }
 
 /* Top Right Artwork */
-.contact-top-art-wrap{
-  display:flex;
-  align-items:center;
-  justify-content:flex-end;
-  position:relative;
+.contact-header-capsule {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 20px;
+  background: rgba(10, 14, 34, 0.75);
+  border: 1px solid rgba(139, 92, 246, 0.28);
+  border-radius: 9999px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
-.contact-top-art-wrap img{
-  width:100%;
-  max-width:360px;
-  height:auto;
-  object-fit:contain;
-  filter:drop-shadow(0 0 24px rgba(168, 85, 247, 0.35));
-  transition:transform 0.4s ease;
+[data-theme="light"] .contact-header-capsule {
+  background: rgba(248, 250, 252, 0.95);
+  border-color: rgba(99, 102, 241, 0.2);
 }
-.contact-top-art-wrap:hover img{
-  transform:scale(1.04) translateY(-2px);
+.c-stat-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
+.c-stat-dot-green {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 10px #22c55e;
+}
+.c-stat-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+.c-stat-num {
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 800;
+  color: #ffffff;
+}
+[data-theme="light"] .c-stat-num { color: #0f172a; }
+.c-stat-label {
+  font-size: 10.5px;
+  color: rgba(226, 232, 240, 0.6);
+}
+[data-theme="light"] .c-stat-label { color: #64748b; }
+.c-stat-sep {
+  width: 1px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.1);
+}
+[data-theme="light"] .c-stat-sep { background: rgba(0, 0, 0, 0.1); }
 
 /* Two-Column Grid */
 .contact-two-col {
@@ -5125,19 +5158,19 @@ main{display:block}
 
 /* Channels Grid (2x2) */
 .c-channels-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 12px;
 }
 .c-channel-item {
   background: rgba(10, 14, 34, 0.75);
   border: 1px solid rgba(139, 92, 246, 0.22);
   border-radius: 14px;
-  padding: 16px 18px;
+  padding: 11px 18px;
   display: flex;
-  align-items: flex-start;
-  gap: 12px;
+  align-items: center;
+  gap: 14px;
   text-decoration: none;
   transition: all 0.25s ease;
   position: relative;
@@ -5161,7 +5194,7 @@ main{display:block}
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  margin-top: 2px;
+  margin-top: 0;
 }
 .c-channel-icon.ic-email {
   background: rgba(168, 85, 247, 0.15);
@@ -5198,9 +5231,9 @@ main{display:block}
 }
 .c-chan-label {
   font-family: var(--font-head);
-  font-size: 10.5px;
+  font-size: 10px;
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   color: rgba(226, 232, 240, 0.6);
   text-transform: uppercase;
 }
@@ -5208,20 +5241,21 @@ main{display:block}
 
 .c-chan-val {
   display: block;
-  font-size: 12.5px;
+  font-size: 13.5px;
   font-weight: 700;
   color: #ffffff;
-  line-height: 1.35;
-  word-break: break-word;
-  overflow-wrap: anywhere;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 [data-theme="light"] .c-chan-val { color: #0f172a; }
 
 .c-chan-hint {
   font-size: 11px;
   color: rgba(226, 232, 240, 0.55);
-  line-height: 1.3;
-  margin-top: 2px;
+  line-height: 1.25;
+  margin-top: 1px;
 }
 [data-theme="light"] .c-chan-hint { color: #64748b; }
 
@@ -5241,11 +5275,11 @@ main{display:block}
   background: rgba(10, 14, 34, 0.75);
   border: 1px solid rgba(139, 92, 246, 0.22);
   border-radius: 14px;
-  padding: 16px 20px;
+  padding: 12px 18px;
   display: flex;
   align-items: center;
   gap: 14px;
-  margin-bottom: 18px;
+  margin-bottom: 12px;
 }
 [data-theme="light"] .c-location-card {
   background: rgba(248, 250, 252, 0.95);
@@ -5298,9 +5332,9 @@ main{display:block}
 .c-interest-strip {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-  margin-top: 18px;
-  padding-top: 18px;
+  gap: 10px;
+  margin-top: 12px;
+  padding-top: 12px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 [data-theme="light"] .c-interest-strip {
@@ -5310,7 +5344,7 @@ main{display:block}
   background: rgba(10, 14, 34, 0.65);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
-  padding: 11px 14px;
+  padding: 9px 12px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -5374,8 +5408,8 @@ main{display:block}
 .c-pro-form {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-top: 0;
+  gap: 13px;
+  margin-top: 2px;
 }
 .form-group-pro {
   display: flex;
@@ -5406,7 +5440,7 @@ main{display:block}
 [data-theme="light"] .input-icon { color: #94a3b8; }
 .pro-input {
   width: 100%;
-  padding: 10px 14px 10px 42px;
+  padding: 11px 14px 11px 42px;
   background: rgba(10, 14, 35, 0.75);
   border: 1px solid rgba(139, 92, 246, 0.28);
   border-radius: 12px;
@@ -5430,7 +5464,7 @@ main{display:block}
   top: 14px;
 }
 .pro-textarea {
-  min-height: 85px;
+  min-height: 110px;
   resize: vertical;
   line-height: 1.5;
   padding-top: 10px;
@@ -8255,9 +8289,29 @@ footer {
         <p class="contact-tagline">I'm always open to discussing new opportunities, exciting projects or ways to collaborate.</p>
       </div>
 
-      <!-- Right Header Artwork (Desktop) -->
-      <div class="contact-top-art-wrap" aria-hidden="true">
-        <img src="assets/contact_top_art.webp" alt="Workspace Neon Art" width="360" height="120" loading="lazy">
+      <!-- Right Header Status Capsule -->
+      <div class="contact-header-capsule" aria-label="Current Availability and Response Status">
+        <div class="c-stat-pill">
+          <span class="c-stat-dot-green" aria-hidden="true"></span>
+          <div class="c-stat-info">
+            <span class="c-stat-num">Active</span>
+            <span class="c-stat-label">Ready to Join</span>
+          </div>
+        </div>
+        <div class="c-stat-sep" aria-hidden="true"></div>
+        <div class="c-stat-pill">
+          <div class="c-stat-info">
+            <span class="c-stat-num">&lt; 24h</span>
+            <span class="c-stat-label">Response Time</span>
+          </div>
+        </div>
+        <div class="c-stat-sep" aria-hidden="true"></div>
+        <div class="c-stat-pill">
+          <div class="c-stat-info">
+            <span class="c-stat-num">Chennai</span>
+            <span class="c-stat-label">Open to Remote</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
