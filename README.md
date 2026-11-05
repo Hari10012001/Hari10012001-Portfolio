@@ -5,11 +5,11 @@ A responsive, recruiter-focused portfolio for **Hariharan P**, Java Full Stack D
 ## Featured Projects
 
 1. **Smart Blood Bank Management System** — Healthcare platform for blood bank inventory tracking, donor registration, and emergency requests via Spring Boot REST APIs and MySQL.
-2. **AI-Powered Expense Analyzer** — Financial document parsing pipeline extracting expense records from PDFs/text with 90%+ accuracy and AI-driven spending trend analysis.
+2. **DonationDesk** — Resource allocation platform connecting verified donors with community beneficiaries, managing donation requests and distribution logistics.
 3. **WarrantyWise** — Product warranty and asset management platform tracking purchase records, invoice metadata, and expiry alerts.
-4. **FoundIt** — Community lost-and-found platform with categorical filtering, status tracking, and verified claim workflows.
-5. **VolunteerLink** — Community volunteering portal coordinating volunteer registration, event scheduling, and organizer rosters.
-6. **Ride Rent** — Vehicle rental booking system with date-based availability validation, transactional inventory integrity, and reservation management.
+4. **AI-Powered Expense Analyzer** — Financial document parsing pipeline extracting expense records from PDFs/text with automated category classification and spending analytics.
+5. **FoundIt** — Community lost-and-found platform with categorical filtering, status tracking, and verified claim workflows.
+6. **RideRent** — Vehicle rental booking system with date-based availability validation, transactional inventory integrity, and reservation management.
 
 ## Project Structure
 

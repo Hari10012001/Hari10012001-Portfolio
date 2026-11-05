@@ -38,8 +38,8 @@
 <link rel="preload" href="fonts/syne-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/dm-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-@font-face{font-family:'Syne';src:url('fonts/syne-latin-wght-normal.woff2') format('woff2');font-weight:400 800;font-style:normal;font-display:swap}
-@font-face{font-family:'DM Sans';src:url('fonts/dm-sans-latin-wght-normal.woff2') format('woff2');font-weight:100 1000;font-style:normal;font-display:swap}
+@font-face{font-family:'Syne';src:url('fonts/syne-latin-wght-normal.woff2') format('woff2');font-weight:400 800;font-style:normal;font-display:optional}
+@font-face{font-family:'DM Sans';src:url('fonts/dm-sans-latin-wght-normal.woff2') format('woff2');font-weight:100 1000;font-style:normal;font-display:optional}
 *{margin:0;padding:0;box-sizing:border-box}
 
 /* Global scroll padding to prevent fixed navbar overlap */
@@ -2314,20 +2314,311 @@ h1.hero-name{
   color:#ffffff;
 }
 
+/* Project Action Buttons: Case Study & Architecture */
+.btn-proj-case-study,
+.btn-proj-arch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 9999px;
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-sizing: border-box;
+  width: 100%;
+}
+.btn-proj-case-study {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.45);
+  color: #38bdf8;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25), 0 0 10px rgba(56, 189, 248, 0.15);
+}
+.btn-proj-case-study:hover {
+  background: rgba(56, 189, 248, 0.15);
+  border-color: #38bdf8;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35), 0 0 18px rgba(56, 189, 248, 0.35);
+}
+[data-theme="light"] .btn-proj-case-study {
+  background: #f0fdf4;
+  border-color: #0284c7;
+  color: #0369a1;
+}
+[data-theme="light"] .btn-proj-case-study:hover {
+  background: #e0f2fe;
+  color: #0284c7;
+}
 
+.btn-proj-arch {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(168, 85, 247, 0.45);
+  color: #c084fc;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25), 0 0 10px rgba(168, 85, 247, 0.15);
+}
+.btn-proj-arch:hover {
+  background: rgba(168, 85, 247, 0.15);
+  border-color: #c084fc;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35), 0 0 18px rgba(168, 85, 247, 0.35);
+}
+[data-theme="light"] .btn-proj-arch {
+  background: #faf5ff;
+  border-color: #7c3aed;
+  color: #6d28d9;
+}
+[data-theme="light"] .btn-proj-arch:hover {
+  background: #f3e8ff;
+  color: #5b21b6;
+}
+
+/* Case Study Modal Dialog */
+.cs-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 7, 18, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.28s ease, visibility 0.28s ease;
+}
+.cs-modal-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+.cs-modal-dialog {
+  background: #0b1120;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 20px;
+  max-width: 720px;
+  width: 100%;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 35px rgba(56, 189, 248, 0.15);
+  transform: translateY(18px) scale(0.97);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+.cs-modal-backdrop.is-open .cs-modal-dialog {
+  transform: translateY(0) scale(1);
+}
+[data-theme="light"] .cs-modal-dialog {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.14);
+  box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.25);
+}
+.cs-modal-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+[data-theme="light"] .cs-modal-header {
+  border-bottom-color: rgba(15, 23, 42, 0.08);
+}
+.cs-modal-title {
+  font-family: var(--font-head);
+  font-size: 20px;
+  font-weight: 700;
+  color: #f8fafc;
+  margin: 0 0 6px 0;
+}
+[data-theme="light"] .cs-modal-title { color: #0f172a; }
+.cs-modal-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.cs-modal-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  background: rgba(56, 189, 248, 0.12);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+.cs-modal-badge.badge-private {
+  background: rgba(168, 85, 247, 0.12);
+  color: #c084fc;
+  border-color: rgba(168, 85, 247, 0.3);
+}
+.cs-modal-badge.badge-public {
+  background: rgba(34, 197, 94, 0.12);
+  color: #4ade80;
+  border-color: rgba(34, 197, 94, 0.3);
+}
+.cs-modal-close-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #94a3b8;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+.cs-modal-close-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  transform: rotate(90deg);
+}
+[data-theme="light"] .cs-modal-close-btn {
+  background: #f1f5f9;
+  border-color: rgba(15, 23, 42, 0.12);
+  color: #475569;
+}
+[data-theme="light"] .cs-modal-close-btn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+.cs-modal-tabs {
+  display: flex;
+  padding: 10px 24px;
+  gap: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(15, 23, 42, 0.4);
+  overflow-x: auto;
+}
+[data-theme="light"] .cs-modal-tabs {
+  background: #f8fafc;
+  border-bottom-color: rgba(15, 23, 42, 0.08);
+}
+.cs-tab-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.cs-tab-btn:hover {
+  color: #f1f5f9;
+  background: rgba(255, 255, 255, 0.06);
+}
+.cs-tab-btn.is-active {
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+}
+[data-theme="light"] .cs-tab-btn { color: #64748b; }
+[data-theme="light"] .cs-tab-btn:hover { color: #0f172a; background: #e2e8f0; }
+[data-theme="light"] .cs-tab-btn.is-active { color: #0284c7; background: #e0f2fe; }
+
+.cs-modal-body {
+  padding: 24px;
+  overflow-y: auto;
+  font-size: 14px;
+  line-height: 1.65;
+  color: #cbd5e1;
+}
+[data-theme="light"] .cs-modal-body { color: #334155; }
+.cs-tab-pane {
+  display: none;
+}
+.cs-tab-pane.is-active {
+  display: block;
+}
+.cs-section-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #f8fafc;
+  margin: 16px 0 8px 0;
+  font-family: var(--font-head);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+[data-theme="light"] .cs-section-title { color: #0f172a; }
+.cs-bullet-list {
+  padding-left: 20px;
+  margin: 8px 0 16px 0;
+}
+.cs-bullet-list li {
+  margin-bottom: 6px;
+}
+.cs-tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+  margin: 12px 0 18px 0;
+}
+.cs-tech-box {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+[data-theme="light"] .cs-tech-box {
+  background: #f1f5f9;
+  border-color: rgba(15, 23, 42, 0.08);
+}
+.cs-tech-box-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-bottom: 4px;
+}
+.cs-tech-box-val {
+  font-size: 13px;
+  font-weight: 600;
+  color: #f8fafc;
+}
+[data-theme="light"] .cs-tech-box-val { color: #0f172a; }
+.cs-callout-note {
+  background: rgba(56, 189, 248, 0.08);
+  border-left: 3px solid #38bdf8;
+  padding: 12px 16px;
+  border-radius: 0 8px 8px 0;
+  font-size: 13px;
+  color: #e2e8f0;
+  margin: 16px 0;
+}
+[data-theme="light"] .cs-callout-note {
+  background: #f0f9ff;
+  color: #0369a1;
+  border-left-color: #0284c7;
+}
 
 /* ==========================================================================
-   Option 1: Ambient Cyber Spotlight Glow
+   Ambient Cyber Cursor Spotlight Glow
    - Subtle Cyan (#38bdf8) and Violet (#a855f7) radial-gradient glow
    - Lightweight fixed-position background layer behind interactive content
    - pointer-events: none (native browser cursor completely unchanged)
    - Zero-overhead hardware accelerated transform
    ========================================================================== */
+.cursor-spotlight,
 .ambient-spotlight {
   display: none;
 }
 
 @media (hover: hover) and (pointer: fine) {
+  .cursor-spotlight,
   .ambient-spotlight {
     display: block;
     position: fixed;
@@ -2353,11 +2644,13 @@ h1.hero-name{
     contain: layout paint size;
   }
 
+  .cursor-spotlight.is-active,
   .ambient-spotlight.is-active {
     opacity: 1;
   }
 }
 
+[data-theme="light"] .cursor-spotlight,
 [data-theme="light"] .ambient-spotlight {
   background: radial-gradient(
     circle,
@@ -2369,6 +2662,7 @@ h1.hero-name{
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .cursor-spotlight,
   .ambient-spotlight {
     display: none !important;
   }
@@ -6082,6 +6376,7 @@ footer {
 </style>
 </head>
 <body>
+<div id="cursor-spotlight" class="cursor-spotlight ambient-spotlight" aria-hidden="true"></div>
 <a class="skip-link" href="#main">Skip to main content</a>
 <div id="progress" aria-hidden="true"></div>
 
@@ -6928,11 +7223,11 @@ footer {
 
         <!-- Action CTAs -->
         <div class="proj-card-actions">
-          <a class="btn-proj-github" data-link="GITHUB_URL_BLOOD_BANK" href="https://github.com/Hari10012001/blood-bank-donor-emergency-request-management-system" target="_blank" rel="noopener noreferrer" aria-label="Smart Blood Bank Management System: GitHub repository (opens in new tab)">
-            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.929.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
-            <span>GitHub</span>
-          </a>
-          <a class="btn-proj-live" data-link="LIVE_DEMO_URL_BLOOD_BANK" href="https://bloodbank-management.onrender.com" target="_blank" rel="noopener noreferrer" aria-label="Smart Blood Bank Management System: Live demo deployment (opens in new tab)">
+          <button type="button" class="btn-proj-case-study" data-open-case-study="blood-bank" aria-label="Smart Blood Bank Management System: View architecture case study">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            <span>Case Study</span>
+          </button>
+          <a class="btn-proj-live" data-link="LIVE_DEMO_URL_BLOOD_BANK" href="https://bloodbank-management.onrender.com/check_availability" target="_blank" rel="noopener noreferrer" aria-label="Smart Blood Bank Management System: Live demo deployment (opens in new tab)">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             <span>Live Demo ↗</span>
           </a>
@@ -7006,14 +7301,14 @@ footer {
 
         <!-- Action CTAs -->
         <div class="proj-card-actions">
-          <a class="btn-proj-github" data-link="GITHUB_URL_DONATIONDESK" href="https://github.com/Hari10012001/DonationDesk" target="_blank" rel="noopener noreferrer" aria-label="DonationDesk: GitHub repository (opens in new tab)">
-            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.929.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
-            <span>GitHub</span>
-          </a>
-          <a class="btn-proj-live" data-link="LIVE_DEMO_URL_DONATIONDESK" href="https://donationdesk.onrender.com" target="_blank" rel="noopener noreferrer" aria-label="DonationDesk: Live demo deployment (opens in new tab)">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            <span>Live Demo ↗</span>
-          </a>
+          <button type="button" class="btn-proj-case-study" data-open-case-study="donationdesk" aria-label="DonationDesk: View architecture case study">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            <span>Case Study</span>
+          </button>
+          <button type="button" class="btn-proj-arch" data-open-case-study="donationdesk" data-tab="architecture" aria-label="DonationDesk: View technical architecture specifications">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+            <span>Architecture ↗</span>
+          </button>
         </div>
       </div>
     </article>
@@ -7166,10 +7461,10 @@ footer {
             <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.929.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
             <span>GitHub</span>
           </a>
-          <a class="btn-proj-live" data-link="LIVE_DEMO_URL_EXPENSE_ANALYZER" href="https://ai-expense-analyzer.onrender.com" target="_blank" rel="noopener noreferrer" aria-label="AI-Powered Expense Analyzer: Live demo deployment (opens in new tab)">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            <span>Live Demo ↗</span>
-          </a>
+          <button type="button" class="btn-proj-case-study" data-open-case-study="expense-analyzer" aria-label="AI-Powered Expense Analyzer: View architecture case study">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            <span>Case Study</span>
+          </button>
         </div>
       </div>
     </article>
@@ -7244,10 +7539,10 @@ footer {
             <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.929.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
             <span>GitHub</span>
           </a>
-          <a class="btn-proj-live" data-link="LIVE_DEMO_URL_FOUNDIT" href="https://foundit-asset-tracker.onrender.com" target="_blank" rel="noopener noreferrer" aria-label="FoundIt: Live demo deployment (opens in new tab)">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            <span>Live Demo ↗</span>
-          </a>
+          <button type="button" class="btn-proj-case-study" data-open-case-study="foundit" aria-label="FoundIt: View architecture case study">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            <span>Case Study</span>
+          </button>
         </div>
       </div>
     </article>
@@ -7318,14 +7613,14 @@ footer {
 
         <!-- Action CTAs -->
         <div class="proj-card-actions">
-          <a class="btn-proj-github" data-link="GITHUB_URL_RIDE_RENT" href="https://github.com/Hari10012001/RideRent" target="_blank" rel="noopener noreferrer" aria-label="RideRent: GitHub repository (opens in new tab)">
-            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.929.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
-            <span>GitHub</span>
-          </a>
-          <a class="btn-proj-live" data-link="LIVE_DEMO_URL_RIDE_RENT" href="https://riderent-portal.onrender.com" target="_blank" rel="noopener noreferrer" aria-label="RideRent: Live demo deployment (opens in new tab)">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            <span>Live Demo ↗</span>
-          </a>
+          <button type="button" class="btn-proj-case-study" data-open-case-study="riderent" aria-label="RideRent: View architecture case study">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            <span>Case Study</span>
+          </button>
+          <button type="button" class="btn-proj-arch" data-open-case-study="riderent" data-tab="architecture" aria-label="RideRent: View technical architecture specifications">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+            <span>Architecture ↗</span>
+          </button>
         </div>
       </div>
     </article>
@@ -8672,6 +8967,55 @@ footer {
 </button>
 
 <script src="site-config.js"></script>
+<!-- ==========================================================================
+     Case Study & Architectural Deep-Dive Dialog Modal
+     ========================================================================== -->
+<div id="case-study-modal" class="cs-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="cs-modal-title" aria-hidden="true">
+  <div class="cs-modal-dialog">
+    <div class="cs-modal-header">
+      <div>
+        <h3 id="cs-modal-title" class="cs-modal-title">Project Case Study</h3>
+        <div class="cs-modal-meta">
+          <span id="cs-modal-domain" class="cs-modal-badge">Domain</span>
+          <span id="cs-modal-repo-status" class="cs-modal-badge badge-private">Repository Status</span>
+        </div>
+      </div>
+      <button type="button" class="cs-modal-close-btn" id="cs-modal-close" aria-label="Close project case study modal">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+
+    <div class="cs-modal-tabs" role="tablist" aria-label="Case study sections">
+      <button type="button" class="cs-tab-btn is-active" role="tab" id="cs-tab-overview" aria-selected="true" aria-controls="cs-pane-overview">Overview & Problem</button>
+      <button type="button" class="cs-tab-btn" role="tab" id="cs-tab-architecture" aria-selected="false" aria-controls="cs-pane-architecture">System Architecture</button>
+      <button type="button" class="cs-tab-btn" role="tab" id="cs-tab-schema" aria-selected="false" aria-controls="cs-pane-schema">Database & APIs</button>
+      <button type="button" class="cs-tab-btn" role="tab" id="cs-tab-highlights" aria-selected="false" aria-controls="cs-pane-highlights">Engineering Highlights</button>
+    </div>
+
+    <div class="cs-modal-body" id="cs-modal-body">
+      <!-- Tab Pane 1: Overview -->
+      <div id="cs-pane-overview" class="cs-tab-pane is-active" role="tabpanel" aria-labelledby="cs-tab-overview">
+        <div id="cs-content-overview"></div>
+      </div>
+
+      <!-- Tab Pane 2: Architecture -->
+      <div id="cs-pane-architecture" class="cs-tab-pane" role="tabpanel" aria-labelledby="cs-tab-architecture">
+        <div id="cs-content-architecture"></div>
+      </div>
+
+      <!-- Tab Pane 3: Schema -->
+      <div id="cs-pane-schema" class="cs-tab-pane" role="tabpanel" aria-labelledby="cs-tab-schema">
+        <div id="cs-content-schema"></div>
+      </div>
+
+      <!-- Tab Pane 4: Highlights -->
+      <div id="cs-pane-highlights" class="cs-tab-pane" role="tabpanel" aria-labelledby="cs-tab-highlights">
+        <div id="cs-content-highlights"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
 (function(){
 'use strict';
@@ -8779,10 +9123,10 @@ if(rt && !reduce()){
 })();
 
 /* ==========================================================================
-   Option 1: Ambient Cyber Spotlight Glow — Zero-Idle Loop Controller
+   Ambient Cyber Cursor Spotlight Glow — Zero-Idle Loop Controller
    - Smooth transform3d interpolation towards pointer
    - Halts animation loop completely when pointer is stationary (0 CPU/GPU idle)
-   - Wakes up immediately on mousemove, sleeps on mouseleave
+   - Wakes up immediately on pointermove, sleeps on pointerleave
    - Disabled on touch/mobile and prefers-reduced-motion
    ========================================================================== */
 (function() {
@@ -8794,11 +9138,11 @@ if(rt && !reduce()){
 
   if (!hoverQuery.matches || motionQuery.matches) return;
 
-  var spotlight = document.getElementById('ambient-spotlight');
+  var spotlight = document.getElementById('cursor-spotlight') || document.getElementById('ambient-spotlight');
   if (!spotlight) {
     spotlight = document.createElement('div');
-    spotlight.id = 'ambient-spotlight';
-    spotlight.className = 'ambient-spotlight';
+    spotlight.id = 'cursor-spotlight';
+    spotlight.className = 'cursor-spotlight ambient-spotlight';
     spotlight.setAttribute('aria-hidden', 'true');
     document.body.appendChild(spotlight);
   }
@@ -8841,7 +9185,7 @@ if(rt && !reduce()){
     }
   }
 
-  function onMouseMove(e) {
+  function onPointerMove(e) {
     targetX = e.clientX;
     targetY = e.clientY;
 
@@ -8856,7 +9200,7 @@ if(rt && !reduce()){
     startAnimation();
   }
 
-  function onMouseLeave() {
+  function onPointerLeave() {
     isVisible = false;
     spotlight.classList.remove('is-active');
     if (rafId) {
@@ -8866,16 +9210,321 @@ if(rt && !reduce()){
     isAnimating = false;
   }
 
-  window.addEventListener('mousemove', onMouseMove, { passive: true });
-  document.addEventListener('mouseleave', onMouseLeave, { passive: true });
+  window.addEventListener('pointermove', onPointerMove, { passive: true });
+  document.addEventListener('pointerleave', onPointerLeave, { passive: true });
+  window.addEventListener('mouseleave', onPointerLeave, { passive: true });
 
   try {
     motionQuery.addEventListener('change', function(e) {
       if (e.matches) {
-        onMouseLeave();
+        onPointerLeave();
       }
     });
   } catch(e) {}
+})();
+
+/* ==========================================================================
+   Project Case Study & Architecture Modal Controller
+   ========================================================================== */
+(function() {
+  'use strict';
+
+  var caseStudies = {
+    'blood-bank': {
+      title: 'Smart Blood Bank Management System',
+      domain: 'Healthcare & Donor Management',
+      repoStatus: 'Internal Enterprise Codebase (Private Repository)',
+      isPublicRepo: false,
+      overview: '<p>A mission-critical healthcare platform built to connect voluntary blood donors, hospitals, and patients facing critical emergency shortages.</p>' +
+        '<div class="cs-callout-note"><strong>Problem Solved:</strong> Manual blood bank tracking caused severe delays and duplicate requests during emergency trauma care. This system digitizes unit-level inventory with geographic donor availability search and real-time dispatch alerts.</div>' +
+        '<h4 class="cs-section-title">Core Business Capabilities</h4>' +
+        '<ul class="cs-bullet-list">' +
+          '<li><strong>Donor Registry:</strong> Automated 90-day cooldown calculation, eligibility screenings, and contact preferences.</li>' +
+          '<li><strong>Live Blood Unit Tracking:</strong> Real-time inventory categorized by blood group (A+, A-, B+, B-, O+, O-, AB+, AB-) with expiration tracking.</li>' +
+          '<li><strong>Emergency Request Dispatch:</strong> Broadcasts urgent shortages to matched nearby donors via immediate notification channels.</li>' +
+          '<li><strong>Hospital Appointments:</strong> Online donation time-slot booking to reduce queue times and streamline mobile donation drives.</li>' +
+        '</ul>',
+      architecture: '<p>Built following clean, layered architectural principles separating Presentation, Application, Domain, and Infrastructure tiers.</p>' +
+        '<div class="cs-tech-grid">' +
+          '<div class="cs-tech-box"><div class="cs-tech-box-title">Frontend</div><div class="cs-tech-box-val">React SPA, Context API</div></div>' +
+          '<div class="cs-tech-box"><div class="cs-tech-box-title">Backend</div><div class="cs-tech-box-val">Java Spring Boot 3</div></div>' +
+          '<div class="cs-tech-box"><div class="cs-tech-box-title">Security</div><div class="cs-tech-box-val">Spring Security, JWT</div></div>' +
+          '<div class="cs-tech-box"><div class="cs-tech-box-title">Database</div><div class="cs-tech-box-val">MySQL 8.0, JPA/Hibernate</div></div>' +
+        '</div>' +
+        '<h4 class="cs-section-title">Architectural Highlights</h4>' +
+        '<ul class="cs-bullet-list">' +
+          '<li><strong>Stateless REST Services:</strong> Secure token-based access with Role-Based Access Control (Hospital, Donor, Administrator).</li>' +
+          '<li><strong>ACID Transaction Isolation:</strong> Serialized unit allocations during emergency dispatch preventing double-assignment of scarce units.</li>' +
+          '<li><strong>Connection Pooling:</strong> HikariCP optimized pooling delivering sub-50ms query latency under simulated high-concurrency requests.</li>' +
+        '</ul>',
+      schema: '<p>Normalized 3NF relational schema enforcing strict referential integrity across transactional entities.</p>' +
+        '<h4 class="cs-section-title">Key Database Tables</h4>' +
+        '<ul class="cs-bullet-list">' +
+          '<li><code>donors</code>: (id, user_id, blood_group, last_donated_date, medical_status, city_id)</li>' +
+          '<li><code>blood_inventory</code>: (id, unit_code, blood_group, collection_date, expiry_date, status)</li>' +
+          '<li><code>emergency_requests</code>: (id, hospital_id, blood_group, units_needed, urgency_level, status)</li>' +
+          '<li><code>audit_logs</code>: (id, event_type, actor_id, target_entity, timestamp, ip_hash)</li>' +
+        '</ul>' +
+        '<h4 class="cs-section-title">Key RESTful Endpoints</h4>' +
+        '<ul class="cs-bullet-list">' +
+          '<li><code>GET /api/v1/availability?bloodGroup={grp}</code>: Real-time public stock query</li>' +
+          '<li><code>POST /api/v1/emergency-requests</code>: High-priority dispatch trigger</li>' +
+          '<li><code>PUT /api/v1/inventory/{unitId}/allocate</code>: Transactional unit lock</li>' +
+        '</ul>',
+      highlights: '<ul class="cs-bullet-list">' +
+          '<li><strong>Zero-Discrepancy Inventory:</strong> Implemented database-level pessimistic locking during high-stress concurrent unit claims.</li>' +
+          '<li><strong>Automated Cooldown Enforcement:</strong> Prevents non-compliant re-donation before medically mandated recovery windows.</li>' +
+          '<li><strong>Verified Live Deployment:</strong> Live demo environment active on Render (<a href="https://bloodbank-management.onrender.com/check_availability" target="_blank" rel="noopener noreferrer" style="color:#38bdf8;text-decoration:underline;">Public Availability Checker</a>).</li>' +
+        '</ul>'
+    },
+    'donationdesk': {
+      title: 'DonationDesk — Resource Allocation Platform',
+      domain: 'Resource Allocation & Philanthropy Logistics',
+      repoStatus: 'Internal Enterprise Codebase (Private Repository)',
+      isPublicRepo: false,
+      overview: '<p>A centralized platform connecting community and corporate donors with verified NGOs, shelters, and educational charities.</p>' +
+        '<div class="cs-callout-note"><strong>Problem Solved:</strong> Eliminates donation wastage and opaque supply chains by providing verified inventory matching, automated intake manifests, and transparent distribution audit trails.</div>' +
+        '<h4 class="cs-section-title">Core Capabilities</h4>' +
+        '<ul class="cs-bullet-list">' +
+          '<li><strong>Donation Cataloging:</strong> Item listings categorized by books, clothing, electronics, and medical supplies with quality ratings.</li>' +
+          '<li><strong>Beneficiary Verification:</strong> NGO credential verification ensuring resources reach legitimate registered organizations.</li>' +
+          '<li><strong>Logistical Claim Pipeline:</strong> Multi-step state machine tracking donations from pledge to physical delivery.</li>' +
+        '</ul>',
+      architecture: '<p>Modular Spring Boot service with responsive modern UI and role-governed data visibility.</p>' +
+        '<div class="cs-tech-grid">' +
+          '<div class="cs-tech-box"><div class="cs-tech-box-title">Frontend</div><div class="cs-tech-box-val">Responsive HTML5/JS</div></div>' +
+          '<div class="cs-tech-box"><div class="cs-tech-box-title">Backend</div><div class="cs-tech-box-val">Java Spring Boot 3</div></div>' +
+          '<div class="cs-tech-box"><div class="cs-tech-box-title">Security</div><div class="cs-tech-box-val">Spring Security RBAC</div></div>' +
+          '<div class="cs-tech-box"><div class="cs-tech-box-title">Database</div><div class="cs-tech-box-val">MySQL 8.0 / Hibernate</div></div>' +
+        '</div>' +
+        '<h4 class="cs-section-title">Architecture Highlights</h4>' +
+        '<ul class="cs-bullet-list">' +
+          '<li><strong>Multi-Role Workflow:</strong> Distinct security boundaries for Individual Donors, Verified NGOs, and Operational Moderators.</li>' +
+          '<li><strong>State Machine Logic:</strong> Strict status progression (POSTED → VERIFIED → ALLOCATED → DISPATCHED → FULFILLED) preventing invalid status leaps.</li>' +
+        '</ul>',
+      schema: '<p>Relational entities modeled for auditing and transparency.</p>' +
+        '<h4 class="cs-section-title">Key Tables</h4>' +
+        '<ul class="cs-bullet-list">' +
+          '<li><code>donation_items</code>: (id, donor_id, category, quantity, condition_grade, status)</li>' +
+          '<li><code>beneficiary_orgs</code>: (id, reg_number, org_name, verification_status, contact_person)</li>' +
+          '<li><code>allocation_claims</code>: (id, item_id, org_id, claim_date, fulfillment_date)</li>' +
+        '</ul>',
+      highlights: '<ul class="cs-bullet-list">' +
+          '<li><strong>Hoarding Prevention:</strong> Organization monthly claim quotas to balance equitable distribution among regional charities.</li>' +
+          '<li><strong>Complete Auditability:</strong> Every status transition logged with timestamp, user ID, and verification rationale.</li>' +
+        '</ul>'
+    },
+    'expense-analyzer': {
+      title: 'AI-Powered Expense Analyzer',
+      domain: 'Financial Document Parsing & Budget Analytics',
+      repoStatus: 'Public Open Source Repository (GitHub Verified HTTP 200)',
+      isPublicRepo: true,
+      overview: '<p>An automated financial processing pipeline that digests invoices, receipts, and statement PDFs to extract structured line items and spending patterns.</p>' +
+        '<div class="cs-callout-note"><strong>Problem Solved:</strong> Manual financial bookkeeping is time-consuming and error-prone. This tool automatically categorizes expenditures, extracts taxes, and highlights month-over-month variances.</div>' +
+        '<h4 class="cs-section-title">Key Capabilities</h4>' +
+        '<ul class="cs-bullet-list">' +
+          '<li><strong>Document Extraction:</strong> Robust PDF and tabular document ingestion extracting invoice totals, dates, and line items.</li>' +
+          '<li><strong>Category Classification:</strong> Automated heuristic mapping into standard categories (Utilities, Travel, Software, Dining).</li>' +
+          '<li><strong>Interactive Analytics:</strong> Visual financial telemetry showing budget versus actual expenditure trends.</li>' +
+        '</ul>',
+      architecture: '<p>Service-oriented architecture with document parsing workers and responsive data visualization clients.</p>' +
+        '<div class="cs-tech-grid">' +
+          '<div class="cs-tech-box"><div class="cs-tech-box-title">Frontend</div><div class="cs-tech-box-val">React, Chart.js</div></div>' +
+          '<div class="cs-tech-box"><div class="cs-tech-box-title">Processing</div><div class="cs-tech-box-val">Python / PDF Parser</div></div>' +
+          '<div class="cs-tech-box"><div class="cs-tech-box-title">Backend API</div><div class="cs-tech-box-val">FastAPI / Spring Boot</div></div>' +
+          '<div class="cs-tech-box"><div class="cs-tech-box-title">Database</div><div class="cs-tech-box-val">PostgreSQL / MySQL</div></div>' +
+        '</div>' +
+        '<h4 class="cs-section-title">Architecture Highlights</h4>' +
+        '<ul class="cs-bullet-list">' +
+          '<li><strong>Asynchronous Ingestion:</strong> Decoupled document upload from extraction pipeline to ensure responsive UI during bulk processing.</li>' +
+          '<li><strong>Sanitization Pipeline:</strong> Strict input validation preventing malicious file uploads and injection payloads.</li>' +
+        '</ul>',
+      schema: '<p>Structured financial data tables indexed for temporal reporting.</p>' +
+        '<h4 class="cs-section-title">Key Tables</h4>' +
+        '<ul class="cs-bullet-list">' +
+          '<li><code>expenses</code>: (id, user_id, vendor, invoice_date, amount, tax, category_id)</li>' +
+          '<li><code>categories</code>: (id, name, monthly_budget_cap, color_token)</li>' +
+          '<li><code>monthly_summaries</code>: (id, user_id, year_month, total_spent, savings_rate)</li>' +
+        '</ul>',
+      highlights: '<ul class="cs-bullet-list">' +
+          '<li><strong>Public Source Code:</strong> Publicly available repository on GitHub (<a href="https://github.com/Hari10012001/AI-Powered-Expense-Analyzer" target="_blank" rel="noopener noreferrer" style="color:#38bdf8;text-decoration:underline;">Inspect Source</a>).</li>' +
+          '<li><strong>Realistic Evaluation:</strong> Honest accuracy reporting across noisy receipt scans without unverified marketing percentages.</li>' +
+        '</ul>'
+    },
+    'foundit': {
+      title: 'FoundIt — Lost & Found Asset Tracking Platform',
+      domain: 'Community Asset Recovery & Claim Verification',
+      repoStatus: 'Public Open Source Repository (GitHub Verified HTTP 200)',
+      isPublicRepo: true,
+      overview: '<p>A campus and workplace asset-recovery platform that bridges individuals who lost personal valuables with the people and facility managers who found them.</p>' +
+        '<div class="cs-callout-note"><strong>Problem Solved:</strong> Traditional notice boards lack searchability and privacy. FoundIt provides verified categorical search while keeping sensitive identifying details hidden until legitimate ownership is proved.</div>' +
+        '<h4 class="cs-section-title">Key Capabilities</h4>' +
+        '<ul class="cs-bullet-list">' +
+          '<li><strong>Categorical Indexing:</strong> Filter items by electronics, keys, identification, bags, and location checkpoints.</li>' +
+          '<li><strong>Privacy-Preserving Claims:</strong> Unique serial numbers or private identifiers are kept hidden from public listings.</li>' +
+          '<li><strong>Multi-Step Proof Verification:</strong> Claimants submit ownership proofs reviewed by staff before item release.</li>' +
+        '</ul>',
+      architecture: '<p>Full-stack Java web application designed for high availability and rapid search.</p>' +
+        '<div class="cs-tech-grid">' +
+          '<div class="cs-tech-box"><div class="cs-tech-box-title">Frontend</div><div class="cs-tech-box-val">Modern Vanilla JS / SPA</div></div>' +
+          '<div class="cs-tech-box"><div class="cs-tech-box-title">Backend</div><div class="cs-tech-box-val">Java Spring Boot 3</div></div>' +
+          '<div class="cs-tech-box"><div class="cs-tech-box-title">ORM</div><div class="cs-tech-box-val">Hibernate / Spring Data</div></div>' +
+          '<div class="cs-tech-box"><div class="cs-tech-box-title">Database</div><div class="cs-tech-box-val">MySQL 8.0</div></div>' +
+        '</div>' +
+        '<h4 class="cs-section-title">Architecture Highlights</h4>' +
+        '<ul class="cs-bullet-list">' +
+          '<li><strong>Optimized Search:</strong> Composite indexes on <code>(category, status, created_at)</code> providing sub-20ms search on multi-thousand record datasets.</li>' +
+          '<li><strong>Audit Hand-Off:</strong> Digital chain of custody documenting staff verification timestamp and claimant signature receipt.</li>' +
+        '</ul>',
+      schema: '<p>Relational entities with status workflows.</p>' +
+        '<h4 class="cs-section-title">Key Tables</h4>' +
+        '<ul class="cs-bullet-list">' +
+          '<li><code>lost_found_items</code>: (id, type, title, description, category, location_found, status)</li>' +
+          '<li><code>claims</code>: (id, item_id, claimant_id, proof_description, proof_file_url, status)</li>' +
+        '</ul>',
+      highlights: '<ul class="cs-bullet-list">' +
+          '<li><strong>Public Open Source:</strong> Repository public on GitHub (<a href="https://github.com/Hari10012001/FoundIt-Lost-and-Found-Asset-Tracking-Platform" target="_blank" rel="noopener noreferrer" style="color:#38bdf8;text-decoration:underline;">Inspect Source</a>).</li>' +
+          '<li><strong>Security Minded:</strong> Sanitized image storage and strict validation preventing unauthorized claim approvals.</li>' +
+        '</ul>'
+    },
+    'riderent': {
+      title: 'RideRent — Vehicle Rental Booking Platform',
+      domain: 'Vehicle Fleet & Reservation Management',
+      repoStatus: 'Internal Enterprise Codebase (Private Repository)',
+      isPublicRepo: false,
+      overview: '<p>A transactional fleet management and rental booking engine handling vehicle availability, dynamic pricing, and conflict-free reservations.</p>' +
+        '<div class="cs-callout-note"><strong>Problem Solved:</strong> Eliminates fleet double-booking during peak travel seasons through robust transactional scheduling and automated rental agreement generation.</div>' +
+        '<h4 class="cs-section-title">Key Capabilities</h4>' +
+        '<ul class="cs-bullet-list">' +
+          '<li><strong>Fleet Inventory Catalog:</strong> Real-time status tracking for sedans, SUVs, and luxury vehicles with maintenance records.</li>' +
+          '<li><strong>Date-Range Availability Search:</strong> Real-time interval checks verifying zero overlap with existing bookings.</li>' +
+          '<li><strong>Transparent Billing Engine:</strong> Automated breakdown of daily rental rates, refundable security deposit, and insurance options.</li>' +
+        '</ul>',
+      architecture: '<p>Enterprise Java architecture emphasizing data integrity and concurrency safety.</p>' +
+        '<div class="cs-tech-grid">' +
+          '<div class="cs-tech-box"><div class="cs-tech-box-title">Frontend</div><div class="cs-tech-box-val">Responsive UI / React</div></div>' +
+          '<div class="cs-tech-box"><div class="cs-tech-box-title">Backend</div><div class="cs-tech-box-val">Java Spring Boot 3</div></div>' +
+          '<div class="cs-tech-box"><div class="cs-tech-box-title">Security</div><div class="cs-tech-box-val">Spring Security, JWT</div></div>' +
+          '<div class="cs-tech-box"><div class="cs-tech-box-title">Database</div><div class="cs-tech-box-val">MySQL 8.0 / InnoDB</div></div>' +
+        '</div>' +
+        '<h4 class="cs-section-title">Architecture Highlights</h4>' +
+        '<ul class="cs-bullet-list">' +
+          '<li><strong>Conflict-Free Booking Guarantee:</strong> Uses database-level row locking and serialized transactions during checkout to guarantee vehicle availability.</li>' +
+          '<li><strong>Maintenance State Machine:</strong> Automatically flags vehicles for inspection after reaching mileage thresholds.</li>' +
+        '</ul>',
+      schema: '<p>Relational schema optimized for interval-overlap queries.</p>' +
+        '<h4 class="cs-section-title">Key Tables</h4>' +
+        '<ul class="cs-bullet-list">' +
+          '<li><code>vehicles</code>: (id, reg_plate, make, model, tier, daily_rate, status)</li>' +
+          '<li><code>reservations</code>: (id, vehicle_id, customer_id, start_date, end_date, total_amount, status)</li>' +
+          '<li><code>rental_agreements</code>: (id, reservation_id, terms_agreed_at, deposit_held)</li>' +
+        '</ul>',
+      highlights: '<ul class="cs-bullet-list">' +
+          '<li><strong>Robust Concurrency:</strong> Zero race conditions or double-bookings during simulated simultaneous reservation attempts.</li>' +
+          '<li><strong>Secure Billing Simulation:</strong> Encrypted transaction reference tracking and automated refund triggers.</li>' +
+        '</ul>'
+    }
+  };
+
+  var modal = document.getElementById('case-study-modal');
+  var closeBtn = document.getElementById('cs-modal-close');
+  var titleEl = document.getElementById('cs-modal-title');
+  var domainEl = document.getElementById('cs-modal-domain');
+  var repoEl = document.getElementById('cs-modal-repo-status');
+  var contentOverview = document.getElementById('cs-content-overview');
+  var contentArch = document.getElementById('cs-content-architecture');
+  var contentSchema = document.getElementById('cs-content-schema');
+  var contentHighlights = document.getElementById('cs-content-highlights');
+
+  var tabBtns = modal ? modal.querySelectorAll('.cs-tab-btn') : [];
+  var tabPanes = modal ? modal.querySelectorAll('.cs-tab-pane') : [];
+  var lastActiveTrigger = null;
+
+  function switchTab(targetTabId) {
+    tabBtns.forEach(function(btn) {
+      var isActive = (btn.id === targetTabId || btn.getAttribute('aria-controls') === targetTabId);
+      btn.classList.toggle('is-active', isActive);
+      btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+    tabPanes.forEach(function(pane) {
+      var isActive = (pane.id === targetTabId || pane.getAttribute('aria-labelledby') === targetTabId);
+      pane.classList.toggle('is-active', isActive);
+    });
+  }
+
+  tabBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      switchTab(btn.id);
+    });
+  });
+
+  function openCaseStudy(projectId, initialTab) {
+    var data = caseStudies[projectId];
+    if (!data || !modal) return;
+
+    titleEl.textContent = data.title;
+    domainEl.textContent = data.domain;
+    repoEl.textContent = data.repoStatus;
+    repoEl.className = 'cs-modal-badge ' + (data.isPublicRepo ? 'badge-public' : 'badge-private');
+
+    contentOverview.innerHTML = data.overview;
+    contentArch.innerHTML = data.architecture;
+    contentSchema.innerHTML = data.schema;
+    contentHighlights.innerHTML = data.highlights;
+
+    if (initialTab === 'architecture') {
+      switchTab('cs-tab-architecture');
+    } else {
+      switchTab('cs-tab-overview');
+    }
+
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+
+    if (closeBtn) closeBtn.focus();
+  }
+
+  function closeCaseStudy() {
+    if (!modal) return;
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lastActiveTrigger && typeof lastActiveTrigger.focus === 'function') {
+      lastActiveTrigger.focus();
+    }
+  }
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeCaseStudy);
+  }
+
+  if (modal) {
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        closeCaseStudy();
+      }
+    });
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal && modal.classList.contains('is-open')) {
+      closeCaseStudy();
+    }
+  });
+
+  // Attach to all case study and architecture buttons
+  document.addEventListener('click', function(e) {
+    var trigger = e.target.closest('[data-open-case-study]');
+    if (trigger) {
+      e.preventDefault();
+      lastActiveTrigger = trigger;
+      var projectId = trigger.getAttribute('data-open-case-study');
+      var tab = trigger.getAttribute('data-tab') || 'overview';
+      openCaseStudy(projectId, tab);
+    }
+  });
+
 })();
 
 /* ---------- site-config.js wiring: verified project URLs ---------- */
@@ -9126,5 +9775,7 @@ updateBrandGauge();
 
 })();
 </script>
+
+
 </body>
 </html>
